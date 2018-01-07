@@ -1,7 +1,8 @@
 package org.usfirst.frc.team6908.robot;
 
-import edu.wpi.first.wpilibj.Joystick;
+import edu.wpi.first.wpilibj.Joystick; 
 import edu.wpi.first.wpilibj.buttons.Button;
+import edu.wpi.first.wpilibj.buttons.JoystickButton;
 
 import org.usfirst.frc.team6908.robot.commands.*;
 
@@ -37,5 +38,17 @@ public class OI {
 	// Start the command when the button is released and let it run the command
 	// until it is finished as determined by it's isFinished method.
 	// button.whenReleased(new ExampleCommand());
-	public Joystick MecanumDrive = new Joystick(0);
+	public Joystick TankDrive1;
+	public Joystick TankDrive2;
+	
+	public Button exampleCommand;
+	
+	public OI() {
+		TankDrive1 = new Joystick(0);
+		TankDrive2 = new Joystick(1);
+		
+		exampleCommand = new JoystickButton(TankDrive1, RobotMap.trigger);
+		
+		exampleCommand.whenPressed(new ExampleCommand());
+	}
 }
