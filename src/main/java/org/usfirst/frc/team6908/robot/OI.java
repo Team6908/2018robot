@@ -50,5 +50,7 @@ public class OI {
 		exampleCommand = new JoystickButton(TankDrive1, RobotMap.trigger);
 		
 		exampleCommand.whenPressed(new ExampleCommand());
+		
+		System.out.println(TankDrive1.getX());
 	}
 }
