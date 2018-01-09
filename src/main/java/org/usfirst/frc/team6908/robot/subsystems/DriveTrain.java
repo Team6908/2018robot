@@ -1,6 +1,7 @@
 package org.usfirst.frc.team6908.robot.subsystems;
 
 import org.usfirst.frc.team6908.robot.RobotMap;
+
 import org.usfirst.frc.team6908.robot.commands.TankDrive;
 
 import edu.wpi.first.wpilibj.command.Subsystem;
@@ -11,6 +12,8 @@ public class DriveTrain extends Subsystem {
 	@Override
 	protected void initDefaultCommand() {
 		setDefaultCommand(new TankDrive());
+		RobotMap.frontRight.setInverted(true);
+		RobotMap.backRight.setInverted(true);
 		
 		RobotMap.frontRight.setName("Drive Motors", "frontRight");
 		RobotMap.frontLeft.setName("Drive Motors", "frontLeft");
@@ -25,6 +28,7 @@ public class DriveTrain extends Subsystem {
 	}
 	
 	public void Drive (double speedLeft, double speedRight) {
+		
 		RobotMap.frontRight.set(speedRight);
 		RobotMap.backRight.set(speedRight);
 		RobotMap.frontLeft.set(speedLeft);
