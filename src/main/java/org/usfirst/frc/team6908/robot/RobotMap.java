@@ -19,6 +19,24 @@ public class RobotMap {
 	// number and the module. For example you with a rangefinder:
 	// public static int rangefinderPort = 1;
 	// public static int rangefinderModule = 1;
+
+	//Joystick Button ports
+	public static int trigger = 1;
+	public static int thumbButton = 2;
+	public static int button3 = 3;
+	public static int button4 = 4;
+	public static int button5 = 5;
+	public static int button6 = 6;
+	public static int button7 = 7;
+	public static int button8 = 8;
+	public static int button9 = 9;
+	public static int button10 = 10;
+	public static int button11 = 11;
+	public static int button12 = 12;
+	public static int button13 = 13;
+	//These can all be changed to be more descriptive of what they do,
+	//but are currently named for ease of initialization
+	
 	
 	public static Spark frontLeft = new Spark(1);
 	public static Spark frontRight = new Spark(2);

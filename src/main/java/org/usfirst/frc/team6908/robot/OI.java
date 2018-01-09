@@ -1,9 +1,10 @@
 package org.usfirst.frc.team6908.robot;
 
-import edu.wpi.first.wpilibj.Joystick;
+import edu.wpi.first.wpilibj.Joystick; 
 import edu.wpi.first.wpilibj.buttons.Button;
+import edu.wpi.first.wpilibj.buttons.JoystickButton;
 
-import org.usfirst.frc.team6908.robot.commands.ExampleCommand;
+import org.usfirst.frc.team6908.robot.commands.*;
 
 /**
  * This class is the glue that binds the controls on the physical operator
@@ -37,12 +38,19 @@ public class OI {
 	// Start the command when the button is released and let it run the command
 	// until it is finished as determined by it's isFinished method.
 	// button.whenReleased(new ExampleCommand());
+	public Joystick TankDrive1;
+	public Joystick TankDrive2;
 	
-	public Joystick Joystick1; //new joystick object
-	public Joystick Joystick2; //new joystick object
+	public Button exampleCommand;
 	
 	public OI() {
-		Joystick1 = new Joystick(0); //Connects joystick object to port 1
-		Joystick2 = new Joystick(1); //Connects joystick object to port 2
+		TankDrive1 = new Joystick(0);
+		TankDrive2 = new Joystick(1);
+		
+		exampleCommand = new JoystickButton(TankDrive1, RobotMap.trigger);
+		
+		exampleCommand.whenPressed(new ExampleCommand());
+		
+		System.out.println(TankDrive1.getX());
 	}
 }
