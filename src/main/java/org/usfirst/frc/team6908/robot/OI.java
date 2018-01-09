@@ -44,8 +44,8 @@ public class OI {
 	public Button exampleCommand;
 	
 	public OI() {
-		TankDrive1 = new Joystick(0);
-		TankDrive2 = new Joystick(1);
+		Joystick1 = new Joystick(0);
+		Joystick2 = new Joystick(1);
 		
 		exampleCommand = new JoystickButton(TankDrive1, RobotMap.trigger);
 		
