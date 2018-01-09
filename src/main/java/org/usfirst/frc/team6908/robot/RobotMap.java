@@ -1,5 +1,6 @@
 package org.usfirst.frc.team6908.robot;
 
+import edu.wpi.first.wpilibj.Spark;
 import edu.wpi.first.wpilibj.Talon;
 
 /**
@@ -19,8 +20,8 @@ public class RobotMap {
 	// public static int rangefinderPort = 1;
 	// public static int rangefinderModule = 1;
 	
-	public static Talon frontLeft = new Talon(1);
-	public static Talon frontRight = new Talon(2);
-	public static Talon backLeft = new Talon(3);
-	public static Talon backRight = new Talon(4);
+	public static Spark frontLeft = new Spark(1);
+	public static Spark frontRight = new Spark(2);
+	public static Spark backLeft = new Spark(3);
+	public static Spark backRight = new Spark(4);
 }
