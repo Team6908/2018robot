@@ -18,9 +18,10 @@ public class TankDrive extends Command {
 	protected void execute() {
 		double leftSideSpeed = Robot.oi.Joystick1.getY();
 		double rightSideSpeed = Robot.oi.Joystick2.getY();
-		
-		Robot.drivetrain.Drive(leftSideSpeed, rightSideSpeed); 
-		
+		double acceleration = Robot.oi.Joystick1.getThrottle();
+        acceleration = acceleration % 1;
+        
+        Robot.drivetrain.Drive((leftSideSpeed*acceleration), (rightSideSpeed*acceleration));		
 		
 	}
 
