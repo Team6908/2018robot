@@ -2,7 +2,7 @@ package org.usfirst.frc.team6908.robot.subsystems;
 
 import org.usfirst.frc.team6908.robot.RobotMap;
 
-import org.usfirst.frc.team6908.robot.commands.TankDrive;
+import org.usfirst.frc.team6908.robot.commands.Drive;
 
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
@@ -11,7 +11,7 @@ public class DriveTrain extends Subsystem {
 
 	@Override
 	protected void initDefaultCommand() {
-		setDefaultCommand(new TankDrive());
+		setDefaultCommand(new Drive());
 		RobotMap.frontRight.setInverted(true);
 		RobotMap.backRight.setInverted(true);
 		
