@@ -1,6 +1,6 @@
 package org.usfirst.frc.team6908.robot.commands.vision;
 
 public class PixyPacket {
-	double x, y;
-	double area;
+	public double x, y;
+	public double area;
 }

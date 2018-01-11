@@ -1,7 +1,8 @@
 package org.usfirst.frc.team6908.robot;
 
+import edu.wpi.first.wpilibj.I2C;
+import edu.wpi.first.wpilibj.I2C.Port;
 import edu.wpi.first.wpilibj.Spark;
-import edu.wpi.first.wpilibj.Talon;
 
 /**
  * The RobotMap is a mapping from the ports sensors and actuators are wired into
@@ -10,6 +11,7 @@ import edu.wpi.first.wpilibj.Talon;
  * floating around.
  */
 public class RobotMap {
+	
 	// For example to map the left and right motors, you could define the
 	// following variables to use with your drivetrain subsystem.
 	// public static int leftMotor = 1;
@@ -42,4 +44,8 @@ public class RobotMap {
 	public static Spark frontRight = new Spark(2);
 	public static Spark backLeft = new Spark(3);
 	public static Spark backRight = new Spark(4);
+	
+	//PixyCam
+	public static I2C pixyi2c = new I2C(Port.kOnboard, 0x8);
+
 }
