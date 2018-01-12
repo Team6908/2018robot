@@ -2,11 +2,13 @@ package org.usfirst.frc.team6908.robot.subsystems;
 
 import org.usfirst.frc.team6908.robot.RobotMap;
 
-import org.usfirst.frc.team6908.robot.commands.Drive;
+import org.usfirst.frc.team6908.robot.commands.ArcadeDrive;
+import org.usfirst.frc.team6908.robot.commands.TankDrive;
 
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 
+@SuppressWarnings("unused")
 public class DriveTrain extends Subsystem {
 
 	@Override
@@ -27,12 +29,14 @@ public class DriveTrain extends Subsystem {
 		
 	}
 	
-	public void Drive (double speedLeft, double speedRight) {
-		
-		RobotMap.frontRight.set(speedRight);
-		RobotMap.backRight.set(speedRight);
-		RobotMap.frontLeft.set(speedLeft);
-		RobotMap.backLeft.set(speedLeft); 	
-	}	
+	public void setLeftMotors (double speed) {
+		RobotMap.frontLeft.set(speed);
+		RobotMap.backLeft.set(speed); 	
+	}
+	
+	public void setRightMotors (double speed) {
+		RobotMap.frontRight.set(speed);
+		RobotMap.backRight.set(speed);
+	}
 
 }

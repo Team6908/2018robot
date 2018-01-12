@@ -22,7 +22,8 @@ public class TankDrive extends Command {
         acceleration = (((-0.8 * (acceleration +1)) / 2) + 1);
         System.out.println(acceleration);
         
-        Robot.drivetrain.Drive((leftSideSpeed*acceleration), (rightSideSpeed*acceleration));		
+        Robot.drivetrain.setLeftMotors(rightSideSpeed*acceleration);
+        Robot.drivetrain.setLeftMotors(leftSideSpeed*acceleration);
 		
 	}
 
