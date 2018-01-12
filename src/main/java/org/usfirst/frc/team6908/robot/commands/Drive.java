@@ -4,9 +4,9 @@ import org.usfirst.frc.team6908.robot.Robot;
 
 import edu.wpi.first.wpilibj.command.Command;
 
-public class Drive extends Command {
+public class TankDrive extends Command {
 	
-	public Drive() {
+	public TankDrive() {
 		//put dependencies of the subsystem here
 		requires(Robot.drivetrain); //requires the drivetrain object instantiated in Robot.java
 	}

@@ -11,7 +11,7 @@ public class DriveTrain extends Subsystem {
 
 	@Override
 	protected void initDefaultCommand() {
-		setDefaultCommand(new Drive());
+		setDefaultCommand(new TankDrive());
 		RobotMap.frontRight.setInverted(true);
 		RobotMap.backRight.setInverted(true);
 		
