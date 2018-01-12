@@ -40,6 +40,8 @@ public class OI {
 	// button.whenReleased(new ExampleCommand());
 	public Joystick Joystick1;
 	public Joystick Joystick2;
+	public Button button1 = new JoystickButton(Joystick1, 1);
+	
 	
 	public Button exampleCommand;
 	
@@ -47,9 +49,12 @@ public class OI {
 		Joystick1 = new Joystick(0);
 		Joystick2 = new Joystick(1);
 		
-		exampleCommand = new JoystickButton(Joystick1, RobotMap.trigger);
+		button1.whileHeld(new VDrive());
+		 
 		
-		exampleCommand.whenPressed(new ExampleCommand());
+		//exampleCommand = new JoystickButton(Joystick1, RobotMap.trigger);
+		
+		//exampleCommand.whenPressed(new ExampleCommand());
 		
 		System.out.println(Joystick1.getX());
 	}	

@@ -10,6 +10,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 import org.usfirst.frc.team6908.robot.commands.ExampleCommand;
 import org.usfirst.frc.team6908.robot.commands.vision.PixyPacket;
+import org.usfirst.frc.team6908.robot.commands.vision.PixyVision;
 import org.usfirst.frc.team6908.robot.subsystems.DriveTrain;
 import org.usfirst.frc.team6908.robot.subsystems.ExampleSubsystem;
 
@@ -23,9 +24,11 @@ import org.usfirst.frc.team6908.robot.subsystems.ExampleSubsystem;
 public class Robot extends IterativeRobot {
 	
 	public static final ExampleSubsystem exampleSubsystem = new ExampleSubsystem();
-	public static OI oi;
+	public static OI oi= new OI();
 	public static DriveTrain drivetrain = new DriveTrain();
-	public static PixyPacket pixypacket  = new PixyPacket();
+	public static PixyVision pixyvision = new PixyVision();
+	public static PixyPacket pPacket = new PixyPacket();
+	
 
 	Command autonomousCommand;
 	SendableChooser<Command> chooser = new SendableChooser<>();
@@ -116,6 +119,8 @@ public class Robot extends IterativeRobot {
 	 */
 	@Override
 	public void testPeriodic() {
+		pixyvision.printPixyStuff();
+		pPacket.x = pixyvision.printPixyStuff();
 		LiveWindow.run();
 	}
 }
