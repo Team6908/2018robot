@@ -38,6 +38,22 @@ public class OI {
 	// Start the command when the button is released and let it run the command
 	// until it is finished as determined by it's isFinished method.
 	// button.whenReleased(new ExampleCommand());
+	
+	//Joystick Button ports
+	public static int trigger = 1;
+	public static int thumbButton = 2;
+	public static int button3 = 3;
+	public static int button4 = 4;
+	public static int button5 = 5;
+	public static int button6 = 6;
+	public static int button7 = 7;
+	public static int button8 = 8;
+	public static int button9 = 9;
+	public static int button10 = 10;
+	public static int button11 = 11;
+	public static int button12 = 12;
+	public static int button13 = 13;
+	
 	public Joystick Joystick1;
 	public Joystick Joystick2;
 	
