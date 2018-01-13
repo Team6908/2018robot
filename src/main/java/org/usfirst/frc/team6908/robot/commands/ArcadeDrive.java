@@ -1,18 +1,24 @@
 package org.usfirst.frc.team6908.robot.commands;
 
 import org.usfirst.frc.team6908.robot.Robot;
+import org.usfirst.frc.team6908.robot.RobotConstants;
 import org.usfirst.frc.team6908.robot.RobotMap;
+import org.usfirst.frc.team6908.robot.RobotMath;
 import org.usfirst.frc.team6908.robot.subsystems.DriveTrain;
 
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
-@SuppressWarnings("unused")
+//@SuppressWarnings("unused")
 public class ArcadeDrive extends Command {
 
 	private double throttle;
 	private double turn;
 	private double acceleration;
+	private double throttleAcc;
+	private double turnAcc;
+	private double leftMtr;
+	private double rightMtr;
 	
     public ArcadeDrive() {
         // Use requires() here to declare subsystem dependencies
@@ -26,16 +32,21 @@ public class ArcadeDrive extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
+    	//Gets Y and X axes
     	throttle = Robot.oi.Joystick1.getY();
     	turn = Robot.oi.Joystick1.getX();
+    	//Gets slider value
     	acceleration = Robot.oi.Joystick1.getThrottle();
-    	double throttleAcc = (((-0.8 * (acceleration +1)) / 2) + 1);
-    	double turnAcc = (((-.5 * (acceleration+1)) / 2)+1);
-    	SmartDashboard.putNumber("throttleAcc", throttleAcc);
+    	//Normalizes input from slider
+    	throttleAcc = RobotMath.normalize(RobotConstants.minAxis, RobotConstants.maxAxis, RobotConstants.lowRangeThrottle, RobotConstants.highRangeThrottle, acceleration);
+    	turnAcc = RobotMath.normalize(RobotConstants.minAxis, RobotConstants.maxAxis, RobotConstants.lowRangeTurn, RobotConstants.highRangeTurn, acceleration);    	
+    	//Displays acceleration values on smartdashboard
+    	SmartDashboard.putNumber("throttleAcc", throttleAcc); 
     	SmartDashboard.putNumber("turnAcc", turnAcc);
-	    
-        double leftMtr = throttle*throttleAcc;
-        double rightMtr = turn*turnAcc;
+	    //Scales the throttle/turn values with the acceleration values by multiplication 
+        leftMtr = throttle*throttleAcc;
+        rightMtr = turn*turnAcc;
+        //Sets values to motors
         Robot.drivetrain.setLeftMotors(leftMtr);
         Robot.drivetrain.setRightMotors(rightMtr);
     }
