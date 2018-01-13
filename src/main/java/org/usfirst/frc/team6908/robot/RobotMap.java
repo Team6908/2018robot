@@ -1,5 +1,7 @@
 package org.usfirst.frc.team6908.robot;
 
+import edu.wpi.first.wpilibj.Compressor;
+import edu.wpi.first.wpilibj.Solenoid;
 import edu.wpi.first.wpilibj.Spark;
 import edu.wpi.first.wpilibj.Talon;
 
@@ -42,4 +44,8 @@ public class RobotMap {
 	public static Spark frontRight = new Spark(2);
 	public static Spark backLeft = new Spark(3);
 	public static Spark backRight = new Spark(4);
+	
+	public static Compressor C = new Compressor(0);
+	
+	public static Solenoid testSolenoid = new Solenoid(1);
 }
