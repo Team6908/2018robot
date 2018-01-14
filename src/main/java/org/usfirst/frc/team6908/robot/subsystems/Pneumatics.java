@@ -17,11 +17,11 @@ public class Pneumatics extends Subsystem {
 	boolean pressureSwitch = RobotMap.C.getPressureSwitchValue();
 	double current = RobotMap.C.getCompressorCurrent();
 	private int i = 1;
+	boolean on;
 
     public void initDefaultCommand() {
         // Set the default command for a subsystem here.
-        //setDefaultCommand(new MySpecialCommand());
-    		setDefaultCommand(new pneumaticControl());
+    
     			enabled = false;
     		}
 
@@ -36,6 +36,15 @@ public class Pneumatics extends Subsystem {
     			enabled = false;
     		}
     		
+    }
+    public void startSolenoid() {
+    		on = true;
+    	
+    		RobotMap.solenoid.set(on);
+    }
+    public void stopSolenoid() {
+    		on = false;
+    		RobotMap.solenoid.set(on);
     }
 }
 

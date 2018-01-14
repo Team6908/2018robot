@@ -47,9 +47,9 @@ public class OI {
 		Joystick1 = new Joystick(0);
 		Joystick2 = new Joystick(1);
 		
-		exampleCommand = new JoystickButton(Joystick1, RobotMap.trigger);
+		//exampleCommand = new JoystickButton(Joystick1, RobotMap.trigger);
 		
-		exampleCommand.whenPressed(new ExampleCommand());
+		//exampleCommand.whenPressed(new ExampleCommand());
 		
 		System.out.println(Joystick1.getX());
 	}	
