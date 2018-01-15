@@ -40,7 +40,9 @@ public class OI {
 	// button.whenReleased(new ExampleCommand());
 	public Joystick Joystick1;
 	public Joystick Joystick2;
+	
 	public Button button1 = new JoystickButton(Joystick1, 1);
+	
 	
 	
 	public Button exampleCommand;

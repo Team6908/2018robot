@@ -30,10 +30,11 @@ public class VDrive extends Command {
     		if(Robot.pPacket.x >= 160) {
     			Robot.drivetrain.Drive(.5, -0.25);
     			System.out.println("Box DetecTed RIGHT of Pixy");
-    		}
-    		if(Robot.pPacket.x <= 130) {
+    		}else if(Robot.pPacket.x <= 130) {
     			Robot.drivetrain.Drive(-0.25, .5);
     			System.out.println("Box DetecTed LEFT of Pixy");
+    		}else {
+    			Robot.drivetrain.Drive(.1, .1);
     		}
     }
 
