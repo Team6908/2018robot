@@ -1,6 +1,6 @@
 package org.usfirst.frc.team6908.robot;
 
-import edu.wpi.first.wpilibj.Spark; 
+import edu.wpi.first.wpilibj.Spark;  
 
 import com.ctre.phoenix.motorcontrol.can.TalonSRX;
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
