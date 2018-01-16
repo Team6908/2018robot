@@ -1,7 +1,9 @@
 package org.usfirst.frc.team6908.robot;
 
-import edu.wpi.first.wpilibj.Spark;
+import edu.wpi.first.wpilibj.Spark; 
+
 import com.ctre.phoenix.motorcontrol.can.TalonSRX;
+import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 /**
  * The RobotMap is a mapping from the ports sensors and actuators are wired into
  * to a variable name. This provides flexibility changing wiring, makes checking
@@ -23,13 +25,13 @@ public class RobotMap {
 	//but are currently named for ease of initialization
 	
 	
-	public static Spark frontLeft = new Spark(1);
+	/*public static Spark frontLeft = new Spark(1);
 	public static Spark frontRight = new Spark(2);
 	public static Spark backLeft = new Spark(3);
-	public static Spark backRight = new Spark(4);
+	public static Spark backRight = new Spark(4);*/
 	
-	public static TalonSRX frontLeftT = new TalonSRX(0);
-	public static TalonSRX frontRightT = new TalonSRX(1);
-	public static TalonSRX backLeftT = new TalonSRX(2);
-	public static TalonSRX backRightT = new TalonSRX(3);
+	public static WPI_TalonSRX frontLeftT = new WPI_TalonSRX(1);
+	public static WPI_TalonSRX frontRightT = new WPI_TalonSRX(2);
+	public static WPI_TalonSRX backLeftT = new WPI_TalonSRX(0);
+	public static WPI_TalonSRX backRightT = new WPI_TalonSRX(3);
 }
