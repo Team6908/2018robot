@@ -120,7 +120,7 @@ public class Robot extends IterativeRobot {
 	@SuppressWarnings("deprecation")
 	@Override
 	public void testPeriodic() {
-		pixyvision.printPixyStuff();
+		//pixyvision.printPixyStuff();
 		pPacket.x = pixyvision.printPixyStuff();
 		LiveWindow.run();
 	}
