@@ -16,13 +16,22 @@ public class DriveTrain extends PIDSubsystem {
     SpeedController backLeft = RobotMap.backLeft;
     ADXRS450_Gyro gyro = RobotMap.gyro;
     
+    
     public DriveTrain() {
        
-        super("DriveTrain", 1.0, 0.0, 0.0);
-        setAbsoluteTolerance(10.0);
+    	super("DriveTrain", 0.01, 0.0, 0.0);
+    	
+    	RobotMap.frontRight.setName("Drive Motos", "FR");
+    	RobotMap.frontLeft.setName("Drive Motos", "FLL");
+    	RobotMap.backRight.setName("Drive Motos", "BR");
+    	RobotMap.backLeft.setName("Drive Motos", "BadLanguage");
+    	
+    	gyro.setName("Gyro", "spin me");
+    	
+        setAbsoluteTolerance(5.0);
         getPIDController().setContinuous(false);
         LiveWindow.addActuator("Drive Train", "PIDSubsystem Controller", getPIDController());
-    
+        LiveWindow.add(gyro);
     }
     
     public void initDefaultCommand() {
