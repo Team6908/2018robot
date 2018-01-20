@@ -4,6 +4,7 @@ import org.usfirst.frc.team6908.robot.RobotMap;
 import edu.wpi.first.wpilibj.*;
 import edu.wpi.first.wpilibj.command.PIDSubsystem;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 /**
  *
  */
@@ -17,9 +18,9 @@ public class DriveTrain extends PIDSubsystem {
     
     public DriveTrain() {
        
-        super("DriveTrain", 0.0, 0.0, 0.0);
+        super("DriveTrain", 1.0, 0.0, 0.0);
         setAbsoluteTolerance(10.0);
-        getPIDController().setContinuous(true);
+        getPIDController().setContinuous(false);
         LiveWindow.addActuator("Drive Train", "PIDSubsystem Controller", getPIDController());
     
     }
@@ -45,7 +46,9 @@ public class DriveTrain extends PIDSubsystem {
     protected void usePIDOutput(double output) {
         // Use output to drive your system, like a motor
         // e.g. yourMotor.set(output);
-    	output*=.5;
+//    	System.out.println("Pre .5 " + output);
+//    	output*=.5;
+//    	System.out.println("Post .5 " + output);
         frontRight.pidWrite(output);
         backRight.pidWrite(output);
         frontLeft.pidWrite(output);
