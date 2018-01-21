@@ -19,7 +19,7 @@ public class DriveTrain extends PIDSubsystem {
     
     public DriveTrain() {
        
-    	super("DriveTrain", 0.08, 0.0, 0.0);
+    	super("DriveTrain", 0.03, 0.0, 0.0);
     	
 //    	RobotMap.frontRight.setName("Drive Motos", "FR");
 //    	RobotMap.frontLeft.setName("Drive Motos", "FLL");
@@ -36,7 +36,6 @@ public class DriveTrain extends PIDSubsystem {
 //        getPIDController().setName("PID", "Piddyboi");
 //        LiveWindow.add(getPIDController());
 //        LiveWindow.add(gyro);
-//        SmartDashboard.putNumber("Guyro Fieri", gyro.getAngle());
 //        LiveWindow.add(RobotMap.backLeft);
 //        LiveWindow.add(RobotMap.frontLeft);
 //        LiveWindow.add(RobotMap.backRight);
