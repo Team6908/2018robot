@@ -19,19 +19,28 @@ public class DriveTrain extends PIDSubsystem {
     
     public DriveTrain() {
        
-    	super("DriveTrain", 0.01, 0.0, 0.0);
+    	super("DriveTrain", 0.08, 0.0, 0.0);
     	
-    	RobotMap.frontRight.setName("Drive Motos", "FR");
-    	RobotMap.frontLeft.setName("Drive Motos", "FLL");
-    	RobotMap.backRight.setName("Drive Motos", "BR");
-    	RobotMap.backLeft.setName("Drive Motos", "BadLanguage");
+//    	RobotMap.frontRight.setName("Drive Motos", "FR");
+//    	RobotMap.frontLeft.setName("Drive Motos", "FLL");
+//    	RobotMap.backRight.setName("Drive Motos", "BR");
+//    	RobotMap.backLeft.setName("Drive Motos", "BadLanguage");
+    	
+    	LiveWindow.addSensor("Gyro", " ", gyro);
+    	LiveWindow.addActuator("pee", "pid", getPIDController());
     	
     	gyro.setName("Gyro", "spin me");
     	
-        setAbsoluteTolerance(5.0);
-        getPIDController().setContinuous(false);
-        LiveWindow.addActuator("Drive Train", "PIDSubsystem Controller", getPIDController());
-        LiveWindow.add(gyro);
+        setAbsoluteTolerance(2.0);
+//        getPIDController().setContinuous(false);
+//        getPIDController().setName("PID", "Piddyboi");
+//        LiveWindow.add(getPIDController());
+//        LiveWindow.add(gyro);
+//        SmartDashboard.putNumber("Guyro Fieri", gyro.getAngle());
+//        LiveWindow.add(RobotMap.backLeft);
+//        LiveWindow.add(RobotMap.frontLeft);
+//        LiveWindow.add(RobotMap.backRight);
+//        LiveWindow.add(RobotMap.backLeft);
     }
     
     public void initDefaultCommand() {
@@ -54,10 +63,7 @@ public class DriveTrain extends PIDSubsystem {
     
     protected void usePIDOutput(double output) {
         // Use output to drive your system, like a motor
-        // e.g. yourMotor.set(output);
-//    	System.out.println("Pre .5 " + output);
-//    	output*=.5;
-//    	System.out.println("Post .5 " + output);
+        // e.g. yourMotor.set(output)
         frontRight.pidWrite(output);
         backRight.pidWrite(output);
         frontLeft.pidWrite(output);
