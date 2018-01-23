@@ -1,7 +1,8 @@
 package org.usfirst.frc.team6908.robot;
 
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
-import edu.wpi.first.wpilibj.ADXRS450_Gyro; 
+import edu.wpi.first.wpilibj.ADXRS450_Gyro;
+import edu.wpi.first.wpilibj.Encoder;
 import edu.wpi.first.wpilibj.SPI.Port;
 
 /**
@@ -27,4 +28,7 @@ public class RobotMap {
 	public static WPI_TalonSRX backRight = new WPI_TalonSRX(3);
 	
 	public static ADXRS450_Gyro gyro = new ADXRS450_Gyro(Port.kOnboardCS0);
+	public static Encoder rightEncoder = new Encoder(0,1);
+	public static Encoder leftEncoder = new Encoder(2,3);
+	
 }

@@ -14,8 +14,13 @@ public class DriveTrain extends PIDSubsystem {
     SpeedController backRight = RobotMap.backRight;
     SpeedController frontLeft = RobotMap.frontLeft;
     SpeedController backLeft = RobotMap.backLeft;
+    SpeedControllerGroup rightMotors = new SpeedControllerGroup(frontRight, backRight);
+    SpeedControllerGroup leftMotors = new SpeedControllerGroup(frontLeft, backLeft);
     ADXRS450_Gyro gyro = RobotMap.gyro;
-    
+    public Encoder rightenc = RobotMap.rightEncoder;
+    public Encoder leftenc = RobotMap.leftEncoder;
+    public PIDController rightPID = new PIDController(0.1,0.0,0.0,rightenc,rightMotors);
+    public PIDController leftPID = new PIDController(0.1,0.0,0.0,leftenc,leftMotors);
     
     public DriveTrain() {
        
@@ -26,8 +31,17 @@ public class DriveTrain extends PIDSubsystem {
 //    	RobotMap.backRight.setName("Drive Motos", "BR");
 //    	RobotMap.backLeft.setName("Drive Motos", "BadLanguage");
     	
-    	LiveWindow.addSensor("Gyro", " ", gyro);
-    	LiveWindow.addActuator("pee", "pid", getPIDController());
+//    	LiveWindow.addSensor("Gyro", " ", gyro);
+//    	LiveWindow.addActuator("pee", "pid", getPIDController());
+    	
+    	rightMotors.setName("Right Spinnybois");
+    	leftMotors.setName("Left Spinnybois");
+    	
+    	SmartDashboard.putData(gyro);
+    	SmartDashboard.putData(leftenc);
+    	SmartDashboard.putData(rightenc);
+    	SmartDashboard.putData(rightMotors);
+    	SmartDashboard.putData(leftMotors);
     	
     	gyro.setName("Gyro", "spin me");
     	
