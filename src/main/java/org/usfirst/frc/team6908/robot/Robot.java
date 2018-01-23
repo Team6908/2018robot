@@ -1,6 +1,7 @@
 
 package org.usfirst.frc.team6908.robot;
 
+import edu.wpi.first.wpilibj.CameraServer;
 import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
@@ -37,6 +38,7 @@ public class Robot extends IterativeRobot {
 	public void robotInit() {
 		oi = new OI();
 		chooser.addDefault("Default Auto", new AutoDrive());
+		CameraServer.getInstance().startAutomaticCapture();
 		// chooser.addObject("My Auto", new MyAutoCommand());
 		SmartDashboard.putData("Auto mode", chooser);
 	}
@@ -90,6 +92,8 @@ public class Robot extends IterativeRobot {
 	public void autonomousPeriodic() {
 		Scheduler.getInstance().run();
         SmartDashboard.putNumber("Guyro Fieri", Robot.drivetrain.getGyroAngle());
+    		SmartDashboard.putNumber("Left Distance", RobotMap.leftEncoder.getDistance());
+    		SmartDashboard.putNumber("Right Distance", RobotMap.rightEncoder.getDistance());
 
 	}
 

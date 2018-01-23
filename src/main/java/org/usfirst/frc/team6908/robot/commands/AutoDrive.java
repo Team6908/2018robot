@@ -5,24 +5,39 @@ import org.usfirst.frc.team6908.robot.Robot;
 import edu.wpi.first.wpilibj.command.Command;
 
 public class AutoDrive extends Command {
+	
+	private static double distance;
 
-	public AutoDrive() {
+	public AutoDrive(double dist) {
+		distance = dist;
+		distance = ((distance / (6*Math.PI)) * 255);
 		requires(Robot.drivetrain);
-        
+    }
+	
+	public AutoDrive(double dist, String unit) {
+		distance = dist;
+		if(unit.equals("INCHES")) {
+			distance = ((distance / (6*Math.PI)) * 255);
+		} else if(unit.equals("FEET")) {
+			distance = ((distance / ((6*Math.PI) / 12)) * 255);
+		} 
+		requires(Robot.drivetrain);
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    	Robot.drivetrain.leftenc.reset();
-    	Robot.drivetrain.rightenc.reset();
-    	Robot.drivetrain.rightPID.setAbsoluteTolerance(5);
-    	Robot.drivetrain.leftPID.setAbsoluteTolerance(5);
+    		Robot.drivetrain.leftenc.reset();
+    		Robot.drivetrain.rightenc.reset();
+    		Robot.drivetrain.rightPID.setAbsoluteTolerance(0.1);
+    		Robot.drivetrain.leftPID.setAbsoluteTolerance(0.1);
 /*    	Robot.drivetrain.rightPID.setOutputRange(0.0,0.7);
-        Robot.drivetrain.leftPID.setOutputRange(0.0,0.7);*/
+        Robot.drivetrain.leftPID.setOutputRange(0.0,0.7);		*/
         Robot.drivetrain.rightPID.enable();
         Robot.drivetrain.leftPID.enable();
-        Robot.drivetrain.rightPID.setSetpoint(-255);
-        Robot.drivetrain.leftPID.setSetpoint(255);
+        Robot.drivetrain.rightPID.setOutputRange(-0.7, 0.7);
+        Robot.drivetrain.leftPID.setOutputRange(-0.7, 0.7);
+        Robot.drivetrain.rightPID.setSetpoint(AutoDrive.distance * -1);
+        Robot.drivetrain.leftPID.setSetpoint(AutoDrive.distance);
     }
 
     // Called repeatedly when this Command is scheduled to run

@@ -19,8 +19,8 @@ public class DriveTrain extends PIDSubsystem {
     ADXRS450_Gyro gyro = RobotMap.gyro;
     public Encoder rightenc = RobotMap.rightEncoder;
     public Encoder leftenc = RobotMap.leftEncoder;
-    public PIDController rightPID = new PIDController(0.1,0.0,0.0,rightenc,rightMotors);
-    public PIDController leftPID = new PIDController(0.1,0.0,0.0,leftenc,leftMotors);
+    public PIDController rightPID = new PIDController(0.075,0.0625,.0225,rightenc,rightMotors);
+    public PIDController leftPID = new PIDController(0.075,0.0625,1.0225,leftenc,leftMotors);
     
     public DriveTrain() {
        
@@ -42,6 +42,7 @@ public class DriveTrain extends PIDSubsystem {
     	SmartDashboard.putData(rightenc);
     	SmartDashboard.putData(rightMotors);
     	SmartDashboard.putData(leftMotors);
+
     	
     	gyro.setName("Gyro", "spin me");
     	
