@@ -10,7 +10,7 @@ public class AutoDrive extends Command {
 
 	public AutoDrive(double dist) {
 		distance = dist;
-		distance = ((distance / (6*Math.PI)) * 255);
+		distance = ((distance / (.5*Math.PI)) * 255);
 		requires(Robot.drivetrain);
     }
 	
@@ -18,18 +18,19 @@ public class AutoDrive extends Command {
 		distance = dist;
 		if(unit.equals("INCHES")) {
 			distance = ((distance / (6*Math.PI)) * 255);
-		} else if(unit.equals("FEET")) {
-			distance = ((distance / ((6*Math.PI) / 12)) * 255);
+		} 
+		else if(unit.equals("FEET")) {
+			distance = ((distance / ((.5*Math.PI))) * 255);
 		} 
 		requires(Robot.drivetrain);
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    		Robot.drivetrain.leftenc.reset();
-    		Robot.drivetrain.rightenc.reset();
-    		Robot.drivetrain.rightPID.setAbsoluteTolerance(0.1);
-    		Robot.drivetrain.leftPID.setAbsoluteTolerance(0.1);
+   		Robot.drivetrain.leftEncoder.reset();
+   		Robot.drivetrain.rightEncoder.reset();
+    	Robot.drivetrain.rightPID.setAbsoluteTolerance(0.1);
+    	Robot.drivetrain.leftPID.setAbsoluteTolerance(0.1);
 /*    	Robot.drivetrain.rightPID.setOutputRange(0.0,0.7);
         Robot.drivetrain.leftPID.setOutputRange(0.0,0.7);		*/
         Robot.drivetrain.rightPID.enable();

@@ -1,45 +1,38 @@
 package org.usfirst.frc.team6908.robot.subsystems;
 
-import org.usfirst.frc.team6908.robot.RobotMap;
-import edu.wpi.first.wpilibj.*;
+import org.usfirst.frc.team6908.robot.*;
+import org.usfirst.frc.team6908.robot.commands.*;
+import org.usfirst.frc.team6908.robot.subsystems.*;
+
+import edu.wpi.first.wpilibj.ADXRS450_Gyro;
+import edu.wpi.first.wpilibj.Encoder;
+import edu.wpi.first.wpilibj.PIDController;
+import edu.wpi.first.wpilibj.SpeedControllerGroup;
 import edu.wpi.first.wpilibj.command.PIDSubsystem;
-import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 /**
  *
  */
 public class DriveTrain extends PIDSubsystem {
     
-    SpeedController frontRight = RobotMap.frontRight;
-    SpeedController backRight = RobotMap.backRight;
-    SpeedController frontLeft = RobotMap.frontLeft;
-    SpeedController backLeft = RobotMap.backLeft;
-    SpeedControllerGroup rightMotors = new SpeedControllerGroup(frontRight, backRight);
-    SpeedControllerGroup leftMotors = new SpeedControllerGroup(frontLeft, backLeft);
+    SpeedControllerGroup rightMotors = new SpeedControllerGroup(RobotMap.frontRight, RobotMap.backRight);
+    SpeedControllerGroup leftMotors = new SpeedControllerGroup(RobotMap.frontLeft, RobotMap.backLeft);
     ADXRS450_Gyro gyro = RobotMap.gyro;
-    public Encoder rightenc = RobotMap.rightEncoder;
-    public Encoder leftenc = RobotMap.leftEncoder;
-    public PIDController rightPID = new PIDController(0.075,0.0625,.0225,rightenc,rightMotors);
-    public PIDController leftPID = new PIDController(0.075,0.0625,1.0225,leftenc,leftMotors);
+    public Encoder rightEncoder = RobotMap.rightEncoder;
+    public Encoder leftEncoder = RobotMap.leftEncoder;
+    public PIDController rightPID = new PIDController(0.075, 0.0625, .0225, rightEncoder, rightMotors);
+    public PIDController leftPID = new PIDController(0.075, 0.0625, 1.0225, leftEncoder, leftMotors);
     
     public DriveTrain() {
        
-    	super("DriveTrain", 0.03, 0.0, 0.0);
+    	super("DriveTrain", 0.01, 0.0, 0.0);
     	
-//    	RobotMap.frontRight.setName("Drive Motos", "FR");
-//    	RobotMap.frontLeft.setName("Drive Motos", "FLL");
-//    	RobotMap.backRight.setName("Drive Motos", "BR");
-//    	RobotMap.backLeft.setName("Drive Motos", "BadLanguage");
-    	
-//    	LiveWindow.addSensor("Gyro", " ", gyro);
-//    	LiveWindow.addActuator("pee", "pid", getPIDController());
-    	
-    	rightMotors.setName("Right Spinnybois");
-    	leftMotors.setName("Left Spinnybois");
+    	rightMotors.setName("Right");
+    	leftMotors.setName("Left");
     	
     	SmartDashboard.putData(gyro);
-    	SmartDashboard.putData(leftenc);
-    	SmartDashboard.putData(rightenc);
+    	SmartDashboard.putData(leftEncoder);
+    	SmartDashboard.putData(rightEncoder);
     	SmartDashboard.putData(rightMotors);
     	SmartDashboard.putData(leftMotors);
 
@@ -47,14 +40,6 @@ public class DriveTrain extends PIDSubsystem {
     	gyro.setName("Gyro", "spin me");
     	
         setAbsoluteTolerance(2.0);
-//        getPIDController().setContinuous(false);
-//        getPIDController().setName("PID", "Piddyboi");
-//        LiveWindow.add(getPIDController());
-//        LiveWindow.add(gyro);
-//        LiveWindow.add(RobotMap.backLeft);
-//        LiveWindow.add(RobotMap.frontLeft);
-//        LiveWindow.add(RobotMap.backRight);
-//        LiveWindow.add(RobotMap.backLeft);
     }
     
     public void initDefaultCommand() {
@@ -78,9 +63,7 @@ public class DriveTrain extends PIDSubsystem {
     protected void usePIDOutput(double output) {
         // Use output to drive your system, like a motor
         // e.g. yourMotor.set(output)
-        frontRight.pidWrite(output);
-        backRight.pidWrite(output);
-        frontLeft.pidWrite(output);
-        backLeft.pidWrite(output);
+        leftMotors.pidWrite(output);
+        rightMotors.pidWrite(output);
     }
 }

@@ -1,4 +1,3 @@
-
 package org.usfirst.frc.team6908.robot;
 
 import edu.wpi.first.wpilibj.CameraServer;
@@ -9,10 +8,8 @@ import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
-import org.usfirst.frc.team6908.robot.commands.AutoDrive;
-import org.usfirst.frc.team6908.robot.commands.TurnRobot;
-import org.usfirst.frc.team6908.robot.subsystems.DriveTrain;
-import org.usfirst.frc.team6908.robot.subsystems.ExampleSubsystem;
+import org.usfirst.frc.team6908.robot.commands.*;
+import org.usfirst.frc.team6908.robot.subsystems.*;
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -37,7 +34,8 @@ public class Robot extends IterativeRobot {
 	@Override
 	public void robotInit() {
 		oi = new OI();
-		chooser.addDefault("Default Auto", new AutoDrive());
+		chooser.addDefault("Default Auto", new ExampleCommand());
+		chooser.addObject("Path 1", new AutoTasks());
 		CameraServer.getInstance().startAutomaticCapture();
 		// chooser.addObject("My Auto", new MyAutoCommand());
 		SmartDashboard.putData("Auto mode", chooser);

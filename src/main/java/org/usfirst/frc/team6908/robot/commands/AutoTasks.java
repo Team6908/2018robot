@@ -1,4 +1,4 @@
-package main;
+package org.usfirst.frc.team6908.robot.commands;
 
 import edu.wpi.first.wpilibj.command.CommandGroup;
 
@@ -12,9 +12,9 @@ public class AutoTasks extends CommandGroup {
         // e.g. addSequential(new Command1());
         //      addSequential(new Command2());
         // these will run in order.
-    	addSequential(new AutoDrive(2));
+    	addSequential(new AutoDrive(8, "FEET"));
     	addSequential(new TurnRobot(90));
-    	addSequential(new AutoDrive(2));
+    	addSequential(new AutoDrive(1, "FEET"));
 
         // To run multiple commands at the same time,
         // use addParallel()
