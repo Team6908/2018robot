@@ -4,6 +4,8 @@ import org.usfirst.frc.team6908.robot.*;
 import org.usfirst.frc.team6908.robot.commands.*;
 import org.usfirst.frc.team6908.robot.subsystems.*;
 
+import com.kauailabs.navx.frc.AHRS;
+
 import edu.wpi.first.wpilibj.ADXRS450_Gyro;
 import edu.wpi.first.wpilibj.Encoder;
 import edu.wpi.first.wpilibj.PIDController;
@@ -17,7 +19,7 @@ public class DriveTrain extends PIDSubsystem {
     
     SpeedControllerGroup rightMotors = new SpeedControllerGroup(RobotMap.frontRight, RobotMap.backRight);
     SpeedControllerGroup leftMotors = new SpeedControllerGroup(RobotMap.frontLeft, RobotMap.backLeft);
-    ADXRS450_Gyro gyro = RobotMap.gyro;
+    AHRS gyro = RobotMap.gyro;
     public Encoder rightEncoder = RobotMap.rightEncoder;
     public Encoder leftEncoder = RobotMap.leftEncoder;
     public PIDController rightPID = new PIDController(0.035, 0.0, 0.0, rightEncoder, rightMotors);
