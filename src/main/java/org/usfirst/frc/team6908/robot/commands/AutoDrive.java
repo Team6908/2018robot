@@ -6,22 +6,10 @@ import edu.wpi.first.wpilibj.command.Command;
 
 public class AutoDrive extends Command {
 	
-	private static double distance;
+	private double distance;
 
 	public AutoDrive(double dist) {
-		distance = dist;
-		distance = ((distance / (.5*Math.PI)) * 255);
-		requires(Robot.drivetrain);
-    }
-	
-	public AutoDrive(double dist, String unit) {
-		distance = dist;
-		if(unit.equals("INCHES")) {
-			distance = ((distance / (6*Math.PI)) * 255);
-		} 
-		else if(unit.equals("FEET")) {
-			distance = ((distance / ((.5*Math.PI))) * 255);
-		} 
+		distance = ((dist / (6*Math.PI)) * 255);
 		requires(Robot.drivetrain);
     }
 
@@ -37,8 +25,8 @@ public class AutoDrive extends Command {
         Robot.drivetrain.leftPID.enable();
         Robot.drivetrain.rightPID.setOutputRange(-0.7, 0.7);
         Robot.drivetrain.leftPID.setOutputRange(-0.7, 0.7);
-        Robot.drivetrain.rightPID.setSetpoint(AutoDrive.distance * -1);
-        Robot.drivetrain.leftPID.setSetpoint(AutoDrive.distance);
+        Robot.drivetrain.rightPID.setSetpoint(-distance);
+        Robot.drivetrain.leftPID.setSetpoint(distance);
     }
 
     // Called repeatedly when this Command is scheduled to run

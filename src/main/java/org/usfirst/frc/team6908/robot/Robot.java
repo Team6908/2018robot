@@ -34,7 +34,7 @@ public class Robot extends IterativeRobot {
 	@Override
 	public void robotInit() {
 		oi = new OI();
-		chooser.addDefault("Default Auto", new ExampleCommand());
+		chooser.addDefault("Default Auto", new  AutoTasks());
 		chooser.addObject("Path 1", new AutoTasks());
 		CameraServer.getInstance().startAutomaticCapture();
 		// chooser.addObject("My Auto", new MyAutoCommand());
@@ -70,7 +70,7 @@ public class Robot extends IterativeRobot {
 	@Override
 	public void autonomousInit() {
 		autonomousCommand = chooser.getSelected();
-
+		
 		/*
 		 * String autoSelected = SmartDashboard.getString("Auto Selector",
 		 * "Default"); switch(autoSelected) { case "My Auto": autonomousCommand
