@@ -19,8 +19,10 @@ public class AutoTasks extends CommandGroup {
         // To run multiple commands at the same time,
         // use addParallel()
         // e.g. addParallel(new Command1());
+    	// woah
         //      addSequential(new Command2());
         // Command1 and Command2 will run in parallel.
+    	
 
         // A command group will require all of the subsystems that each member
         // would require.
