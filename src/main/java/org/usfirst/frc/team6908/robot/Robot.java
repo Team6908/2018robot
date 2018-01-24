@@ -34,7 +34,7 @@ public class Robot extends IterativeRobot {
 	@Override
 	public void robotInit() {
 		oi = new OI();
-		chooser.addDefault("Default Auto", new  AutoTasks());
+		chooser.addDefault("Default Auto", new AutoTasks());
 		chooser.addObject("Path 1", new AutoTasks());
 		CameraServer.getInstance().startAutomaticCapture();
 		// chooser.addObject("My Auto", new MyAutoCommand());

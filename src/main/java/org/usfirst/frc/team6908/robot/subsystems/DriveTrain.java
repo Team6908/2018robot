@@ -20,12 +20,12 @@ public class DriveTrain extends PIDSubsystem {
     ADXRS450_Gyro gyro = RobotMap.gyro;
     public Encoder rightEncoder = RobotMap.rightEncoder;
     public Encoder leftEncoder = RobotMap.leftEncoder;
-    public PIDController rightPID = new PIDController(0.03, 0.0, 0.0, rightEncoder, rightMotors);
-    public PIDController leftPID = new PIDController(0.03, 0.0, 0.0, leftEncoder, leftMotors);
+    public PIDController rightPID = new PIDController(0.035, 0.0, 0.0, rightEncoder, rightMotors);
+    public PIDController leftPID = new PIDController(0.035, 0.0, 0.0, leftEncoder, leftMotors);
     
     public DriveTrain() {
        
-    	super("DriveTrain", 0.01, 0.0, 0.0);
+    	super("DriveTrain", 0.011, 0.0, 0.0);
     	
     	rightMotors.setName("Right");
     	leftMotors.setName("Left");
@@ -39,7 +39,7 @@ public class DriveTrain extends PIDSubsystem {
     	
     	gyro.setName("Gyro", "spin me");
     	
-        setAbsoluteTolerance(2.0);
+        setAbsoluteTolerance(1);
     }
     
     public void initDefaultCommand() {

@@ -17,8 +17,8 @@ public class AutoDrive extends Command {
     protected void initialize() {
    		Robot.drivetrain.leftEncoder.reset();
    		Robot.drivetrain.rightEncoder.reset();
-    	Robot.drivetrain.rightPID.setAbsoluteTolerance(0.1);
-    	Robot.drivetrain.leftPID.setAbsoluteTolerance(0.1);
+   		Robot.drivetrain.rightPID.setAbsoluteTolerance(1);
+   		Robot.drivetrain.leftPID.setAbsoluteTolerance(1);
 /*    	Robot.drivetrain.rightPID.setOutputRange(0.0,0.7);
         Robot.drivetrain.leftPID.setOutputRange(0.0,0.7);		*/
         Robot.drivetrain.rightPID.enable();
