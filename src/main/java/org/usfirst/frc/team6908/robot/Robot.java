@@ -25,6 +25,7 @@ public class Robot extends IterativeRobot {
 	public static final ExampleSubsystem exampleSubsystem = new ExampleSubsystem();
 	public static OI oi;
 	public static DriveTrain drivetrain = new DriveTrain();
+	public static CameraServer server;
 
 
 	Command autonomousCommand;
@@ -40,7 +41,8 @@ public class Robot extends IterativeRobot {
 		chooser.addDefault("Default Auto", new ExampleCommand());
 		// chooser.addObject("My Auto", new MyAutoCommand());
 		SmartDashboard.putData("Auto mode", chooser);
-		CameraServer.getInstance().startAutomaticCapture();
+		CameraServer.getInstance().startAutomaticCapture("Front Camera", 0);
+		CameraServer.getInstance().startAutomaticCapture("Back Camera", 1);
 	}
 
 	/**
