@@ -4,33 +4,37 @@ import org.usfirst.frc.team6908.robot.*;
 import org.usfirst.frc.team6908.robot.commands.*;
 import org.usfirst.frc.team6908.robot.subsystems.*;
 
-import com.kauailabs.navx.frc.AHRS;
+//import com.kauailabs.navx.frc.AHRS;
 
 import edu.wpi.first.wpilibj.ADXRS450_Gyro;
 import edu.wpi.first.wpilibj.Encoder;
 import edu.wpi.first.wpilibj.PIDController;
 import edu.wpi.first.wpilibj.SpeedControllerGroup;
 import edu.wpi.first.wpilibj.command.PIDSubsystem;
+import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 /**
  *
  */
-public class DriveTrain extends PIDSubsystem {
+public class DriveTrain extends Subsystem {
     
     SpeedControllerGroup rightMotors = new SpeedControllerGroup(RobotMap.frontRight, RobotMap.backRight);
     SpeedControllerGroup leftMotors = new SpeedControllerGroup(RobotMap.frontLeft, RobotMap.backLeft);
-    AHRS gyro = RobotMap.gyro;
+    SpeedControllerGroup allMotors = new SpeedControllerGroup(RobotMap.frontLeft,RobotMap.backLeft,RobotMap.frontRight,RobotMap.backRight);
+    ADXRS450_Gyro gyro = RobotMap.gyro;
     public Encoder rightEncoder = RobotMap.rightEncoder;
     public Encoder leftEncoder = RobotMap.leftEncoder;
     public PIDController rightPID = new PIDController(0.035, 0.0, 0.0, rightEncoder, rightMotors);
     public PIDController leftPID = new PIDController(0.035, 0.0, 0.0, leftEncoder, leftMotors);
+    public PIDController gyroPID = new PIDController(0.035, 0.0, 0.0, gyro, allMotors);
     
     public DriveTrain() {
        
-    	super("DriveTrain", 0.011, 0.0, 0.0);
+   
     	
     	rightMotors.setName("Right");
     	leftMotors.setName("Left");
+    	gyro.setName("NAV-X");
     	
     	SmartDashboard.putData(gyro);
     	SmartDashboard.putData(leftEncoder);
@@ -41,7 +45,7 @@ public class DriveTrain extends PIDSubsystem {
     	
     	gyro.setName("Gyro", "spin me");
     	
-        setAbsoluteTolerance(1);
+       
     }
     
     public void initDefaultCommand() {
@@ -55,7 +59,7 @@ public class DriveTrain extends PIDSubsystem {
     public void resetGyro(){
         gyro.reset();
     }
-    protected double returnPIDInput() {
+   /* protected double returnPIDInput() {
         // Return your input value for the PID loop
         // e.g. a sensor, like a potentiometer:
         // yourPot.getAverageVoltage() / kYourMaxVoltage
@@ -67,5 +71,5 @@ public class DriveTrain extends PIDSubsystem {
         // e.g. yourMotor.set(output)
         leftMotors.pidWrite(output);
         rightMotors.pidWrite(output);
-    }
+    }*/
 }
