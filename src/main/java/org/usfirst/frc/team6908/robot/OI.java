@@ -39,14 +39,13 @@ public class OI {
 	// until it is finished as determined by it's isFinished method.
 	// button.whenReleased(new ExampleCommand());
 	
-	Joystick joystick = new Joystick(0);
+	public Joystick joystick = new Joystick(0);
 	
 	Button button1 = new JoystickButton(joystick, 1);
+	Button button2 = new JoystickButton(joystick, 3);
 	
 	public OI() {
-		
 		button1.whileHeld(new IntakeCube());
-		
 	}
 	
 	

@@ -20,9 +20,9 @@ public class Intake extends Subsystem {
         //setDefaultCommand(new MySpecialCommand());
     }
     
-    public void startIntake() {
-    		RobotMap.intakeMotor1.set(.5);
-    		RobotMap.intakeMotor2.set(.5);
+    public void startIntake(double speed1, double speed2) {
+    		RobotMap.intakeMotor1.set(speed1);
+    		RobotMap.intakeMotor2.set(speed2);
     }
     
     public void stopIntake() {
