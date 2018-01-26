@@ -22,7 +22,7 @@ public class Robot extends IterativeRobot {
 	
 	public static final ExampleSubsystem exampleSubsystem = new ExampleSubsystem();
 	public static OI oi;
-	public static Intake intake = new Intake();
+	public static Fondle fondle = new Fondle();
 
 	Command autonomousCommand;
 	SendableChooser<Command> chooser = new SendableChooser<>();

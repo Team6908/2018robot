@@ -39,14 +39,27 @@ public class OI {
 	// until it is finished as determined by it's isFinished method.
 	// button.whenReleased(new ExampleCommand());
 	
+	public static int oTrigger = 1;
+	public static int oThumbButton = 2;
+	public static int oButton3 = 3;
+	public static int oButton4 = 4;
+	public static int oButton5 = 5;
+	public static int oButton6 = 6;
+	public static int oButton7 = 7;
+	public static int oButton8 = 8;
+	public static int oButton9 = 9;
+	public static int oButton10 = 10;
+	public static int oButton11 = 11;
+	public static int oButton12 = 12;
+	public static int oButton13 = 13;
+	
 	public Joystick joystick = new Joystick(0);
 	
-	Button button1 = new JoystickButton(joystick, 1);
-	Button button3 = new JoystickButton(joystick, 3);
+	public JoystickButton trigger;
 	
 	public OI() {
-		button1.whileHeld(new IntakeCube());
-	}
-	
-	
+		trigger = new JoystickButton(joystick, oTrigger);
+		
+		trigger.whileHeld(new FondleCube());
+	}	
 }

@@ -1,5 +1,6 @@
 package org.usfirst.frc.team6908.robot.commands;
-import org.usfirst.frc.team6908.robot.Robot;
+
+import org.usfirst.frc.team6908.robot.*;
 
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
@@ -7,12 +8,12 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 /**
  *
  */
-public class IntakeCube extends Command {
+public class FondleCube extends Command {
 
-    public IntakeCube() {
+    public FondleCube() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
-    	 requires(Robot.intake);
+    	 requires(Robot.fondle);
     }
 
     // Called just before this Command runs the first time
@@ -21,11 +22,14 @@ public class IntakeCube extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
+    	//Checks if button 3 is being held to determine direction of motor spin
     	if(Robot.oi.joystick.getRawButton(3)) {
-    		Robot.intake.startIntake(1, -1);
+    		//Button 3 is held, flywheels spin to output
+    		Robot.fondle.startFondle(RobotConstants.maxFlywheelThrottle, RobotConstants.minFlywheelThrottle);
     	} 
     	else {
-    		Robot.intake.startIntake(-1, 1);
+    		//Button 3 is not held, flywheels spin to input
+    		Robot.fondle.startFondle(RobotConstants.minFlywheelThrottle, RobotConstants.maxFlywheelThrottle);
     	}
     }
     // Make this return true when this Command no longer needs to run execute()
@@ -35,13 +39,12 @@ public class IntakeCube extends Command {
 
     // Called once after isFinished returns true
     protected void end() {
-    		Robot.intake.stopIntake();
+    	Robot.fondle.stopFondle();
     }
 
     // Called when another command which requires one or more of the same
     // subsystems is scheduled to run
     protected void interrupted() {
-    	
     		end();
     }
 }
