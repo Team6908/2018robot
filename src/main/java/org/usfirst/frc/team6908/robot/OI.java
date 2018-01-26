@@ -42,7 +42,7 @@ public class OI {
 	public Joystick joystick = new Joystick(0);
 	
 	Button button1 = new JoystickButton(joystick, 1);
-	Button button2 = new JoystickButton(joystick, 3);
+	Button button3 = new JoystickButton(joystick, 3);
 	
 	public OI() {
 		button1.whileHeld(new IntakeCube());

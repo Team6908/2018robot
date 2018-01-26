@@ -29,11 +29,7 @@ public class RobotMap {
 	public static WPI_TalonSRX frontRight = new WPI_TalonSRX(2);
 	public static WPI_TalonSRX backLeft = new WPI_TalonSRX(0);
 	public static WPI_TalonSRX backRight = new WPI_TalonSRX(3);
-	public static Spark intakeMotor1 = new Spark(0);
-	public static Spark intakeMotor2 = new Spark(1);
 	
-	public static ADXRS450_Gyro gyro = new ADXRS450_Gyro(Port.kOnboardCS0);
-	public static Encoder rightEncoder = new Encoder(0,1);
-	public static Encoder leftEncoder = new Encoder(2,3);
-	
+	public static Spark leftFlywheel = new Spark(0);
+	public static Spark rightFlywheel = new Spark(1);	
 }

@@ -22,7 +22,6 @@ public class Robot extends IterativeRobot {
 	
 	public static final ExampleSubsystem exampleSubsystem = new ExampleSubsystem();
 	public static OI oi;
-	public static DriveTrain drivetrain = new DriveTrain();
 	public static Intake intake = new Intake();
 
 	Command autonomousCommand;
@@ -35,8 +34,7 @@ public class Robot extends IterativeRobot {
 	@Override
 	public void robotInit() {
 		oi = new OI();
-		chooser.addDefault("Default Auto", new AutoTasks());
-		chooser.addObject("Path 1", new AutoTasks());
+		chooser.addDefault("Default Auto", new ExampleCommand());
 		CameraServer.getInstance().startAutomaticCapture();
 		// chooser.addObject("My Auto", new MyAutoCommand());
 		SmartDashboard.putData("Auto mode", chooser);
@@ -90,10 +88,6 @@ public class Robot extends IterativeRobot {
 	@Override
 	public void autonomousPeriodic() {
 		Scheduler.getInstance().run();
-        SmartDashboard.putNumber("Guyro Fieri", Robot.drivetrain.getGyroAngle());
-    		SmartDashboard.putNumber("Left Distance", RobotMap.leftEncoder.getDistance());
-    		SmartDashboard.putNumber("Right Distance", RobotMap.rightEncoder.getDistance());
-
 	}
 
 	@Override
@@ -119,7 +113,6 @@ public class Robot extends IterativeRobot {
 	 */
 	@Override
 	public void testPeriodic() {
-//		LiveWindow.disableAllTelemetry();
 		LiveWindow.setEnabled(true);
 	}
 }

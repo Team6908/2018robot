@@ -9,8 +9,6 @@ import edu.wpi.first.wpilibj.command.Subsystem;
  *
  */
 public class Intake extends Subsystem {
-	
-
 
     // Put methods for controlling this subsystem
     // here. Call these from Commands.
@@ -21,14 +19,14 @@ public class Intake extends Subsystem {
     }
     
     public void startIntake(double speed1, double speed2) {
-    		RobotMap.intakeMotor1.set(speed1);
-    		RobotMap.intakeMotor2.set(speed2);
+    		RobotMap.leftFlywheel.set(speed1);
+    		RobotMap.rightFlywheel.set(speed2);
     }
     
     public void stopIntake() {
     	
-    	RobotMap.intakeMotor1.set(0);
-		RobotMap.intakeMotor2.set(0);
+    	RobotMap.leftFlywheel.set(0);
+		RobotMap.rightFlywheel.set(0);
     	
     	
     }

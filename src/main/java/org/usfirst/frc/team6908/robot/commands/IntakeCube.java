@@ -21,10 +21,10 @@ public class IntakeCube extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	System.out.println(Robot.oi.joystick.getRawButton(3));
     	if(Robot.oi.joystick.getRawButton(3)) {
     		Robot.intake.startIntake(1, -1);
-    	} else {
+    	} 
+    	else {
     		Robot.intake.startIntake(-1, 1);
     	}
     }
