@@ -1,5 +1,6 @@
 package org.usfirst.frc.team6908.robot.subsystems;
 
+import org.usfirst.frc.team6908.robot.RobotConstants;
 import org.usfirst.frc.team6908.robot.RobotMap;
 
 import edu.wpi.first.wpilibj.command.Subsystem;
@@ -18,11 +19,14 @@ public class Fondle extends Subsystem {
         //setDefaultCommand(new MySpecialCommand());
     }
     
-    public void startFondle(double leftSpeed, double rightSpeed) {
-    	//Sets both flywheel speeds directly as inputed,
-    	//does not invert here
-    	RobotMap.leftFlywheel.set(leftSpeed);
-   		RobotMap.rightFlywheel.set(rightSpeed);
+    public void fondleIn() {
+    	RobotMap.leftFlywheel.set(RobotConstants.maxFlywheelThrottle);
+   		RobotMap.rightFlywheel.set(RobotConstants.minFlywheelThrottle);
+    }
+    
+    public void fondleOut() {
+    	RobotMap.leftFlywheel.set(RobotConstants.minFlywheelThrottle);
+   		RobotMap.rightFlywheel.set(RobotConstants.maxFlywheelThrottle);
     }
     
     public void stopFondle() { 	

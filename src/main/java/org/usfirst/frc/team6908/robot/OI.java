@@ -56,10 +56,13 @@ public class OI {
 	public Joystick joystick = new Joystick(0);
 	
 	public JoystickButton trigger;
+	public JoystickButton button3;
 	
 	public OI() {
 		trigger = new JoystickButton(joystick, oTrigger);
+		button3 = new JoystickButton(joystick, oButton3);
 		
+		button3.whenPressed(new ChangeDirection());
 		trigger.whileHeld(new FondleCube());
 	}	
 }
