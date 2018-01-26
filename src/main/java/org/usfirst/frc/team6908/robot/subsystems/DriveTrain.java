@@ -25,7 +25,9 @@ public class DriveTrain extends PIDSubsystem {
     
     public DriveTrain() {
        
-    	super("DriveTrain", 0.011, 0.0, 0.0);
+    	super("DriveTrain", 0.01, 0.0, 0.0);
+    	
+    	getPIDController().setContinuous(true);
     	
     	rightMotors.setName("Right");
     	leftMotors.setName("Left");
@@ -45,7 +47,7 @@ public class DriveTrain extends PIDSubsystem {
     public void initDefaultCommand() {
     
         // Set the default command for a subsystem here. 
-        //setDefaultCommand(new MySpecialCommand()); 
+        //setDefaultCommand(new MySpecialCommand());  
     }
     public double getGyroAngle(){
         return gyro.getAngle();
@@ -63,6 +65,7 @@ public class DriveTrain extends PIDSubsystem {
     protected void usePIDOutput(double output) {
         // Use output to drive your system, like a motor
         // e.g. yourMotor.set(output)
+    	//output*=1;
         leftMotors.pidWrite(output);
         rightMotors.pidWrite(output);
     }

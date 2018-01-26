@@ -12,9 +12,11 @@ public class AutoTasks extends CommandGroup {
         // e.g. addSequential(new Command1());
         //      addSequential(new Command2());
         // these will run in order.
-    	addSequential(new AutoDrive(78));
-    	addSequential(new TurnRobot(-90));
-    	addSequential(new AutoDrive(12));
+    	addSequential(new TurnRobot(345));
+//    	addSequential(new TurnRobot(75));
+//    	addSequential(new AutoDrive(25));
+//    	addSequential(new TurnRobot(-75));
+//    	addSequential(new AutoDrive(18));
 
         // To run multiple commands at the same time,
         // use addParallel()

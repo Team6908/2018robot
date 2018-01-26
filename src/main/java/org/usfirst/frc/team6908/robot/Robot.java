@@ -39,6 +39,7 @@ public class Robot extends IterativeRobot {
 		CameraServer.getInstance().startAutomaticCapture();
 		// chooser.addObject("My Auto", new MyAutoCommand());
 		SmartDashboard.putData("Auto mode", chooser);
+		System.out.println("Akash is " + Akash.getCool());
 	}
 
 	/**
