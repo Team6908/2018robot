@@ -1,12 +1,14 @@
 package org.usfirst.frc.team6908.robot;
 
 import edu.wpi.first.wpilibj.CameraServer;
+import edu.wpi.first.wpilibj.DriverStation;
 import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+import java.util.Scanner;
 
 import org.usfirst.frc.team6908.robot.autoCommands.*;
 import org.usfirst.frc.team6908.robot.commands.*;
@@ -24,6 +26,8 @@ public class Robot extends IterativeRobot {
 	public static final ExampleSubsystem exampleSubsystem = new ExampleSubsystem();
 	public static OI oi;
 	public static DriveTrain drivetrain = new DriveTrain();
+	private static String gameData;
+	private static Scanner scan = new Scanner(System.in);
 
 	Command autonomousCommand;
 	SendableChooser<Command> chooser = new SendableChooser<>();
@@ -41,7 +45,15 @@ public class Robot extends IterativeRobot {
 		CameraServer.getInstance().startAutomaticCapture();
 		// chooser.addObject("My Auto", new MyAutoCommand());
 		SmartDashboard.putData("Auto mode", chooser);
-		System.out.println("Akash is " + Akash.getCool());
+		gameData = DriverStation.getInstance().getGameSpecificMessage();
+		System.out.println("Write the Direction");
+		gameData = scan.next();
+        if(gameData.charAt(0) == 'L')
+        {
+            new A3FMLeft();
+        } else {
+            new A3FMRight();
+        }
 	}
 
 	/**
