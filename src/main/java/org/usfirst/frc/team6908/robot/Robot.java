@@ -11,6 +11,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 import org.usfirst.frc.team6908.robot.commands.ExampleCommand;
 import org.usfirst.frc.team6908.robot.subsystems.DriveTrain;
+import org.usfirst.frc.team6908.robot.subsystems.Elevator;
 import org.usfirst.frc.team6908.robot.subsystems.ExampleSubsystem;
 
 /**
@@ -26,7 +27,7 @@ public class Robot extends IterativeRobot {
 	public static OI oi;
 	public static DriveTrain drivetrain = new DriveTrain();
 	public static CameraServer server;
-
+	public static Elevator elevator = new Elevator();
 
 	Command autonomousCommand;
 	SendableChooser<Command> chooser = new SendableChooser<>();

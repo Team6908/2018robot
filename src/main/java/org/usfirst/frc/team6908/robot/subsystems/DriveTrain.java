@@ -3,7 +3,6 @@ package org.usfirst.frc.team6908.robot.subsystems;
 import org.usfirst.frc.team6908.robot.RobotMap;
 
 import org.usfirst.frc.team6908.robot.commands.ArcadeDrive;
-import org.usfirst.frc.team6908.robot.commands.TankDrive;
 
 import com.ctre.phoenix.motorcontrol.ControlMode;
 

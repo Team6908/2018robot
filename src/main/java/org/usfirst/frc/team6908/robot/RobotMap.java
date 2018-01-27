@@ -1,10 +1,13 @@
 package org.usfirst.frc.team6908.robot;
 
 import edu.wpi.first.wpilibj.CameraServer;
+import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.Spark;  
 
 import com.ctre.phoenix.motorcontrol.can.TalonSRX;
+import com.ctre.phoenix.motorcontrol.can.VictorSPX;
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
+import com.ctre.phoenix.motorcontrol.can.WPI_VictorSPX;
 /**
  * The RobotMap is a mapping from the ports sensors and actuators are wired into
  * to a variable name. This provides flexibility changing wiring, makes checking
@@ -35,4 +38,8 @@ public class RobotMap {
 	public static WPI_TalonSRX frontRightT = new WPI_TalonSRX(2);
 	public static WPI_TalonSRX backLeftT = new WPI_TalonSRX(0);
 	public static WPI_TalonSRX backRightT = new WPI_TalonSRX(3);
+	
+	public static WPI_VictorSPX elevator = new WPI_VictorSPX(1);
+	public static DigitalInput hallEffect = new DigitalInput(1);
+	
 }
