@@ -2,6 +2,7 @@ package org.usfirst.frc.team6908.robot;
 
 import edu.wpi.first.wpilibj.CameraServer;
 import edu.wpi.first.wpilibj.DigitalInput;
+import edu.wpi.first.wpilibj.Encoder;
 import edu.wpi.first.wpilibj.Spark;  
 
 import com.ctre.phoenix.motorcontrol.can.TalonSRX;
@@ -42,4 +43,5 @@ public class RobotMap {
 	public static WPI_VictorSPX elevator = new WPI_VictorSPX(1);
 	public static DigitalInput hallEffect = new DigitalInput(1);
 	
+	public static Encoder elevatorEncoder = new Encoder(4,5);
 }
