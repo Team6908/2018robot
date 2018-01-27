@@ -8,6 +8,7 @@ import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
+import org.usfirst.frc.team6908.robot.autoCommands.*;
 import org.usfirst.frc.team6908.robot.commands.*;
 import org.usfirst.frc.team6908.robot.subsystems.*;
 
@@ -34,8 +35,9 @@ public class Robot extends IterativeRobot {
 	@Override
 	public void robotInit() {
 		oi = new OI();
-		chooser.addDefault("Default Auto", new AutoTasks());
-		chooser.addObject("Path 1", new AutoTasks());
+		chooser.addDefault("Default Auto", new ExampleCommand());
+		chooser.addObject("A3FM", new A3FM());
+		chooser.addObject("Baseline", new BaselineDrive());
 		CameraServer.getInstance().startAutomaticCapture();
 		// chooser.addObject("My Auto", new MyAutoCommand());
 		SmartDashboard.putData("Auto mode", chooser);
