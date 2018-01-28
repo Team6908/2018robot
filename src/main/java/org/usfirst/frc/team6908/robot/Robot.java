@@ -1,4 +1,3 @@
-
 package org.usfirst.frc.team6908.robot;
 
 import edu.wpi.first.wpilibj.CameraServer;
@@ -9,9 +8,8 @@ import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
-import org.usfirst.frc.team6908.robot.commands.ExampleCommand;
-import org.usfirst.frc.team6908.robot.subsystems.DriveTrain;
-import org.usfirst.frc.team6908.robot.subsystems.ExampleSubsystem;
+import org.usfirst.frc.team6908.robot.commands.*;
+import org.usfirst.frc.team6908.robot.subsystems.*;
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -24,9 +22,13 @@ public class Robot extends IterativeRobot {
 	
 	public static final ExampleSubsystem exampleSubsystem = new ExampleSubsystem();
 	public static OI oi;
+<<<<<<< HEAD
 	public static DriveTrain drivetrain = new DriveTrain();
 	public static CameraServer server;
 
+=======
+	public static Fondle fondle = new Fondle();
+>>>>>>> Intake
 
 	Command autonomousCommand;
 	SendableChooser<Command> chooser = new SendableChooser<>();
@@ -39,6 +41,7 @@ public class Robot extends IterativeRobot {
 	public void robotInit() {
 		oi = new OI();
 		chooser.addDefault("Default Auto", new ExampleCommand());
+		CameraServer.getInstance().startAutomaticCapture();
 		// chooser.addObject("My Auto", new MyAutoCommand());
 		SmartDashboard.putData("Auto mode", chooser);
 		CameraServer.getInstance().startAutomaticCapture("Front Camera", 0);
@@ -74,7 +77,7 @@ public class Robot extends IterativeRobot {
 	@Override
 	public void autonomousInit() {
 		autonomousCommand = chooser.getSelected();
-
+		
 		/*
 		 * String autoSelected = SmartDashboard.getString("Auto Selector",
 		 * "Default"); switch(autoSelected) { case "My Auto": autonomousCommand
@@ -118,6 +121,6 @@ public class Robot extends IterativeRobot {
 	 */
 	@Override
 	public void testPeriodic() {
-		LiveWindow.run();
+		LiveWindow.setEnabled(true);
 	}
 }

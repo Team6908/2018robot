@@ -25,7 +25,7 @@ public class OI {
 
 	//// TRIGGERING COMMANDS WITH BUTTONS
 	// Once you have a button, it's trivial to bind it to a button in one of
-	// three ways:
+	// three ways: 
 
 	// Start the command when the button is pressed and let it run the command
 	// until it is finished as determined by it's isFinished method.
@@ -38,35 +38,38 @@ public class OI {
 	// Start the command when the button is released and let it run the command
 	// until it is finished as determined by it's isFinished method.
 	// button.whenReleased(new ExampleCommand());
-	
-	//Joystick Button ports
-	public static int trigger = 1;
-	public static int thumbButton = 2;
-	public static int button3 = 3;
-	public static int button4 = 4;
-	public static int button5 = 5;
-	public static int button6 = 6;
-	public static int button7 = 7;
-	public static int button8 = 8;
-	public static int button9 = 9;
-	public static int button10 = 10;
-	public static int button11 = 11;
-	public static int button12 = 12;
-	public static int button13 = 13;
+
+	public static int oTrigger = 1;
+	public static int oThumbButton = 2;
+	public static int oButton3 = 3;
+	public static int oButton4 = 4;
+	public static int oButton5 = 5;
+	public static int oButton6 = 6;
+	public static int oButton7 = 7;
+	public static int oButton8 = 8;
+	public static int oButton9 = 9;
+	public static int oButton10 = 10;
+	public static int oButton11 = 11;
+	public static int oButton12 = 12;
+	public static int oButton13 = 13;
 	
 	public Joystick Joystick1;
 	public Joystick Joystick2;
-	
-	public Button exampleCommand;
+
+	public JoystickButton trigger;
+	public JoystickButton button3;
 	
 	public OI() {
+		
 		Joystick1 = new Joystick(0);
 		Joystick2 = new Joystick(1);
 		
-		//exampleCommand = new JoystickButton(TankDrive1, RobotMap.trigger);
+		trigger = new JoystickButton(Joystick1, oTrigger);
+		button3 = new JoystickButton(Joystick1, oButton3);
 		
-		//exampleCommand.whenPressed(new ExampleCommand());
+		button3.whenPressed(new ChangeDirection());
+		trigger.whileHeld(new FondleCube());
 		
-		//System.out.println(TankDrive1.getX());
-	}
+	}	
+	
 }
