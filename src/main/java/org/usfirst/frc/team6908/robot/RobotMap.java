@@ -35,4 +35,7 @@ public class RobotMap {
 	public static WPI_TalonSRX frontRightT = new WPI_TalonSRX(2);
 	public static WPI_TalonSRX backLeftT = new WPI_TalonSRX(0);
 	public static WPI_TalonSRX backRightT = new WPI_TalonSRX(3);
+	
+	public static Spark leftRamp = new Spark(1);
+	public static Spark rightRamp = new Spark(0);
 }

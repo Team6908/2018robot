@@ -58,6 +58,8 @@ public class OI {
 	public Joystick Joystick2;
 	
 	public Button exampleCommand;
+	public Button LeftRampDeploy;
+	public Button RightRampDeploy;
 	
 	public OI() {
 		Joystick1 = new Joystick(0);
@@ -66,6 +68,14 @@ public class OI {
 		//exampleCommand = new JoystickButton(TankDrive1, RobotMap.trigger);
 		
 		//exampleCommand.whenPressed(new ExampleCommand());
+		
+		LeftRampDeploy = new JoystickButton(Joystick1, button11);
+		RightRampDeploy = new JoystickButton(Joystick1, button12);
+		
+		LeftRampDeploy.whileHeld(new RaiseLeftRamp());
+		LeftRampDeploy.whileHeld(new RaiseRightRamp());
+		
+		
 		
 		//System.out.println(TankDrive1.getX());
 	}

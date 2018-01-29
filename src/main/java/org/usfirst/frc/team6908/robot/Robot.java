@@ -12,6 +12,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import org.usfirst.frc.team6908.robot.commands.ExampleCommand;
 import org.usfirst.frc.team6908.robot.subsystems.DriveTrain;
 import org.usfirst.frc.team6908.robot.subsystems.ExampleSubsystem;
+import org.usfirst.frc.team6908.robot.subsystems.Ramp;
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -26,6 +27,8 @@ public class Robot extends IterativeRobot {
 	public static OI oi;
 	public static DriveTrain drivetrain = new DriveTrain();
 	public static CameraServer server;
+	public static Ramp leftramp = new Ramp(RobotMap.leftRamp);
+	public static Ramp rightramp = new Ramp(RobotMap.rightRamp);
 
 
 	Command autonomousCommand;

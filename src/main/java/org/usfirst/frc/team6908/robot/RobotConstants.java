@@ -8,4 +8,6 @@ public class RobotConstants {
 	public static final double minAxis = -1;
 	public static final double maxAxis = 1;
 	
+	public static final double kWinchSpeed = 1;
+	
 }
