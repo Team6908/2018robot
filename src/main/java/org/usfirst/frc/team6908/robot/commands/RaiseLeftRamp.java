@@ -7,35 +7,34 @@ import edu.wpi.first.wpilibj.command.Command;
 public class RaiseLeftRamp extends Command {
 
 	public RaiseLeftRamp() {
-		// Use requires() here to declare subsystem dependencies
+
 	}
 
-	// Called just before this Command runs the first time
+	//Nothing needs to happen here
 	@Override
 	protected void initialize() {
 		
 	}
 
-	// Called repeatedly when this Command is scheduled to run
+	//Turns on winch
 	@Override
 	protected void execute() {
 		Robot.leftramp.ReelInWinch();
 	}
 
-	// Make this return true when this Command no longer needs to run execute()
+	//Command does not finished unless interrupted
 	@Override
 	protected boolean isFinished() {
 		return false;
 	}
 
-	// Called once after isFinished returns true
+	//When the command is over, set the winch back to 0
 	@Override
 	protected void end() {
 		Robot.leftramp.StopReeling();
 	}
 
-	// Called when another command which requires one or more of the same
-	// subsystems is scheduled to run
+	//When the command is interrupted, end it
 	@Override
 	protected void interrupted() {
 		end();

@@ -65,18 +65,11 @@ public class OI {
 		Joystick1 = new Joystick(0);
 		Joystick2 = new Joystick(1);
 		
-		//exampleCommand = new JoystickButton(TankDrive1, RobotMap.trigger);
-		
-		//exampleCommand.whenPressed(new ExampleCommand());
-		
+		//Ramp deploy buttons
 		LeftRampDeploy = new JoystickButton(Joystick1, button11);
 		RightRampDeploy = new JoystickButton(Joystick1, button12);
-		
 		LeftRampDeploy.whileHeld(new RaiseLeftRamp());
 		LeftRampDeploy.whileHeld(new RaiseRightRamp());
 		
-		
-		
-		//System.out.println(TankDrive1.getX());
 	}
 }

@@ -9,20 +9,23 @@ public class Ramp extends Subsystem {
 
 	SpeedController winch;
 	
+	//Sets the local winch motor controller to the inputed controller object
 	public Ramp(SpeedController controller) {
 		winch = controller;
 	}
 	
+	//No default command
 	@Override
-	protected void initDefaultCommand() {
-		// TODO Auto-generated method stub
+	protected void initDefaultCommand() {\
 
 	}
 	
+	//Sets the motors speed to the speed defined in RobotConstants.java
 	public void ReelInWinch(){
 		winch.set(RobotConstants.kWinchSpeed);
 	}
 	
+	//Turns the motor off
 	public void StopReeling(){
 		winch.set(0.0);
 	}
