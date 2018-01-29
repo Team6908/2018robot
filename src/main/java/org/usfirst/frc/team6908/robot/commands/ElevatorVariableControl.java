@@ -22,9 +22,9 @@ public class ElevatorVariableControl extends Command {
 	// Called repeatedly when this Command is scheduled to run
 	@Override
 	protected void execute() {
-		double control = Robot.oi.Joystick2.getY();
-		SmartDashboard.putNumber("elevatorControl", control);
-		Robot.elevator.extend(control);
+		double control = Robot.oi.Joystick2.getY();//reading in y-axis of 2nd joystick
+		SmartDashboard.putNumber("elevatorControl", control);//outputting joystick values to dashboard
+		Robot.elevator.extend(control);//sending speed to elevator motor
 	}
 
 	// Make this return true when this Command no longer needs to run execute()
