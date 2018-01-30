@@ -4,6 +4,8 @@ import org.usfirst.frc.team6908.robot.*;
 import org.usfirst.frc.team6908.robot.commands.*;
 import org.usfirst.frc.team6908.robot.subsystems.*;
 
+import com.kauailabs.navx.frc.AHRS;
+
 import edu.wpi.first.wpilibj.ADXRS450_Gyro;
 import edu.wpi.first.wpilibj.Encoder;
 import edu.wpi.first.wpilibj.PIDController;
@@ -17,16 +19,18 @@ public class DriveTrain extends PIDSubsystem {
     
     SpeedControllerGroup rightMotors = new SpeedControllerGroup(RobotMap.frontRight, RobotMap.backRight);
     SpeedControllerGroup leftMotors = new SpeedControllerGroup(RobotMap.frontLeft, RobotMap.backLeft);
-    ADXRS450_Gyro gyro = RobotMap.gyro;
+    AHRS gyro = RobotMap.gyro;
     public Encoder rightEncoder = RobotMap.rightEncoder;
     public Encoder leftEncoder = RobotMap.leftEncoder;
-    public PIDController rightPID = new PIDController(0.035, 0.0, 0.0, rightEncoder, rightMotors);
-    public PIDController leftPID = new PIDController(0.035, 0.0, 0.0, leftEncoder, leftMotors);
+    public PIDController rightPID = new PIDController(0.030, 0.0, 0.0, rightEncoder, rightMotors);
+    public PIDController leftPID = new PIDController(0.045, 0.0, 0.0, leftEncoder, leftMotors);
     
     public DriveTrain() {
-       
-    	super("DriveTrain", 0.015, 0.0, 0.0);
+    	    	
+    	super("DriveTrain", 0.01, 0.0, 0.0);
     	
+    	gyro.reset();
+
     	getPIDController().setContinuous(false);
     	
     	rightMotors.setName("Right");

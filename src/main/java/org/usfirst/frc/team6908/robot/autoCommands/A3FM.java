@@ -32,10 +32,10 @@ public class A3FM extends CommandGroup {
 //    	addSequential(new TurnRobot(345));
 //    	addSequential(new TurnRobot(75));
     	addSequential(new AutoDrive(8));
-    	addSequential(new TurnRobot(45));
-    	addSequential(new AutoDrive(51));
-    	addSequential(new TurnRobot(-40));
-    	addSequential(new AutoDrive(24));
+    	addSequential(new TurnRobot(40));
+//    	addSequential(new AutoDrive(51));
+//    	addSequential(new TurnRobot(-40));
+//    	addSequential(new AutoDrive(24));
 
     }
 }
