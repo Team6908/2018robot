@@ -16,13 +16,17 @@ public class Ramp extends Subsystem {
 	
 	//No default command
 	@Override
-	protected void initDefaultCommand() {\
+	protected void initDefaultCommand() {
 
 	}
 	
 	//Sets the motors speed to the speed defined in RobotConstants.java
 	public void ReelInWinch(){
 		winch.set(RobotConstants.kWinchSpeed);
+	}
+	
+	public void ReelOutWinch() {
+		winch.set(-RobotConstants.kWinchSpeed);
 	}
 	
 	//Turns the motor off

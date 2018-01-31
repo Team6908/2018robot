@@ -10,6 +10,6 @@ public class RobotConstants {
 	public static final double maxAxis = 1;
 	
 	//Winch speed constant
-	public static final double kWinchSpeed = 1;
+	public static final double kWinchSpeed = .5;
 	
 }

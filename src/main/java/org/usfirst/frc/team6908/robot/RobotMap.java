@@ -1,7 +1,8 @@
 package org.usfirst.frc.team6908.robot;
 
-import edu.wpi.first.wpilibj.CameraServer;
-import edu.wpi.first.wpilibj.Spark;  
+import edu.wpi.first.wpilibj.CameraServer; 
+import edu.wpi.first.wpilibj.Spark;
+import edu.wpi.first.wpilibj.VictorSP;
 
 import com.ctre.phoenix.motorcontrol.can.TalonSRX;
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
@@ -14,11 +15,11 @@ import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 public class RobotMap {
 	//Drivetrain Motor Controllers
 	public static WPI_TalonSRX frontLeftT = new WPI_TalonSRX(1);
-	public static WPI_TalonSRX frontRightT = new WPI_TalonSRX(2);
 	public static WPI_TalonSRX backLeftT = new WPI_TalonSRX(0);
+	public static WPI_TalonSRX frontRightT = new WPI_TalonSRX(2);
 	public static WPI_TalonSRX backRightT = new WPI_TalonSRX(3);
 	
 	//Ramp Winch Motor Controllers
-	public static Spark leftRamp = new Spark(1);
-	public static Spark rightRamp = new Spark(0);
+	public static VictorSP leftRamp = new VictorSP(0);
+	public static Spark rightRamp = new Spark(1);
 }
