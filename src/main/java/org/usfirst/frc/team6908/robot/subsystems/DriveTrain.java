@@ -17,13 +17,13 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
  */
 public class DriveTrain extends PIDSubsystem {
     
-    SpeedControllerGroup rightMotors = new SpeedControllerGroup(RobotMap.frontRight, RobotMap.backRight);
-    SpeedControllerGroup leftMotors = new SpeedControllerGroup(RobotMap.frontLeft, RobotMap.backLeft);
+    public static SpeedControllerGroup rightMotors = new SpeedControllerGroup(RobotMap.frontRight, RobotMap.backRight);
+    public static SpeedControllerGroup leftMotors = new SpeedControllerGroup(RobotMap.frontLeft, RobotMap.backLeft);
     AHRS gyro = RobotMap.gyro;
-    public Encoder rightEncoder = RobotMap.rightEncoder;
-    public Encoder leftEncoder = RobotMap.leftEncoder;
-    public PIDController rightPID = new PIDController(0.030, 0.0, 0.0, rightEncoder, rightMotors);
-    public PIDController leftPID = new PIDController(0.045, 0.0, 0.0, leftEncoder, leftMotors);
+    public static Encoder rightEncoder = RobotMap.rightEncoder;
+    public static Encoder leftEncoder = RobotMap.leftEncoder;
+    public static PIDController rightPID = new PIDController(0.030, 0.0, 0.0, rightEncoder, rightMotors);
+    public static PIDController leftPID = new PIDController(0.045, 0.0, 0.0, leftEncoder, leftMotors);
     
     public DriveTrain() {
     	    	
@@ -41,7 +41,8 @@ public class DriveTrain extends PIDSubsystem {
     	SmartDashboard.putData(rightEncoder);
     	SmartDashboard.putData(rightMotors);
     	SmartDashboard.putData(leftMotors);
-
+    	SmartDashboard.putData(leftPID);
+    	SmartDashboard.putData(rightPID);
     	
     	gyro.setName("Gyro", "spin me");
     	
