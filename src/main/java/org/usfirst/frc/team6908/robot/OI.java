@@ -57,15 +57,15 @@ public class OI {
 	public Joystick Joystick1;
 	public Joystick Joystick2;
 	
-	public Button exampleCommand;
+	public Button drive;
 	
 	public OI() {
 		Joystick1 = new Joystick(0);
 		Joystick2 = new Joystick(1);
 		
-		//exampleCommand = new JoystickButton(TankDrive1, RobotMap.trigger);
+		drive = new JoystickButton(Joystick1, button8);
 		
-		//exampleCommand.whenPressed(new ExampleCommand());
+		drive.whileHeld(new DriveStraight());
 		
 		//System.out.println(TankDrive1.getX());
 	}

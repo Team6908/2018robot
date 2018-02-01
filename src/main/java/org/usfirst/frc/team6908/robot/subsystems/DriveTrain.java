@@ -19,19 +19,20 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 @SuppressWarnings("unused")
 public class DriveTrain extends Subsystem {
 
+
 	DummyOutput dumdum = new DummyOutput();
 	DeltaEncoders EncoderDrift = new DeltaEncoders();
 	Encoder encoder = RobotMap.leftEncoder;
 	
-	public PIDController DriftFix = new PIDController(0.0,0.0,0.0,EncoderDrift,dumdum);
+	public PIDController DriftFix = new PIDController(0.003,0.0,0.0,EncoderDrift,dumdum);
 	public PIDController EncodePID = new PIDController(0.0,0.0,0.0,encoder,dumdum);
 	
 	
 	@Override
 	protected void initDefaultCommand() {
 		setDefaultCommand(new ArcadeDrive());
-		RobotMap.frontLeftT.setInverted(true);
-		RobotMap.backLeftT.setInverted(true);
+		RobotMap.frontRightT.setInverted(true);
+		RobotMap.backRightT.setInverted(true);
 		
 		/*RobotMap.frontRight.setName("Drive Motors", "frontRight");
 		RobotMap.frontLeft.setName("Drive Motors", "frontLeft");
@@ -46,8 +47,8 @@ public class DriveTrain extends Subsystem {
 	}
 	
 	public void Drive (double throttle, double turn) {
-        setLeftMotors(throttle - turn);
-        setRightMotors(throttle + turn);
+        setLeftMotors(throttle + turn);
+        setRightMotors(throttle - turn);
 	}
 	
 	public void setLeftMotors (double speed) {
