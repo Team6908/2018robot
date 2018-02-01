@@ -26,9 +26,9 @@ public class Robot extends IterativeRobot {
 	public static final ExampleSubsystem exampleSubsystem = new ExampleSubsystem();
 	public static OI oi;
 	public static DriveTrain drivetrain = new DriveTrain();
-	public static CameraServer server;
-	public static Ramp leftramp = new Ramp(RobotMap.leftRamp);
-	public static Ramp rightramp = new Ramp(RobotMap.rightRamp);
+//	public static CameraServer server;
+	public static Ramp leftRamp = new Ramp(RobotMap.leftRamp);
+	public static Ramp rightRamp = new Ramp(RobotMap.rightRamp);
 
 
 	Command autonomousCommand;
@@ -44,8 +44,8 @@ public class Robot extends IterativeRobot {
 		chooser.addDefault("Default Auto", new ExampleCommand());
 		// chooser.addObject("My Auto", new MyAutoCommand());
 		SmartDashboard.putData("Auto mode", chooser);
-		CameraServer.getInstance().startAutomaticCapture("Front Camera", 0);
-		CameraServer.getInstance().startAutomaticCapture("Back Camera", 1);
+//		CameraServer.getInstance().startAutomaticCapture("Front Camera", 0);
+//		CameraServer.getInstance().startAutomaticCapture("Back Camera", 1);
 	}
 
 	/**

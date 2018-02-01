@@ -28,6 +28,10 @@ public class Ramp extends Subsystem {
 		winch.set(RobotConstants.kWinchSpeed);
 	}
 	
+	public void ReelOutWinch() {
+		winch.set(-RobotConstants.kWinchSpeed);
+	}
+	
 	//Turns the motor off
 	public void StopReeling(){
 		winch.set(0.0);

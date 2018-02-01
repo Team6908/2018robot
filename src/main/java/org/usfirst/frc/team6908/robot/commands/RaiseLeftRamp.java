@@ -7,6 +7,7 @@ import edu.wpi.first.wpilibj.command.Command;
 public class RaiseLeftRamp extends Command {
 
 	public RaiseLeftRamp() {
+		requires(Robot.leftRamp);
 
 	}
 
@@ -19,7 +20,7 @@ public class RaiseLeftRamp extends Command {
 	//Turns on winch
 	@Override
 	protected void execute() {
-		Robot.leftramp.ReelInWinch();
+		Robot.leftRamp.ReelInWinch();
 	}
 
 	//Command does not finished unless interrupted
@@ -31,7 +32,7 @@ public class RaiseLeftRamp extends Command {
 	//When the command is over, set the winch back to 0
 	@Override
 	protected void end() {
-		Robot.leftramp.StopReeling();
+		Robot.leftRamp.StopReeling();
 	}
 
 	//When the command is interrupted, end it
