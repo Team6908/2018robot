@@ -62,6 +62,9 @@ public class OI {
 	public OI() {
 		Joystick1 = new Joystick(0);
 		Joystick2 = new Joystick(1);
+		JoystickButton button3 = new JoystickButton(Joystick2, 3);
+		
+		button3.whenPressed(new StaticHeightControl(100));
 		
 	}
 }

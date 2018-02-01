@@ -14,11 +14,12 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 public class Elevator extends Subsystem {
 	
 	public Encoder elevatorEncoder = RobotMap.elevatorEncoder;
-	public PIDController ePID = new PIDController(0.035, 0.0, 0.0, elevatorEncoder, RobotMap.elevator);//assigning PID values to Elevator Motor
+	public PIDController ePID = new PIDController(0.5, 0.0, 0.0, elevatorEncoder, RobotMap.elevator);//assigning PID values to Elevator Motor
 	
     public void extend(double speed) {
     		RobotMap.elevator.set(speed);//elevator motor speed control function
     }
+    
     
     public void initDefaultCommand() {
     		setDefaultCommand(new ElevatorVariableControl());
