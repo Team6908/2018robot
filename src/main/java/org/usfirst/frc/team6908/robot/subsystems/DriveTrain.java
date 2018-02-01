@@ -22,12 +22,12 @@ public class DriveTrain extends PIDSubsystem {
     AHRS gyro = RobotMap.gyro;
     public static Encoder rightEncoder = RobotMap.rightEncoder;
     public static Encoder leftEncoder = RobotMap.leftEncoder;
-    public static PIDController rightPID = new PIDController(0.030, 0.0, 0.0, rightEncoder, rightMotors);
-    public static PIDController leftPID = new PIDController(0.045, 0.0, 0.0, leftEncoder, leftMotors);
+    public static PIDController rightPID = new PIDController(0.02, 0.0, 0.0, rightEncoder, rightMotors);
+    public static PIDController leftPID = new PIDController(0.02, 0.0, 0.0, leftEncoder, leftMotors);
     
     public DriveTrain() {
     	    	
-    	super("DriveTrain", 0.01, 0.0, 0.0);
+    	super("DriveTrain", 0.015, 0.0, 0.0);
     	
     	gyro.reset();
 
@@ -46,7 +46,7 @@ public class DriveTrain extends PIDSubsystem {
     	
     	gyro.setName("Gyro", "spin me");
     	
-        setAbsoluteTolerance(1);
+        setAbsoluteTolerance(2);
     }
     
     public void initDefaultCommand() {
@@ -70,7 +70,6 @@ public class DriveTrain extends PIDSubsystem {
     protected void usePIDOutput(double output) {
         // Use output to drive your system, like a motor
         // e.g. yourMotor.set(output)
-    	//output*=1;
         leftMotors.pidWrite(output);
         rightMotors.pidWrite(output);
     }

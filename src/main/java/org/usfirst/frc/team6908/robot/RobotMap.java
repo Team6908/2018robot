@@ -29,7 +29,7 @@ public class RobotMap {
 	public static WPI_TalonSRX backRight = new WPI_TalonSRX(0);
 	
 	public static AHRS gyro = new AHRS(Port.kMXP);
-	public static Encoder rightEncoder = new Encoder(0,1);
-	public static Encoder leftEncoder = new Encoder(2,3);
+	public static Encoder rightEncoder = new Encoder(2,3);
+	public static Encoder leftEncoder = new Encoder(0,1);
 	
 }

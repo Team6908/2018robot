@@ -17,14 +17,14 @@ public class AutoDrive extends Command {
     protected void initialize() {
    		Robot.drivetrain.leftEncoder.reset();
    		Robot.drivetrain.rightEncoder.reset();
-   		Robot.drivetrain.rightPID.setAbsoluteTolerance(1.5);
-   		Robot.drivetrain.leftPID.setAbsoluteTolerance(1.5);
+   		Robot.drivetrain.rightPID.setAbsoluteTolerance(2);
+   		Robot.drivetrain.leftPID.setAbsoluteTolerance(2);
 /*    	Robot.drivetrain.rightPID.setOutputRange(0.0,0.7);
         Robot.drivetrain.leftPID.setOutputRange(0.0,0.7);		*/
         Robot.drivetrain.rightPID.enable();
         Robot.drivetrain.leftPID.enable();
-        Robot.drivetrain.rightPID.setOutputRange(-0.7, 0.7);
-        Robot.drivetrain.leftPID.setOutputRange(-0.7, 0.7);
+        Robot.drivetrain.rightPID.setOutputRange(-0.6, 0.6);
+        Robot.drivetrain.leftPID.setOutputRange(-0.65, 0.65);
         Robot.drivetrain.rightPID.setSetpoint(-distance);
         Robot.drivetrain.leftPID.setSetpoint(distance);
     }
