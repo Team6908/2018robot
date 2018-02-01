@@ -1,6 +1,7 @@
 package org.usfirst.frc.team6908.robot;
 
 import edu.wpi.first.wpilibj.CameraServer;
+import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.Spark;  
 
 import com.ctre.phoenix.motorcontrol.can.TalonSRX;
@@ -21,4 +22,8 @@ public class RobotMap {
 	//Ramp Winch Motor Controllers
 	public static Spark leftRamp = new Spark(1);
 	public static Spark rightRamp = new Spark(0);
+	
+	//Ramp Limit Switches
+	public static DigitalInput LeftRampLimit = new DigitalInput(4);
+	public static DigitalInput RightRampLimit = new DigitalInput(5);
 }
