@@ -135,7 +135,6 @@ public class Robot extends IterativeRobot {
 	public void testPeriodic() {
 //		LiveWindow.disableAllTelemetry();
 		LiveWindow.setEnabled(true);
-		SmartDashboard.putData(DriveTrain.leftPID);
-		SmartDashboard.putData(DriveTrain.rightPID);
+		LiveWindow.add(RobotMap.leftEncoder);
 	}
 }
