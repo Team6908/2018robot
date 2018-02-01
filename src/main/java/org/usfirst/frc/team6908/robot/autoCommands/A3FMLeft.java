@@ -27,8 +27,10 @@ public class A3FMLeft extends CommandGroup {
         // e.g. if Command1 requires chassis, and Command2 requires arm,
         // a CommandGroup containing them would require both the chassis and the
         // arm.
-    		addSequential(new BaselineDrive());
-    		addSequential(new TurnRobot(90));
-    		addSequential(new AutoDrive(36));
+		addSequential(new AutoDrive(8));
+    	addSequential(new TurnRobot(-35));
+    	addSequential(new AutoDrive(59));
+    	addSequential(new TurnRobot(35));
+    	addSequential(new AutoDrive(20));
     }
 }

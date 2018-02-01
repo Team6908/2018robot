@@ -38,6 +38,7 @@ public class Robot extends IterativeRobot {
 	 */
 	@Override
 	public void robotInit() {
+		gameData = DriverStation.getInstance().getGameSpecificMessage();
 		oi = new OI();
 		chooser.addDefault("Default Auto", new ExampleCommand());
 		chooser.addObject("A3FM", new A3FM());
@@ -45,7 +46,7 @@ public class Robot extends IterativeRobot {
 //		CameraServer.getInstance().startAutomaticCapture();
 		// chooser.addObject("My Auto", new MyAutoCommand());
 		SmartDashboard.putData("Auto mode", chooser);
-//		gameData = DriverStation.getInstance().getGameSpecificMessage();
+		SmartDashboard.putString("Game Data", gameData);
 //		System.out.println("Write the Direction");
 //		gameData = scan.next();
 //        if(gameData.charAt(0) == 'L')
@@ -86,6 +87,24 @@ public class Robot extends IterativeRobot {
 	public void autonomousInit() {
 		autonomousCommand = chooser.getSelected();
 		
+		if(chooser.getSelected().equals(new A3FM())) {
+			switch(gameData.charAt(0)) {
+			case 'L':
+				autonomousCommand = new A3FMLeft();
+				break;
+			case 'R':
+				autonomousCommand = new A3FMRight();
+				break;
+			}
+		}
+		else if(chooser.getSelected().equals(new A3FM())) {
+			switch(gameData.charAt(0)) {
+			
+			}
+		}
+		else if(chooser.getSelected().equals(new A3FM())) {
+			
+		}
 		/*
 		 * String autoSelected = SmartDashboard.getString("Auto Selector",
 		 * "Default"); switch(autoSelected) { case "My Auto": autonomousCommand
