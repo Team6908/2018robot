@@ -23,9 +23,9 @@ public class AutoDrive extends Command {
         Robot.drivetrain.leftPID.setOutputRange(0.0,0.7);		*/
         Robot.drivetrain.rightPID.enable();
         Robot.drivetrain.leftPID.enable();
-        Robot.drivetrain.rightPID.setOutputRange(-0.6, 0.6);
-        Robot.drivetrain.leftPID.setOutputRange(-0.65, 0.65);
-        Robot.drivetrain.rightPID.setSetpoint(-distance);
+        Robot.drivetrain.rightPID.setOutputRange(-0.61, 0.61);
+        Robot.drivetrain.leftPID.setOutputRange(-0.6, 0.6);
+        Robot.drivetrain.rightPID.setSetpoint(-distance-4);
         Robot.drivetrain.leftPID.setSetpoint(distance);
     }
 

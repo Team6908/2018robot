@@ -42,6 +42,7 @@ public class Robot extends IterativeRobot {
 		oi = new OI();
 		chooser.addDefault("Default Auto", new ExampleCommand());
 		chooser.addObject("A3FM", new A3FM());
+		chooser.addObject("ASFRRight", new ASFRRight());
 		chooser.addObject("Baseline", new BaselineDrive());
 //		CameraServer.getInstance().startAutomaticCapture();
 		// chooser.addObject("My Auto", new MyAutoCommand());
@@ -87,24 +88,31 @@ public class Robot extends IterativeRobot {
 	public void autonomousInit() {
 		autonomousCommand = chooser.getSelected();
 		
-		if(chooser.getSelected().equals(new A3FM())) {
-			switch(gameData.charAt(0)) {
-			case 'L':
-				autonomousCommand = new A3FMLeft();
-				break;
-			case 'R':
-				autonomousCommand = new A3FMRight();
-				break;
-			}
-		}
-		else if(chooser.getSelected().equals(new A3FM())) {
-			switch(gameData.charAt(0)) {
-			
-			}
-		}
-		else if(chooser.getSelected().equals(new A3FM())) {
-			
-		}
+//		if(chooser.getSelected().equals(new A3FM())) {
+//			switch(gameData.charAt(0)) {
+//			case 'L':
+//				autonomousCommand = new A3FMLeft();
+//				break;
+//			case 'R':
+//				autonomousCommand = new A3FMRight();
+//				break;
+//			}
+//		}
+//		if(chooser.getSelected().equals(new ASFR())) {
+//			switch(gameData.charAt(0)) {
+//			case 'L':
+//				autonomousCommand = new ASFRLeft();
+//				break;
+//			case 'R':
+//				autonomousCommand = new ASFRRight();
+//				break;
+//			default:
+//				
+//			}
+//		}
+//		else if(chooser.getSelected().equals(new A3FM())) {
+//			
+//		}
 		/*
 		 * String autoSelected = SmartDashboard.getString("Auto Selector",
 		 * "Default"); switch(autoSelected) { case "My Auto": autonomousCommand

@@ -24,7 +24,7 @@ public class DriveTrain extends PIDSubsystem {
     
     public DriveTrain() {
     	    	
-    	super("DriveTrain", 0.015, 0.0, 0.0);
+    	super("DriveTrain", 0.02, 0.0, 0.0);
     	
     	gyro.reset();
 
