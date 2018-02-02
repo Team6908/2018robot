@@ -41,8 +41,9 @@ public class Robot extends IterativeRobot {
 		gameData = DriverStation.getInstance().getGameSpecificMessage();
 		oi = new OI();
 		chooser.addDefault("Default Auto", new ExampleCommand());
-		chooser.addObject("A3FM", new A3FM());
-		chooser.addObject("ASFRRight", new ASFRRight());
+		chooser.addObject("A3FM", new A3FM(gameData));
+		chooser.addObject("ASFRRight", new ASFR(gameData));
+		chooser.addObject("ASFRRight", new ASFL(gameData));
 		chooser.addObject("Baseline", new BaselineDrive());
 //		CameraServer.getInstance().startAutomaticCapture();
 		// chooser.addObject("My Auto", new MyAutoCommand());
