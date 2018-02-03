@@ -1,6 +1,7 @@
 package org.usfirst.frc.team6908.robot.subsystems;
 
 import org.usfirst.frc.team6908.robot.*;
+import org.usfirst.frc.team6908.robot.commands.ArcadeDrive;
 
 import com.ctre.phoenix.motorcontrol.ControlMode;
 
@@ -25,25 +26,7 @@ public class DriveTrain extends PIDSubsystem {
     public static Encoder leftEncoder = RobotMap.leftEncoder;
     public static PIDController rightPID = new PIDController(0.02, 0.0, 0.0, rightEncoder, rightMotors);
     public static PIDController leftPID = new PIDController(0.02, 0.0, 0.0, leftEncoder, leftMotors);
-    
-    @Override
-	protected void initDefaultCommand() {
-		setDefaultCommand(new ArcadeDrive());
-//		RobotMap.frontLeftT.setInverted(true);
-//		RobotMap.backLeftT.setInverted(true);
-		
-		/*RobotMap.frontRight.setName("Drive Motors", "frontRight");
-		RobotMap.frontLeft.setName("Drive Motors", "frontLeft");
-		RobotMap.backRight.setName("Drive Motors", "backRight");
-		RobotMap.backLeft.setName("Drive Motors", "backLeft");
-		
-		LiveWindow.add(RobotMap.frontRight);
-		LiveWindow.add(RobotMap.frontLeft);
-		LiveWindow.add(RobotMap.backRight);
-		LiveWindow.add(RobotMap.backLeft);*/
-		
-	}
-    
+        
     public DriveTrain() {
     	    	
     	super("DriveTrain", 0.02, 0.0, 0.0);
@@ -68,11 +51,24 @@ public class DriveTrain extends PIDSubsystem {
         setAbsoluteTolerance(2);
     }
     
-    public void initDefaultCommand() {
+    @Override
+	protected void initDefaultCommand() {
+		setDefaultCommand(new ArcadeDrive());
+//		RobotMap.frontLeftT.setInverted(true);
+//		RobotMap.backLeftT.setInverted(true);
+		
+		/*RobotMap.frontRight.setName("Drive Motors", "frontRight");
+		RobotMap.frontLeft.setName("Drive Motors", "frontLeft");
+		RobotMap.backRight.setName("Drive Motors", "backRight");
+		RobotMap.backLeft.setName("Drive Motors", "backLeft");
+		
+		LiveWindow.add(RobotMap.frontRight);
+		LiveWindow.add(RobotMap.frontLeft);
+		LiveWindow.add(RobotMap.backRight);
+		LiveWindow.add(RobotMap.backLeft);*/
+		
+	}
     
-        // Set the default command for a subsystem here. 
-        //setDefaultCommand(new MySpecialCommand());  
-    }
     public double getGyroAngle(){
         return gyro.getAngle();
     }
@@ -94,14 +90,14 @@ public class DriveTrain extends PIDSubsystem {
     }
     
     public void setLeftMotors (double speed) {
-		RobotMap.frontLeftT.set(speed);
-		RobotMap.backLeftT.set(speed); 
+		RobotMap.frontLeft.set(speed);
+		RobotMap.backLeft.set(speed); 
 		SmartDashboard.putNumber("speed", speed);
 	}
 	
 	public void setRightMotors (double speed) {
-		RobotMap.frontRightT.set(speed);
-		RobotMap.backRightT.set(speed);
+		RobotMap.frontRight.set(speed);
+		RobotMap.backRight.set(speed);
 	}
     
 }
