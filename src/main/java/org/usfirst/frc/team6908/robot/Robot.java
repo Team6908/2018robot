@@ -26,6 +26,8 @@ public class Robot extends IterativeRobot {
 	public static final ExampleSubsystem exampleSubsystem = new ExampleSubsystem();
 	public static OI oi;
 	public static DriveTrain drivetrain = new DriveTrain();
+	public static CameraServer server;
+	public static Fondle fondle = new Fondle();
 	private static String gameData;
 //	private static Scanner scan = new Scanner(System.in);
 
@@ -45,6 +47,11 @@ public class Robot extends IterativeRobot {
 		chooser.addObject("ASFR", new ASFR(gameData));
 		chooser.addObject("ASFL", new ASFL(gameData));
 		chooser.addObject("Baseline", new BaselineDrive());
+		
+		CameraServer.getInstance().startAutomaticCapture();
+		CameraServer.getInstance().startAutomaticCapture("Front Camera", 0);
+		CameraServer.getInstance().startAutomaticCapture("Back Camera", 1);
+		
 //		CameraServer.getInstance().startAutomaticCapture();
 		// chooser.addObject("My Auto", new MyAutoCommand());
 		SmartDashboard.putData("Auto mode", chooser);
