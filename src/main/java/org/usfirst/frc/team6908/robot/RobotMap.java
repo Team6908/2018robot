@@ -1,13 +1,11 @@
 package org.usfirst.frc.team6908.robot;
 
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
-
+import com.kauailabs.navx.frc.AHRS;
 import edu.wpi.first.wpilibj.Encoder;
 import edu.wpi.first.wpilibj.SPI.Port;
-import edu.wpi.first.wpilibj.CameraServer;
-import edu.wpi.first.wpilibj.Spark;  
+import edu.wpi.first.wpilibj.Spark;
 
-//import com.kauailabs.navx.frc.AHRS;
 /**
  * The RobotMap is a mapping from the ports sensors and actuators are wired into
  * to a variable name. This provides flexibility changing wiring, makes checking
@@ -24,12 +22,17 @@ public class RobotMap {
 	// number and the module. For example you with a rangefinder:
 	// public static int rangefinderPort = 1;
 	// public static int rangefinderModule = 1;	
-
-	public static WPI_TalonSRX frontLeftT = new WPI_TalonSRX(1);
-	public static WPI_TalonSRX frontRightT = new WPI_TalonSRX(2);
-	public static WPI_TalonSRX backLeftT = new WPI_TalonSRX(0);
-	public static WPI_TalonSRX backRightT = new WPI_TalonSRX(3);
-
+	
+	public static WPI_TalonSRX frontLeft = new WPI_TalonSRX(2);
+	public static WPI_TalonSRX frontRight = new WPI_TalonSRX(1);
+	public static WPI_TalonSRX backLeft = new WPI_TalonSRX(3);
+	public static WPI_TalonSRX backRight = new WPI_TalonSRX(0);
+	
+	public static AHRS gyro = new AHRS(Port.kMXP);
+	public static Encoder rightEncoder = new Encoder(2,3);
+	public static Encoder leftEncoder = new Encoder(0,1);
+	
 	public static Spark leftFlywheel = new Spark(0);
 	public static Spark rightFlywheel = new Spark(1);
+	
 }

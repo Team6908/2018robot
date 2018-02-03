@@ -1,46 +1,74 @@
 package org.usfirst.frc.team6908.robot.subsystems;
 
-import org.usfirst.frc.team6908.robot.RobotMap;
-
+import org.usfirst.frc.team6908.robot.*;
 import org.usfirst.frc.team6908.robot.commands.ArcadeDrive;
-import org.usfirst.frc.team6908.robot.commands.TankDrive;
-
-import com.ctre.phoenix.motorcontrol.ControlMode;
 
 import edu.wpi.first.wpilibj.command.Subsystem;
-import edu.wpi.first.wpilibj.livewindow.LiveWindow;
+import com.kauailabs.navx.frc.AHRS;
+
+import edu.wpi.first.wpilibj.Encoder;
+import edu.wpi.first.wpilibj.PIDController;
+import edu.wpi.first.wpilibj.SpeedControllerGroup;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
-@SuppressWarnings("unused")
+/**
+ *
+ */
 public class DriveTrain extends Subsystem {
-
-	@Override
-	protected void initDefaultCommand() {
-		setDefaultCommand(new ArcadeDrive());
-		RobotMap.frontLeftT.setInverted(true);
-		RobotMap.backLeftT.setInverted(true);
-		
-		/*RobotMap.frontRight.setName("Drive Motors", "frontRight");
-		RobotMap.frontLeft.setName("Drive Motors", "frontLeft");
-		RobotMap.backRight.setName("Drive Motors", "backRight");
-		RobotMap.backLeft.setName("Drive Motors", "backLeft");
-		
-		LiveWindow.add(RobotMap.frontRight);
-		LiveWindow.add(RobotMap.frontLeft);
-		LiveWindow.add(RobotMap.backRight);
-		LiveWindow.add(RobotMap.backLeft);*/
-		
-	}
+    
+	double leftMtr, rightMtr;
 	
+    public static SpeedControllerGroup rightMotors = new SpeedControllerGroup(RobotMap.frontRight, RobotMap.backRight);
+    public static SpeedControllerGroup leftMotors = new SpeedControllerGroup(RobotMap.frontLeft, RobotMap.backLeft);
+    public static SpeedControllerGroup allMotors = new SpeedControllerGroup(RobotMap.frontLeft, RobotMap.backLeft, RobotMap.frontRight, RobotMap.backRight);
+    public static AHRS gyro = RobotMap.gyro;
+    public static Encoder rightEncoder = RobotMap.rightEncoder;
+    public static Encoder leftEncoder = RobotMap.leftEncoder;
+    public static PIDController rightPID = new PIDController(0.02, 0.0, 0.0, rightEncoder, rightMotors);
+    public static PIDController leftPID = new PIDController(0.02, 0.0, 0.0, leftEncoder, leftMotors);
+    public static PIDController gyroPID = new PIDController(0.02,0.0,0.0,gyro,allMotors);
+    
+    public DriveTrain() {
+    	gyro.reset();
+    	
+    	rightMotors.setName("Right");
+    	leftMotors.setName("Left");
+    	
+    	SmartDashboard.putData(gyro);
+    	SmartDashboard.putData(leftEncoder);
+    	SmartDashboard.putData(rightEncoder);
+    	SmartDashboard.putData(rightMotors);
+    	SmartDashboard.putData(leftMotors);
+    	SmartDashboard.putData(leftPID);
+    	SmartDashboard.putData(rightPID);
+    	
+    	gyro.setName("Gyro", "spin me");
+    	
+    }
+    
+    public void initDefaultCommand() {
+    	setDefaultCommand(new ArcadeDrive());
+//		RobotMap.frontLeftT.setInverted(true);
+//		RobotMap.backLeftT.setInverted(true);
+    }
+    
 	public void setLeftMotors (double speed) {
-		RobotMap.frontLeftT.set(speed);
-		RobotMap.backLeftT.set(speed); 
-		SmartDashboard.putNumber("speed", speed);
+		RobotMap.frontLeft.set(speed);
+		RobotMap.backLeft.set(speed);
 	}
 	
 	public void setRightMotors (double speed) {
-		RobotMap.frontRightT.set(speed);
-		RobotMap.backRightT.set(speed);
+		RobotMap.frontRight.set(speed);
+		RobotMap.backRight.set(speed);
 	}
-
+	
+	public void Drive(double throttle, double turn) {
+		//Converts throttle and turn values into left and right tank drive values
+		leftMtr = throttle - turn;
+        rightMtr = throttle + turn;
+        //Sets values to motors
+        Robot.drivetrain.setLeftMotors(leftMtr);
+        Robot.drivetrain.setRightMotors(rightMtr);
+	
+    }
 }

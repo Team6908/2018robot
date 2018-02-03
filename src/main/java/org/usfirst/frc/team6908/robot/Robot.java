@@ -1,13 +1,16 @@
 package org.usfirst.frc.team6908.robot;
 
 import edu.wpi.first.wpilibj.CameraServer;
+import edu.wpi.first.wpilibj.DriverStation;
 import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+import java.util.Scanner;
 
+import org.usfirst.frc.team6908.robot.autoCommands.*;
 import org.usfirst.frc.team6908.robot.commands.*;
 import org.usfirst.frc.team6908.robot.subsystems.*;
 
@@ -23,8 +26,11 @@ public class Robot extends IterativeRobot {
 	public static final ExampleSubsystem exampleSubsystem = new ExampleSubsystem();
 	public static OI oi;
 	public static DriveTrain drivetrain = new DriveTrain();
+	private static String gameData;
 	public static CameraServer server;
 	public static Fondle fondle = new Fondle();
+
+//	private static Scanner scan = new Scanner(System.in);
 
 	Command autonomousCommand;
 	SendableChooser<Command> chooser = new SendableChooser<>();
@@ -35,11 +41,25 @@ public class Robot extends IterativeRobot {
 	 */
 	@Override
 	public void robotInit() {
+		gameData = DriverStation.getInstance().getGameSpecificMessage();
 		oi = new OI();
 		chooser.addDefault("Default Auto", new ExampleCommand());
-		CameraServer.getInstance().startAutomaticCapture();
+		chooser.addObject("A3FM", new A3FM(gameData));
+		chooser.addObject("ASFR", new ASFR(gameData));
+		chooser.addObject("ASFL", new ASFL(gameData));
+		chooser.addObject("Baseline", new BaselineDrive());
+//		CameraServer.getInstance().startAutomaticCapture();
 		// chooser.addObject("My Auto", new MyAutoCommand());
 		SmartDashboard.putData("Auto mode", chooser);
+		SmartDashboard.putString("Game Data", gameData);
+//		System.out.println("Write the Direction");
+//		gameData = scan.next();
+//        if(gameData.charAt(0) == 'L')
+//        {
+//            new A3FMLeft();
+//        } else {
+//            new A3FMRight();
+//        }
 		CameraServer.getInstance().startAutomaticCapture("Front Camera", 0);
 		CameraServer.getInstance().startAutomaticCapture("Back Camera", 1);
 	}
@@ -74,6 +94,31 @@ public class Robot extends IterativeRobot {
 	public void autonomousInit() {
 		autonomousCommand = chooser.getSelected();
 		
+//		if(chooser.getSelected().equals(new A3FM())) {
+//			switch(gameData.charAt(0)) {
+//			case 'L':
+//				autonomousCommand = new A3FMLeft();
+//				break;
+//			case 'R':
+//				autonomousCommand = new A3FMRight();
+//				break;
+//			}
+//		}
+//		if(chooser.getSelected().equals(new ASFR())) {
+//			switch(gameData.charAt(0)) {
+//			case 'L':
+//				autonomousCommand = new ASFRLeft();
+//				break;
+//			case 'R':
+//				autonomousCommand = new ASFRRight();
+//				break;
+//			default:
+//				
+//			}
+//		}
+//		else if(chooser.getSelected().equals(new A3FM())) {
+//			
+//		}
 		/*
 		 * String autoSelected = SmartDashboard.getString("Auto Selector",
 		 * "Default"); switch(autoSelected) { case "My Auto": autonomousCommand
@@ -92,6 +137,10 @@ public class Robot extends IterativeRobot {
 	@Override
 	public void autonomousPeriodic() {
 		Scheduler.getInstance().run();
+        SmartDashboard.putNumber("Guyro Fieri", DriveTrain.gyro.getAngle());
+    		SmartDashboard.putNumber("Left Distance", RobotMap.leftEncoder.getDistance());
+    		SmartDashboard.putNumber("Right Distance", RobotMap.rightEncoder.getDistance());
+
 	}
 
 	@Override
@@ -117,6 +166,8 @@ public class Robot extends IterativeRobot {
 	 */
 	@Override
 	public void testPeriodic() {
+//		LiveWindow.disableAllTelemetry();
 		LiveWindow.setEnabled(true);
+		LiveWindow.add(RobotMap.leftEncoder);
 	}
 }
