@@ -4,6 +4,7 @@ import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 import org.usfirst.frc.team6908.robot.Robot;
+import org.usfirst.frc.team6908.robot.RobotMap;
 
 /**
  *
@@ -25,6 +26,7 @@ public class ElevatorVariableControl extends Command {
 		double control = Robot.oi.Joystick2.getY();//reading in y-axis of 2nd joystick
 		SmartDashboard.putNumber("elevatorControl", control);//outputting joystick values to dashboard
 		Robot.elevator.extend(control/2);//sending speed to elevator motor
+		SmartDashboard.putNumber("Encoder", RobotMap.elevatorEncoder.getDistance());
 	}
 
 	// Make this return true when this Command no longer needs to run execute()

@@ -38,7 +38,7 @@ public class RobotMap {
 	public static WPI_TalonSRX backLeftT = new WPI_TalonSRX(0);
 	public static WPI_TalonSRX backRightT = new WPI_TalonSRX(3);
 	
-	public static VictorSP elevator = new VictorSP(2);
+	public static VictorSP elevator = new VictorSP(5);
 	public static DigitalInput hallEffect = new DigitalInput(1);
 	
 	public static Encoder elevatorEncoder = new Encoder(4,5);

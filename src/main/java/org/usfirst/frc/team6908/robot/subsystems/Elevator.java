@@ -19,10 +19,10 @@ public class Elevator extends Subsystem {
     public void extend(double speed) {
     		RobotMap.elevator.set(speed);//elevator motor speed control function
     }
-    
+   
     
     public void initDefaultCommand() {
     		setDefaultCommand(new ElevatorVariableControl());
-    }
+    }	
 }
 
