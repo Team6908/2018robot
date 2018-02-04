@@ -17,8 +17,8 @@ public class DriveTrain extends Subsystem {
 	@Override
 	protected void initDefaultCommand() {
 		setDefaultCommand(new ArcadeDrive());
-		RobotMap.frontLeftT.setInverted(true);
-		RobotMap.backLeftT.setInverted(true);
+		RobotMap.frontRightT.setInverted(true);
+		RobotMap.backRightT.setInverted(true);
 		
 		/*RobotMap.frontRight.setName("Drive Motors", "frontRight");
 		RobotMap.frontLeft.setName("Drive Motors", "frontLeft");

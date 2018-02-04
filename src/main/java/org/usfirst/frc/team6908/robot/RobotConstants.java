@@ -8,8 +8,8 @@ public class RobotConstants {
 	public static final double highRangeThrottle = 1;
 	public static final double minAxis = -1;
 	public static final double maxAxis = 1;
-	public static final double minFlywheelThrottle = -1;//Speed for outwards push
-	public static final double maxFlywheelThrottle = 1;//Speed for inwards pull
+	public static final double minFlywheelThrottle = -0.5;//Speed for outwards push
+	public static final double maxFlywheelThrottle = 0.5;//Speed for inwards pull
 	public static boolean fondleVector = true;
 	
 }
