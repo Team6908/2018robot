@@ -61,6 +61,8 @@ public class OI {
 	public Button LeftRampDeploy;
 	public Button LeftRampLower;
 	
+	public Button deployRamp;
+	
 	public OI() {
 		Joystick1 = new Joystick(0);
 		Joystick2 = new Joystick(1);
@@ -71,5 +73,6 @@ public class OI {
 		LeftRampDeploy.whileHeld(new RaiseLeftRamp());
 		LeftRampLower.whileHeld(new LowerLeftRamp());
 		
+		deployRamp.whenPressed(new DeployRamp());		
 	}
 }

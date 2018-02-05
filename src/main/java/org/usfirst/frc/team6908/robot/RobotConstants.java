@@ -12,4 +12,7 @@ public class RobotConstants {
 	//Winch speed constant
 	public static final double kWinchSpeed = .5;
 	
+	//Ramp Drop motor speed constant
+	public static final double holdRamps = .3; //THIS VALUE NEEDS TO BE TESTED
+	
 }

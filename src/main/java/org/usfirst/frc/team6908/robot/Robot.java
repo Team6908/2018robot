@@ -3,6 +3,7 @@ package org.usfirst.frc.team6908.robot;
 
 import edu.wpi.first.wpilibj.CameraServer;
 import edu.wpi.first.wpilibj.IterativeRobot;
+import edu.wpi.first.wpilibj.VictorSP;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
@@ -13,6 +14,7 @@ import org.usfirst.frc.team6908.robot.commands.ExampleCommand;
 import org.usfirst.frc.team6908.robot.subsystems.DriveTrain;
 import org.usfirst.frc.team6908.robot.subsystems.ExampleSubsystem;
 import org.usfirst.frc.team6908.robot.subsystems.Ramp;
+import org.usfirst.frc.team6908.robot.subsystems.RampDrop;
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -29,7 +31,8 @@ public class Robot extends IterativeRobot {
 //	public static CameraServer server;
 	public static Ramp leftRamp = new Ramp(RobotMap.leftRamp);
 	public static Ramp rightRamp = new Ramp(RobotMap.rightRamp);
-
+	
+	public static RampDrop rampDrop = new RampDrop(RobotMap.rampDropController, 0.0);
 
 	Command autonomousCommand;
 	SendableChooser<Command> chooser = new SendableChooser<>();
@@ -46,6 +49,7 @@ public class Robot extends IterativeRobot {
 		SmartDashboard.putData("Auto mode", chooser);
 //		CameraServer.getInstance().startAutomaticCapture("Front Camera", 0);
 //		CameraServer.getInstance().startAutomaticCapture("Back Camera", 1);
+		rampDrop.start(RobotConstants.holdRamps);
 	}
 
 	/**

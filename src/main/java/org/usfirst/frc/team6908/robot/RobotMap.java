@@ -24,6 +24,9 @@ public class RobotMap {
 	public static VictorSP leftRamp = new VictorSP(0);
 	public static Spark rightRamp = new Spark(1);
 	
+	//Ramp Drop Motor Controllers
+	public static VictorSP rampDropController = new VictorSP(1);
+	
 	//Ramp Limit Switches
 	public static DigitalInput LeftRampLimit = new DigitalInput(4);
 	public static DigitalInput RightRampLimit = new DigitalInput(5);
