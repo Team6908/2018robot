@@ -26,7 +26,7 @@ public class RaiseLeftRamp extends Command {
 	//Command does not finished unless interrupted
 	@Override
 	protected boolean isFinished() {
-		return Robot.leftramp.isUp();
+		return Robot.leftRamp.isUp();
 	}
 
 	//When the command is over, set the winch back to 0
