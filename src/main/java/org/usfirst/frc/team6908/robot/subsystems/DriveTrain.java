@@ -50,18 +50,6 @@ public class DriveTrain extends PIDSubsystem {
     @Override
 	protected void initDefaultCommand() {
 		setDefaultCommand(new ArcadeDrive());
-//		RobotMap.frontLeftT.setInverted(true);
-//		RobotMap.backLeftT.setInverted(true);
-		
-		/*RobotMap.frontRight.setName("Drive Motors", "frontRight");
-		RobotMap.frontLeft.setName("Drive Motors", "frontLeft");
-		RobotMap.backRight.setName("Drive Motors", "backRight");
-		RobotMap.backLeft.setName("Drive Motors", "backLeft");
-		
-		LiveWindow.add(RobotMap.frontRight);
-		LiveWindow.add(RobotMap.frontLeft);
-		LiveWindow.add(RobotMap.backRight);
-		LiveWindow.add(RobotMap.backLeft);*/
 		
 	}
     

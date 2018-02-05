@@ -118,6 +118,8 @@ public class Robot extends IterativeRobot {
 		// this line or comment it out.
 		if (autoCommand != null)
 			autoCommand.cancel();
+		RobotMap.frontRight.setInverted(true);
+		RobotMap.backRight.setInverted(true);
 	}
 
 	/**
