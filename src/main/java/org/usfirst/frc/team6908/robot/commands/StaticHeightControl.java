@@ -3,6 +3,7 @@ package org.usfirst.frc.team6908.robot.commands;
 import edu.wpi.first.wpilibj.command.Command;
 
 import org.usfirst.frc.team6908.robot.Robot;
+import org.usfirst.frc.team6908.robot.RobotMap;
 
 
 public class StaticHeightControl extends Command {
@@ -33,7 +34,7 @@ public class StaticHeightControl extends Command {
 	// Make this return true when this Command no longer needs to run execute()
 	@Override
 	protected boolean isFinished() {
-		if(Robot.elevator.ePID.onTarget()) {
+		if(Robot.elevator.ePID.onTarget() || (Robot.elevator.ePID.get() < 0 && Robot.elevator.isAtBottom())) {
 			return true;
 		}else {
 			return false;

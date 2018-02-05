@@ -39,7 +39,7 @@ public class ElevatorVariableControl extends Command {
 	// Make this return true when this Command no longer needs to run execute()
 	@Override
 	protected boolean isFinished() {
-		if(Robot.oi.Joystick2.getY() > 0.1 && Robot.oi.Joystick2.getY() < .1) {
+		if((Robot.oi.Joystick2.getY() > 0.1 && Robot.oi.Joystick2.getY() < .1) || (Robot.elevator.ePID.get() < 0 && Robot.elevator.isAtBottom())) {
 			return true;
 		}
 		return false;
