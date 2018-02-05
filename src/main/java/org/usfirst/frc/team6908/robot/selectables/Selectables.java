@@ -1,7 +1,6 @@
-package org.usfirst.frc.team6908.robot.autoCommands;
+package org.usfirst.frc.team6908.robot.selectables;
 
 import edu.wpi.first.wpilibj.command.Command;
-import org.usfirst.frc.team6908.robot.autoCommands.*;
 
 public class Selectables extends Command {
 

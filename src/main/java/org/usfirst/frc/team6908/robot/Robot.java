@@ -8,11 +8,11 @@ import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
-import java.util.Scanner;
 
 import org.usfirst.frc.team6908.robot.autoCommands.*;
 import org.usfirst.frc.team6908.robot.commands.*;
 import org.usfirst.frc.team6908.robot.subsystems.*;
+import org.usfirst.frc.team6908.robot.selectables.*;
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -23,15 +23,15 @@ import org.usfirst.frc.team6908.robot.subsystems.*;
  */
 public class Robot extends IterativeRobot {
 	
-	public static final ExampleSubsystem exampleSubsystem = new ExampleSubsystem();
+	public static ExampleSubsystem exampleSubsystem = new ExampleSubsystem();
 	public static OI oi;
 	public static DriveTrain drivetrain = new DriveTrain();
 	public static CameraServer server;
 	public static Fondle fondle = new Fondle();
-	private static String gameData;
+	public static String gameData;
 //	private static Scanner scan = new Scanner(System.in);
 
-	Command autonomousCommand;
+	Command autoCommand;
 	SendableChooser<Command> chooser = new SendableChooser<>();
 
 	/**
@@ -52,18 +52,8 @@ public class Robot extends IterativeRobot {
 		CameraServer.getInstance().startAutomaticCapture("Front Camera", 0);
 		CameraServer.getInstance().startAutomaticCapture("Back Camera", 1);
 		
-//		CameraServer.getInstance().startAutomaticCapture();
-		// chooser.addObject("My Auto", new MyAutoCommand());
 		SmartDashboard.putData("Auto mode", chooser);
 		SmartDashboard.putString("Game Data", gameData);
-//		System.out.println("Write the Direction");
-//		gameData = scan.next();
-//        if(gameData.charAt(0) == 'L')
-//        {
-//            new A3FMLeft();
-//        } else {
-//            new A3FMRight();
-//        }
 	}
 
 	/**
@@ -94,33 +84,8 @@ public class Robot extends IterativeRobot {
 	 */
 	@Override
 	public void autonomousInit() {
-		autonomousCommand = chooser.getSelected();
+		autoCommand = chooser.getSelected();
 		
-//		if(chooser.getSelected().equals(new A3FM())) {
-//			switch(gameData.charAt(0)) {
-//			case 'L':
-//				autonomousCommand = new A3FMLeft();
-//				break;
-//			case 'R':
-//				autonomousCommand = new A3FMRight();
-//				break;
-//			}
-//		}
-//		if(chooser.getSelected().equals(new ASFR())) {
-//			switch(gameData.charAt(0)) {
-//			case 'L':
-//				autonomousCommand = new ASFRLeft();
-//				break;
-//			case 'R':
-//				autonomousCommand = new ASFRRight();
-//				break;
-//			default:
-//				
-//			}
-//		}
-//		else if(chooser.getSelected().equals(new A3FM())) {
-//			
-//		}
 		/*
 		 * String autoSelected = SmartDashboard.getString("Auto Selector",
 		 * "Default"); switch(autoSelected) { case "My Auto": autonomousCommand
@@ -129,8 +94,8 @@ public class Robot extends IterativeRobot {
 		 */
 
 		// schedule the autonomous command (example)
-		if (autonomousCommand != null)
-			autonomousCommand.start();
+		if (autoCommand != null)
+			autoCommand.start();
 	}
 
 	/**
@@ -140,8 +105,8 @@ public class Robot extends IterativeRobot {
 	public void autonomousPeriodic() {
 		Scheduler.getInstance().run();
         SmartDashboard.putNumber("Guyro Fieri", Robot.drivetrain.getGyroAngle());
-    		SmartDashboard.putNumber("Left Distance", RobotMap.leftEncoder.getDistance());
-    		SmartDashboard.putNumber("Right Distance", RobotMap.rightEncoder.getDistance());
+    	SmartDashboard.putNumber("Left Distance", RobotMap.leftEncoder.getDistance());
+    	SmartDashboard.putNumber("Right Distance", RobotMap.rightEncoder.getDistance());
 
 	}
 
@@ -151,8 +116,8 @@ public class Robot extends IterativeRobot {
 		// teleop starts running. If you want the autonomous to
 		// continue until interrupted by another command, remove
 		// this line or comment it out.
-		if (autonomousCommand != null)
-			autonomousCommand.cancel();
+		if (autoCommand != null)
+			autoCommand.cancel();
 	}
 
 	/**

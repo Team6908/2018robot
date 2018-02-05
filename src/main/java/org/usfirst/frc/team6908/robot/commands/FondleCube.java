@@ -3,7 +3,6 @@ package org.usfirst.frc.team6908.robot.commands;
 import org.usfirst.frc.team6908.robot.*;
 
 import edu.wpi.first.wpilibj.command.Command;
-import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 /**
  *

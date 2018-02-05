@@ -1,6 +1,7 @@
-package org.usfirst.frc.team6908.robot.autoCommands;
+package org.usfirst.frc.team6908.robot.selectables;
 
-import org.usfirst.frc.team6908.robot.autoCommands.Selectables;
+import org.usfirst.frc.team6908.robot.autoCommands.A3FMLeft;
+import org.usfirst.frc.team6908.robot.autoCommands.A3FMRight;
 
 import edu.wpi.first.wpilibj.command.Command;
 

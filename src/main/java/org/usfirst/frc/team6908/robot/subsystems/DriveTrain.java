@@ -3,8 +3,6 @@ package org.usfirst.frc.team6908.robot.subsystems;
 import org.usfirst.frc.team6908.robot.*;
 import org.usfirst.frc.team6908.robot.commands.ArcadeDrive;
 
-import com.ctre.phoenix.motorcontrol.ControlMode;
-
 import com.kauailabs.navx.frc.AHRS;
 
 import edu.wpi.first.wpilibj.Encoder;
@@ -12,8 +10,6 @@ import edu.wpi.first.wpilibj.PIDController;
 import edu.wpi.first.wpilibj.SpeedControllerGroup;
 import edu.wpi.first.wpilibj.command.PIDSubsystem;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
-import edu.wpi.first.wpilibj.livewindow.LiveWindow;
-
 /**
  *
  */
