@@ -45,6 +45,7 @@ public class Robot extends IterativeRobot {
 		CameraServer.getInstance().startAutomaticCapture("Front Camera", 0);
 		CameraServer.getInstance().startAutomaticCapture("Back Camera", 1);
 		RobotMap.elevatorEncoder.reset();
+		//RobotMap.elevator.setInverted(true);
 	}
 
 	/**

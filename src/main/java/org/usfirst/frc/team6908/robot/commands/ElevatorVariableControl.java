@@ -27,9 +27,9 @@ public class ElevatorVariableControl extends Command {
 		System.out.println(control);
 		SmartDashboard.putNumber("elevatorControl", control);//outputting joystick values to dashboard
 		if(control < -0.1) {
-			Robot.elevator.extend(0.25);
+			Robot.elevator.extend(0.4);
 		} else if (control > 0.1) {
-			Robot.elevator.extend(-0.25);
+			Robot.elevator.extend(-0.4);
 		} else {
 			Robot.elevator.disable();
 		}
