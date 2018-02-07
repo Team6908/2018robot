@@ -1,6 +1,7 @@
 package org.usfirst.frc.team6908.robot.commands;
 
 import edu.wpi.first.wpilibj.command.Command;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 import org.usfirst.frc.team6908.robot.Robot;
 import org.usfirst.frc.team6908.robot.RobotMap;
@@ -13,17 +14,15 @@ public class StaticHeightControl extends Command {
 	public StaticHeightControl(double dist) {
 		// Use requires() here to declare subsystem dependencies
 		requires(Robot.elevator);
-		StaticHeightControl.distance = (dist * (2*Math.PI) / 255);
+		StaticHeightControl.distance = dist * -1;
 	}
 
 	// Called just before this Command runs the first time
 	@Override
 	protected void initialize() {
-		Robot.elevator.elevatorEncoder.reset();
-		Robot.elevator.ePID.setAbsoluteTolerance(1);
-		Robot.elevator.ePID.enable();
-		Robot.elevator.ePID.setOutputRange(-.5, .5);
+		
 		Robot.elevator.ePID.setSetpoint(distance);
+		SmartDashboard.putNumber("Encoder", RobotMap.elevatorEncoder.getDistance());
 	}
 
 	// Called repeatedly when this Command is scheduled to run
@@ -34,11 +33,7 @@ public class StaticHeightControl extends Command {
 	// Make this return true when this Command no longer needs to run execute()
 	@Override
 	protected boolean isFinished() {
-		if(Robot.elevator.ePID.onTarget() || (Robot.elevator.ePID.get() < 0 && Robot.elevator.isAtBottom())) {
-			return true;
-		}else {
-			return false;
-		}
+		return (Robot.elevator.ePID.onTarget());
 	}
 
 	// Called once after isFinished returns true
@@ -51,5 +46,6 @@ public class StaticHeightControl extends Command {
 	// subsystems is scheduled to run
 	@Override
 	protected void interrupted() {
+		end();
 	}
 }

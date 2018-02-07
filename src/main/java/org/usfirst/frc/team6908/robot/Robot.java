@@ -27,7 +27,7 @@ public class Robot extends IterativeRobot {
 	public static OI oi;
 	public static DriveTrain drivetrain = new DriveTrain();
 	public static CameraServer server;
-	public static Elevator elevator = new Elevator();
+	public static Elevator elevator = new Elevator(0.0, 0.0, 0.0);
 
 	Command autonomousCommand;
 	SendableChooser<Command> chooser = new SendableChooser<>();
@@ -45,6 +45,7 @@ public class Robot extends IterativeRobot {
 		CameraServer.getInstance().startAutomaticCapture("Front Camera", 0);
 		CameraServer.getInstance().startAutomaticCapture("Back Camera", 1);
 		RobotMap.elevatorEncoder.reset();
+		//RobotMap.elevator.setInverted(true);
 		//RobotMap.elevator.setInverted(true);
 	}
 
@@ -106,6 +107,7 @@ public class Robot extends IterativeRobot {
 		// this line or comment it out.
 		if (autonomousCommand != null)
 			autonomousCommand.cancel();
+		RobotMap.elevatorEncoder.reset();
 	}
 
 	/**
@@ -114,6 +116,7 @@ public class Robot extends IterativeRobot {
 	@Override
 	public void teleopPeriodic() {
 		Scheduler.getInstance().run();
+		SmartDashboard.putNumber("Encoder", RobotMap.elevatorEncoder.getDistance());
 	}
 
 	/**

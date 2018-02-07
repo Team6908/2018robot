@@ -56,15 +56,14 @@ public class OI {
 	
 	public Joystick Joystick1;
 	public Joystick Joystick2;
-	
-	public Button exampleCommand;
+	public static Button eStatic;
 	
 	public OI() {
 		Joystick1 = new Joystick(0);
 		Joystick2 = new Joystick(1);
-		JoystickButton button3 = new JoystickButton(Joystick2, 3);
+		eStatic = new JoystickButton(Joystick2, 3);
 		
-		button3.whenPressed(new StaticHeightControl(100));
+		eStatic.whenPressed(new StaticHeightControl(-12350.75));
 		
 	}
 }
