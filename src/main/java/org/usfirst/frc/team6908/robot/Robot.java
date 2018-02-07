@@ -33,7 +33,7 @@ public class Robot extends IterativeRobot {
 	public static Ramp rightRamp = new Ramp(RobotMap.rightRamp);
 	
 	public static RampDrop rampDrop = new RampDrop(RobotMap.rampDropController, 0.0);
-
+	//This is for releasing the motor...
 	Command autonomousCommand;
 	SendableChooser<Command> chooser = new SendableChooser<>();
 
