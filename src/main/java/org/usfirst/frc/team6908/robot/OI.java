@@ -58,6 +58,7 @@ public class OI {
 
 	public JoystickButton trigger;
 	public JoystickButton button3;
+	public JoystickButton test;
 	
 	public OI() {
 		
@@ -66,9 +67,11 @@ public class OI {
 		
 		trigger = new JoystickButton(Joystick1, oTrigger);
 		button3 = new JoystickButton(Joystick1, oButton3);
+		test = new JoystickButton(Joystick1, oButton8);
 		
 		button3.whenPressed(new ChangeDirection());
 		trigger.whileHeld(new FondleCube());
+		test.whileHeld(new AutoDrive(40));
 		
 	}	
 	

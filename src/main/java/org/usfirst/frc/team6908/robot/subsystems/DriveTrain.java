@@ -1,6 +1,9 @@
 package org.usfirst.frc.team6908.robot.subsystems;
 
 import org.usfirst.frc.team6908.robot.*;
+import org.usfirst.frc.team6908.robot.autoPID.DeltaEncoders;
+import org.usfirst.frc.team6908.robot.autoPID.MoveForward;
+import org.usfirst.frc.team6908.robot.autoPID.Rotate;
 import org.usfirst.frc.team6908.robot.commands.ArcadeDrive;
 
 import edu.wpi.first.wpilibj.command.Subsystem;
@@ -28,6 +31,15 @@ public class DriveTrain extends Subsystem {
     public static PIDController leftPID = new PIDController(0.02, 0.0, 0.0, leftEncoder, leftMotors);
     public static PIDController gyroPID = new PIDController(0.02,0.0,0.0,gyro,allMotors);
     
+    public static DeltaEncoders encoderdifference = new DeltaEncoders();
+    
+    public static Rotate turnit = new Rotate();
+    public static MoveForward move = new MoveForward();
+    
+    public static PIDController rotater = new PIDController(0.02,0.0,0.0,gyro,turnit);
+    public static PIDController forward = new PIDController(0.02,0.0,0.0,rightEncoder,rightMotors);
+    public static PIDController driftfix = new PIDController(-0.02,0.0,0.0,encoderdifference,leftMotors);
+    
     public DriveTrain() {
     	gyro.reset();
     	
@@ -48,8 +60,8 @@ public class DriveTrain extends Subsystem {
     
     public void initDefaultCommand() {
     	setDefaultCommand(new ArcadeDrive());
-//		RobotMap.frontLeftT.setInverted(true);
-//		RobotMap.backLeftT.setInverted(true);
+    	RobotMap.frontRight.setInverted(true);
+		RobotMap.backRight.setInverted(true);
     }
     
 	public void setLeftMotors (double speed) {
@@ -64,8 +76,8 @@ public class DriveTrain extends Subsystem {
 	
 	public void Drive(double throttle, double turn) {
 		//Converts throttle and turn values into left and right tank drive values
-		leftMtr = throttle - turn;
-        rightMtr = throttle + turn;
+		leftMtr = throttle + turn;
+        rightMtr = throttle - turn;
         //Sets values to motors
         Robot.drivetrain.setLeftMotors(leftMtr);
         Robot.drivetrain.setRightMotors(rightMtr);

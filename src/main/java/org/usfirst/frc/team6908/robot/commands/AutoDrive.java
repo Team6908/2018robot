@@ -1,6 +1,7 @@
 package org.usfirst.frc.team6908.robot.commands;
 
 import org.usfirst.frc.team6908.robot.Robot;
+import org.usfirst.frc.team6908.robot.subsystems.DriveTrain;
 
 import edu.wpi.first.wpilibj.command.Command;
 
@@ -15,18 +16,29 @@ public class AutoDrive extends Command {
 
     // Called just before this Command runs the first time
     protected void initialize() {
-   		Robot.drivetrain.leftEncoder.reset();
-   		Robot.drivetrain.rightEncoder.reset();
-   		Robot.drivetrain.rightPID.setAbsoluteTolerance(2);
-   		Robot.drivetrain.leftPID.setAbsoluteTolerance(2);
-/*    	Robot.drivetrain.rightPID.setOutputRange(0.0,0.7);
-        Robot.drivetrain.leftPID.setOutputRange(0.0,0.7);		*/
-        Robot.drivetrain.rightPID.enable();
-        Robot.drivetrain.leftPID.enable();
-        Robot.drivetrain.rightPID.setOutputRange(-0.61, 0.61);
-        Robot.drivetrain.leftPID.setOutputRange(-0.6, 0.6);
-        Robot.drivetrain.rightPID.setSetpoint(-distance-4);
-        Robot.drivetrain.leftPID.setSetpoint(distance);
+//   		Robot.drivetrain.leftEncoder.reset();
+//   		Robot.drivetrain.rightEncoder.reset();
+//   		Robot.drivetrain.rightPID.setAbsoluteTolerance(2);
+//   		Robot.drivetrain.leftPID.setAbsoluteTolerance(2);
+///*    	Robot.drivetrain.rightPID.setOutputRange(0.0,0.7);
+//        Robot.drivetrain.leftPID.setOutputRange(0.0,0.7);		*/
+//        Robot.drivetrain.rightPID.enable();
+//        Robot.drivetrain.leftPID.enable();
+//        Robot.drivetrain.rightPID.setOutputRange(-0.61, 0.61);
+//        Robot.drivetrain.leftPID.setOutputRange(-0.6, 0.6);
+//        Robot.drivetrain.rightPID.setSetpoint(-distance-4);
+//        Robot.drivetrain.leftPID.setSetpoint(distance);
+    	
+    	DriveTrain.leftEncoder.reset();
+		DriveTrain.rightEncoder.reset();
+    	DriveTrain.forward.enable();
+    	DriveTrain.driftfix.enable();
+    	DriveTrain.forward.setAbsoluteTolerance(10);
+    	DriveTrain.driftfix.setAbsoluteTolerance(10);
+    	DriveTrain.forward.setSetpoint(distance);
+    	DriveTrain.driftfix.setSetpoint(0);
+    	DriveTrain.forward.setOutputRange(-0.6, 0.6);
+    	DriveTrain.driftfix.setOutputRange(-0.6, 0.6);
     }
 
     // Called repeatedly when this Command is scheduled to run
@@ -35,7 +47,7 @@ public class AutoDrive extends Command {
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-    	if(Robot.drivetrain.rightPID.onTarget() && Robot.drivetrain.leftPID.onTarget()){
+    	if(DriveTrain.forward.onTarget()){
     		return true;
     	}
     	else{
@@ -45,8 +57,8 @@ public class AutoDrive extends Command {
 
     // Called once after isFinished returns true
     protected void end() {
-    	Robot.drivetrain.rightPID.disable();
-        Robot.drivetrain.leftPID.disable();
+    	DriveTrain.forward.disable();
+        DriveTrain.driftfix.disable();
     }
 
     // Called when another command which requires one or more of the same

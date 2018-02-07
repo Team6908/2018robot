@@ -16,20 +16,20 @@ public class  TurnRobot extends Command {
     }
 
     protected void initialize() {
-        DriveTrain.gyroPID.enable();
-        DriveTrain.gyroPID.setSetpoint(turnAngle + DriveTrain.gyro.getAngle());
-        DriveTrain.gyroPID.setAbsoluteTolerance(2);
+        DriveTrain.rotater.enable();
+        DriveTrain.rotater.setSetpoint(turnAngle + DriveTrain.gyro.getAngle());
+        DriveTrain.rotater.setAbsoluteTolerance(2);
     }
 
     protected void execute() {
     }
 
     protected boolean isFinished() {
-        return DriveTrain.gyroPID.onTarget();
+        return DriveTrain.rotater.onTarget();
     }
 
     protected void end() {
-        DriveTrain.gyroPID.disable();
+        DriveTrain.rotater.disable();
     }
 
     protected void interrupted() {

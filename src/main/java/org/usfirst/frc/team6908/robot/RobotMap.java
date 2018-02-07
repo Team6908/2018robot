@@ -23,10 +23,10 @@ public class RobotMap {
 	// public static int rangefinderPort = 1;
 	// public static int rangefinderModule = 1;	
 	
-	public static WPI_TalonSRX frontLeft = new WPI_TalonSRX(2);
-	public static WPI_TalonSRX frontRight = new WPI_TalonSRX(1);
-	public static WPI_TalonSRX backLeft = new WPI_TalonSRX(3);
-	public static WPI_TalonSRX backRight = new WPI_TalonSRX(0);
+	public static WPI_TalonSRX frontLeft = new WPI_TalonSRX(1);
+	public static WPI_TalonSRX frontRight = new WPI_TalonSRX(2);
+	public static WPI_TalonSRX backLeft = new WPI_TalonSRX(0);
+	public static WPI_TalonSRX backRight = new WPI_TalonSRX(3);
 	
 	public static AHRS gyro = new AHRS(Port.kMXP);
 	public static Encoder rightEncoder = new Encoder(2,3);

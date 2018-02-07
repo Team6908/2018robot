@@ -62,6 +62,7 @@ public class Robot extends IterativeRobot {
 //        }
 		CameraServer.getInstance().startAutomaticCapture("Front Camera", 0);
 		CameraServer.getInstance().startAutomaticCapture("Back Camera", 1);
+		
 	}
 
 	/**
