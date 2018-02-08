@@ -29,8 +29,8 @@ public class Robot extends IterativeRobot {
 	public static OI oi;
 	public static DriveTrain drivetrain = new DriveTrain();
 //	public static CameraServer server;
-	public static Ramp leftRamp = new Ramp(RobotMap.leftRamp);
-	public static Ramp rightRamp = new Ramp(RobotMap.rightRamp);
+	public static Ramp leftRamp = new Ramp(RobotMap.leftRamp, RobotMap.LeftRampLimit);
+	public static Ramp rightRamp = new Ramp(RobotMap.rightRamp, RobotMap.RightRampLimit);
 	
 	public static RampDrop rampDrop = new RampDrop(RobotMap.rampDropController, 0.0);
 

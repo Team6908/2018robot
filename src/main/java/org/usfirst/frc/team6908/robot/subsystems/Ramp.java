@@ -9,12 +9,12 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 public class Ramp extends Subsystem {
 
 	SpeedController winch;
-	DigitalInput limitswitch;
+	DigitalInput limitSwitch;
 	
 	//Sets the local winch motor controller to the inputed controller object
 	public Ramp(SpeedController controller, DigitalInput limit) {
 		winch = controller;
-		limitswitch = limit;
+		limit = limitSwitch;
 	}
 	
 	//No default command
@@ -38,7 +38,7 @@ public class Ramp extends Subsystem {
 	}
 	
 	public boolean isUp(){
-		return limitswitch.get();
+		return limitSwitch.get();
 	}
 
 }
