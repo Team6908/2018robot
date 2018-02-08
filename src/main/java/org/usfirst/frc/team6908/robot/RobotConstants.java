@@ -13,6 +13,6 @@ public class RobotConstants {
 	public static final double kWinchSpeed = .5;
 	
 	//Ramp Drop motor speed constant
-	public static final double holdRamps = .3; //THIS VALUE NEEDS TO BE TESTED
+	public static final double holdRamps = .1; //THIS VALUE NEEDS TO BE TESTED
 	
 }

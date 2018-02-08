@@ -14,7 +14,7 @@ import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
  * floating around.
  */
 public class RobotMap {
-	//Drivetrain Motor Controllers
+//	Drivetrain Motor Controllers
 	public static WPI_TalonSRX frontLeftT = new WPI_TalonSRX(1);
 	public static WPI_TalonSRX backLeftT = new WPI_TalonSRX(0);
 	public static WPI_TalonSRX frontRightT = new WPI_TalonSRX(2);
@@ -24,8 +24,12 @@ public class RobotMap {
 	public static VictorSP leftRamp = new VictorSP(0);
 	public static Spark rightRamp = new Spark(1);
 	
-	//Ramp Drop Motor Controllers
-	public static VictorSP rampDropController = new VictorSP(1);
+	//Ramp Drop Motor Variables
+//	public static VictorSP rampDropController = new VictorSP(1);
+	
+	//Ramp Release Motor Variables
+	public static VictorSP rampReleaseController = new VictorSP(1);
+	public static DigitalInput releaseSwitch = new DigitalInput(0);
 	
 	//Ramp Limit Switches
 	public static DigitalInput LeftRampLimit = new DigitalInput(4);

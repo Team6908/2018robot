@@ -15,6 +15,7 @@ import org.usfirst.frc.team6908.robot.subsystems.DriveTrain;
 import org.usfirst.frc.team6908.robot.subsystems.ExampleSubsystem;
 import org.usfirst.frc.team6908.robot.subsystems.Ramp;
 import org.usfirst.frc.team6908.robot.subsystems.RampDrop;
+import org.usfirst.frc.team6908.robot.subsystems.RampRelease;
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -32,7 +33,8 @@ public class Robot extends IterativeRobot {
 	public static Ramp leftRamp = new Ramp(RobotMap.leftRamp);
 	public static Ramp rightRamp = new Ramp(RobotMap.rightRamp);
 	
-	public static RampDrop rampDrop = new RampDrop(RobotMap.rampDropController, 0.0);
+	public static RampRelease rampRelease = new RampRelease(RobotMap.rampReleaseController, RobotMap.releaseSwitch);
+	
 	//This is for releasing the motor...
 	Command autonomousCommand;
 	SendableChooser<Command> chooser = new SendableChooser<>();
@@ -49,7 +51,6 @@ public class Robot extends IterativeRobot {
 		SmartDashboard.putData("Auto mode", chooser);
 //		CameraServer.getInstance().startAutomaticCapture("Front Camera", 0);
 //		CameraServer.getInstance().startAutomaticCapture("Back Camera", 1);
-		rampDrop.start(RobotConstants.holdRamps);
 	}
 
 	/**
