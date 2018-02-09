@@ -39,6 +39,7 @@ public class OI {
 	// until it is finished as determined by it's isFinished method.
 	// button.whenReleased(new ExampleCommand());
 	
+	
 	//Joystick Button ports
 	public static int trigger = 1;
 	public static int thumbButton = 2;
