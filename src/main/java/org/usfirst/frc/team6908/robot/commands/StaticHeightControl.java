@@ -14,7 +14,8 @@ public class StaticHeightControl extends Command {
 	public StaticHeightControl(double dist) {
 		// Use requires() here to declare subsystem dependencies
 		requires(Robot.elevator);
-		distance = dist;
+		distance = ((dist / (6*Math.PI)) * 255);
+		distance *= -1;
 	}
 
 	// Called just before this Command runs the first time
