@@ -40,5 +40,7 @@ public class RobotMap {
 	
 	public static VictorSP elevator = new VictorSP(0);
 	public static Encoder elevatorEncoder = new Encoder(0,1);
-	public static DigitalInput elevatorSwitch = new DigitalInput(9);
+	
+	public static DigitalInput botElevatorLimit = new DigitalInput(8);
+	public static DigitalInput topElevatorLimit = new DigitalInput(9);
 }

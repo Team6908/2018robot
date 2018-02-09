@@ -5,6 +5,8 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 import org.usfirst.frc.team6908.robot.Robot;
 import org.usfirst.frc.team6908.robot.RobotMap;
+import org.usfirst.frc.team6908.robot.RoboC;
+
 
 /**
  *
@@ -25,10 +27,10 @@ public class ElevatorVariableControl extends Command {
 	protected void execute() {
 		double control = Robot.oi.Joystick2.getY();//reading in y-axis of 2nd joystick
 		SmartDashboard.putNumber("elevatorControl", control);//outputting joystick values to dashboard
-		if(control < -0.1) {
-			Robot.elevator.extend(0.4);
-		} else if (control > 0.1) {
-			Robot.elevator.extend(-0.4);
+		if(control < -RoboC.joystickDeadzone) {
+			Robot.elevator.extend(RoboC.elevatorExtendSpeed);
+		} else if (control > RoboC.joystickDeadzone) {
+			Robot.elevator.extend(-RoboC.elevatorExtendSpeed);
 		} else {
 			Robot.elevator.disable();
 		}
@@ -38,7 +40,12 @@ public class ElevatorVariableControl extends Command {
 	// Make this return true when this Command no longer needs to run execute()
 	@Override
 	protected boolean isFinished() {
-		if((Robot.oi.Joystick2.getY() > 0.1 && Robot.oi.Joystick2.getY() < .1) || (Robot.elevator.ePID.get() < 0 && Robot.elevator.isAtBottom())) {
+		//Creates dead zone on joystick
+		if((Robot.oi.Joystick2.getY() > RoboC.joystickDeadzone && Robot.oi.Joystick2.getY() < RoboC.joystickDeadzone)) {
+			return true;
+		}
+		//Checks for top and bottom limit switches while the motors are still active
+		else if((Robot.elevator.getPIDController().get() > 0 && Robot.elevator.isAtTop()) || (Robot.elevator.getPIDController().get() < 0 && Robot.elevator.isAtBottom())) {
 			return true;
 		}
 		return false;
@@ -47,11 +54,13 @@ public class ElevatorVariableControl extends Command {
 	// Called once after isFinished returns true
 	@Override
 	protected void end() {
+		Robot.elevator.disable();
 	}
 
 	// Called when another command which requires one or more of the same
 	// subsystems is scheduled to run
 	@Override
 	protected void interrupted() {
+		end();
 	}
 }

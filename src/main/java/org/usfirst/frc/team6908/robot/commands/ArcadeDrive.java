@@ -1,7 +1,7 @@
 package org.usfirst.frc.team6908.robot.commands;
 
 import org.usfirst.frc.team6908.robot.Robot;
-import org.usfirst.frc.team6908.robot.RobotConstants;
+import org.usfirst.frc.team6908.robot.RoboC;
 import org.usfirst.frc.team6908.robot.RobotMath;
 
 import edu.wpi.first.wpilibj.command.Command;
@@ -36,8 +36,8 @@ public class ArcadeDrive extends Command {
     	//Gets slider value
     	acceleration = Robot.oi.Joystick1.getThrottle();
      //Normalizes input from slider
-    	throttleAcc = RobotMath.normalize(RobotConstants.maxAxis, RobotConstants.minAxis, RobotConstants.lowRangeThrottle, RobotConstants.highRangeThrottle, acceleration);
-    	turnAcc = RobotMath.normalize(RobotConstants.maxAxis, RobotConstants.minAxis, RobotConstants.lowRangeTurn, RobotConstants.highRangeTurn, acceleration);
+    	throttleAcc = RobotMath.normalize(RoboC.maxAxis, RoboC.minAxis, RoboC.lowRangeThrottle, RoboC.highRangeThrottle, acceleration);
+    	turnAcc = RobotMath.normalize(RoboC.maxAxis, RoboC.minAxis, RoboC.lowRangeTurn, RoboC.highRangeTurn, acceleration);
     	//Displays acceleration values on smartdashboard
     	SmartDashboard.putNumber("throttleAcc", throttleAcc); 
     	SmartDashboard.putNumber("turnAcc", turnAcc);

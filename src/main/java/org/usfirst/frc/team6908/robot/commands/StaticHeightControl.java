@@ -20,10 +20,8 @@ public class StaticHeightControl extends Command {
 	// Called just before this Command runs the first time
 	@Override
 	protected void initialize() {
-		Robot.elevator.ePID.enable();
-		Robot.elevator.ePID.setAbsoluteTolerance(10);
-		Robot.elevator.ePID.setOutputRange(-.5, .5);
-		Robot.elevator.ePID.setSetpoint(distance);
+		Robot.elevator.enable();
+		Robot.elevator.setSetpoint(distance);
 		SmartDashboard.putNumber("Encoder", RobotMap.elevatorEncoder.getDistance());
 	}
 
@@ -35,13 +33,13 @@ public class StaticHeightControl extends Command {
 	// Make this return true when this Command no longer needs to run execute()
 	@Override
 	protected boolean isFinished() {
-		return (Robot.elevator.ePID.onTarget());
+		return (Robot.elevator.onTarget());
 	}
 
 	// Called once after isFinished returns true
 	@Override
 	protected void end() {
-		Robot.elevator.ePID.disable();
+		Robot.elevator.disable();
 	}
 
 	// Called when another command which requires one or more of the same
