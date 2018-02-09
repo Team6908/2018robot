@@ -42,8 +42,8 @@ public class Robot extends IterativeRobot {
 		chooser.addDefault("Default Auto", new ExampleCommand());
 		// chooser.addObject("My Auto", new MyAutoCommand());
 		SmartDashboard.putData("Auto mode", chooser);
-		CameraServer.getInstance().startAutomaticCapture("Front Camera", 0);
-		CameraServer.getInstance().startAutomaticCapture("Back Camera", 1);
+		//CameraServer.getInstance().startAutomaticCapture("Front Camera", 0);
+		//CameraServer.getInstance().startAutomaticCapture("Back Camera", 1);
 		RobotMap.elevatorEncoder.reset();
 		//RobotMap.elevator.setInverted(true);
 		//RobotMap.elevator.setInverted(true);

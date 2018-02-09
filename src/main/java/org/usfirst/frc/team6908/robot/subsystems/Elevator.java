@@ -57,14 +57,12 @@ public class Elevator extends PIDSubsystem {
 public class Elevator extends PIDSubsystem {
 
 	Encoder elevatorEncoder = RobotMap.elevatorEncoder;
-	PIDController ePID = new PIDController(0.1, 0.0, 0.0, elevatorEncoder, RobotMap.elevator);//assigning PID values to Elevator Motor
+	public PIDController ePID = new PIDController(-0.011, 0.0, 0.0, elevatorEncoder, RobotMap.elevator);//assigning PID values to Elevator Motor
 
 	public Elevator(double p, double i, double d) {
 		
-    	super("Elevator", 0.01, 0.0, 0.0);
-    	Robot.elevator.ePID.setAbsoluteTolerance(5);
-		Robot.elevator.ePID.enable();
-		Robot.elevator.ePID.setOutputRange(-.5, .5);
+    	super("Elevator", p, i, d);
+    		
 		// TODO Auto-generated constructor stub
 	}
 
@@ -93,5 +91,14 @@ public class Elevator extends PIDSubsystem {
     protected void usePIDOutput(double output) {
     		RobotMap.elevator.pidWrite(output);
     }
+    
+    public void extend(double speed) {
+    		RobotMap.elevator.set(speed);
+    }
+    
+    public boolean isAtBottom() {
+		return RobotMap.elevatorSwitch.get();
+}
+    
 }
 

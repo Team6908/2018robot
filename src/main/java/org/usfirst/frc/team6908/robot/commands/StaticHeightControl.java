@@ -1,6 +1,6 @@
 package org.usfirst.frc.team6908.robot.commands;
 
-import edu.wpi.first.wpilibj.command.Command;
+import edu.wpi.first.wpilibj.command.Command; 
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 import org.usfirst.frc.team6908.robot.Robot;
@@ -14,13 +14,15 @@ public class StaticHeightControl extends Command {
 	public StaticHeightControl(double dist) {
 		// Use requires() here to declare subsystem dependencies
 		requires(Robot.elevator);
-		StaticHeightControl.distance = dist * -1;
+		distance = dist;
 	}
 
 	// Called just before this Command runs the first time
 	@Override
 	protected void initialize() {
-		
+		Robot.elevator.ePID.enable();
+		Robot.elevator.ePID.setAbsoluteTolerance(10);
+		Robot.elevator.ePID.setOutputRange(-.5, .5);
 		Robot.elevator.ePID.setSetpoint(distance);
 		SmartDashboard.putNumber("Encoder", RobotMap.elevatorEncoder.getDistance());
 	}

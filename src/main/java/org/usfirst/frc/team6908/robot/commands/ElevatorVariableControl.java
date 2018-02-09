@@ -24,7 +24,6 @@ public class ElevatorVariableControl extends Command {
 	@Override
 	protected void execute() {
 		double control = Robot.oi.Joystick2.getY();//reading in y-axis of 2nd joystick
-		System.out.println(control);
 		SmartDashboard.putNumber("elevatorControl", control);//outputting joystick values to dashboard
 		if(control < -0.1) {
 			Robot.elevator.extend(0.4);
