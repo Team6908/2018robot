@@ -14,15 +14,16 @@ public class StaticHeightControl extends Command {
 	public StaticHeightControl(double dist) {
 		// Use requires() here to declare subsystem dependencies
 		requires(Robot.elevator);
-		distance = ((dist / (6*Math.PI)) * 255);
-		distance *= -1;
+		distance = dist;
 	}
 
 	// Called just before this Command runs the first time
 	@Override
 	protected void initialize() {
-		Robot.elevator.enable();
-		Robot.elevator.setSetpoint(distance);
+		Robot.elevator.ePID.enable();
+		Robot.elevator.ePID.setAbsoluteTolerance(10);
+		Robot.elevator.ePID.setOutputRange(-.5, .5);
+		Robot.elevator.ePID.setSetpoint(distance);
 		SmartDashboard.putNumber("Encoder", RobotMap.elevatorEncoder.getDistance());
 	}
 
@@ -34,13 +35,13 @@ public class StaticHeightControl extends Command {
 	// Make this return true when this Command no longer needs to run execute()
 	@Override
 	protected boolean isFinished() {
-		return (Robot.elevator.onTarget());
+		return (Robot.elevator.ePID.onTarget());
 	}
 
 	// Called once after isFinished returns true
 	@Override
 	protected void end() {
-		Robot.elevator.disable();
+		Robot.elevator.ePID.disable();
 	}
 
 	// Called when another command which requires one or more of the same

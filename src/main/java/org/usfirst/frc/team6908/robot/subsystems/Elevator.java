@@ -1,27 +1,38 @@
 package org.usfirst.frc.team6908.robot.subsystems;
 
+import org.usfirst.frc.team6908.robot.Robot;
 import org.usfirst.frc.team6908.robot.RobotMap;
+import org.usfirst.frc.team6908.robot.commands.ArcadeDrive;
 import org.usfirst.frc.team6908.robot.commands.ElevatorVariableControl;
 
 import edu.wpi.first.wpilibj.Encoder;
+import edu.wpi.first.wpilibj.PIDController;
 import edu.wpi.first.wpilibj.command.PIDSubsystem;
+import edu.wpi.first.wpilibj.command.Subsystem;
 
 public class Elevator extends PIDSubsystem {
 
-	public Encoder elevatorEncoder;
+	Encoder elevatorEncoder = RobotMap.elevatorEncoder;
+	public PIDController ePID = new PIDController(-0.011, 0.0, 0.0, elevatorEncoder, RobotMap.elevator);//assigning PID values to Elevator Motor
 
-	public Elevator(double p, double i, double d, int tolerance, float range) {
+	public Elevator(double p, double i, double d) {
 		
-    	super("ePID", p, i, d);
-    	setAbsoluteTolerance(tolerance);
-    	setOutputRange(-range, range);
-    	
-    	elevatorEncoder = RobotMap.elevatorEncoder;
+    	super("Elevator", p, i, d);
+    		
 		// TODO Auto-generated constructor stub
 	}
 
+	// Initialize your subsystem here
+    public void Elevator() {
+        // Use these to get going:
+        // setSetpoint() -  Sets where the PID controller should move the system
+        //                  to
+        // enable() - Enables the PID controller.
+    	
+    }
+
     public void initDefaultCommand() {
-    	setDefaultCommand(new ElevatorVariableControl());
+    		setDefaultCommand(new ElevatorVariableControl());
     }
 
     protected double returnPIDInput() {
@@ -40,11 +51,9 @@ public class Elevator extends PIDSubsystem {
     }
     
     public boolean isAtBottom() {
-		return RobotMap.botElevatorLimit.get();
-    }
-    
-    public boolean isAtTop() {
-    	return RobotMap.topElevatorLimit.get();
-    }
+		//return RobotMap.elevatorSwitch.get();
+    		return false;
+}
     
 }
+
