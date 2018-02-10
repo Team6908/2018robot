@@ -1,13 +1,16 @@
 package org.usfirst.frc.team6908.robot.autoCommands;
 
-import edu.wpi.first.wpilibj.command.Command;
+import org.usfirst.frc.team6908.robot.commands.AutoDrive;
+import org.usfirst.frc.team6908.robot.commands.TurnRobot;
 
-public class ASFLLeft extends Command {
 
-	@Override
-	protected boolean isFinished() {
-		// TODO Auto-generated method stub
-		return false;
+import edu.wpi.first.wpilibj.command.CommandGroup;
+
+public class ASFLLeft extends CommandGroup {
+
+	public ASFLLeft() {
+	addSequential(new AutoDrive(197));
+    	addSequential(new TurnRobot(25));
 	}
 
 }
