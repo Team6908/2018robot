@@ -20,11 +20,11 @@ import org.usfirst.frc.team6908.robot.subsystems.*;
  */
 public class Robot extends IterativeRobot {
 	
-	public static final ExampleSubsystem exampleSubsystem = new ExampleSubsystem();
 	public static OI oi;
 	public static DriveTrain drivetrain = new DriveTrain();
 	public static CameraServer server;
 	public static Fondle fondle = new Fondle();
+	public static Elevator elevator = new Elevator(RobotConstants.elevatorP, RobotConstants.elevatorI, RobotConstants.elevatorD, RobotConstants.elevatorTolerance, RobotConstants.elevatorExtendSpeed);
 
 	Command autonomousCommand;
 	SendableChooser<Command> chooser = new SendableChooser<>();
@@ -36,12 +36,13 @@ public class Robot extends IterativeRobot {
 	@Override
 	public void robotInit() {
 		oi = new OI();
-		chooser.addDefault("Default Auto", new ExampleCommand());
-		CameraServer.getInstance().startAutomaticCapture();
-		// chooser.addObject("My Auto", new MyAutoCommand());
 		SmartDashboard.putData("Auto mode", chooser);
+
+		CameraServer.getInstance().startAutomaticCapture();
 		CameraServer.getInstance().startAutomaticCapture("Front Camera", 0);
 		CameraServer.getInstance().startAutomaticCapture("Back Camera", 1);
+
+		RobotMap.elevatorEncoder.reset();
 	}
 
 	/**
@@ -110,6 +111,7 @@ public class Robot extends IterativeRobot {
 	@Override
 	public void teleopPeriodic() {
 		Scheduler.getInstance().run();
+		SmartDashboard.putNumber("Encoder", RobotMap.elevatorEncoder.getDistance());
 	}
 
 	/**

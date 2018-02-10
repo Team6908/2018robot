@@ -5,7 +5,12 @@ import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 import edu.wpi.first.wpilibj.Encoder;
 import edu.wpi.first.wpilibj.SPI.Port;
 import edu.wpi.first.wpilibj.CameraServer;
+import edu.wpi.first.wpilibj.DigitalInput;
+
 import edu.wpi.first.wpilibj.Spark;  
+import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
+import edu.wpi.first.wpilibj.VictorSP;
+import com.ctre.phoenix.motorcontrol.can.WPI_VictorSPX;
 
 //import com.kauailabs.navx.frc.AHRS;
 /**
@@ -15,21 +20,17 @@ import edu.wpi.first.wpilibj.Spark;
  * floating around.
  */
 public class RobotMap {
-	// For example to map the left and right motors, you could define the
-	// following variables to use with your drivetrain subsystem.
-	// public static int leftMotor = 1;
-	// public static int rightMotor = 2;
-
-	// If you are using multiple modules, make sure to define both the port
-	// number and the module. For example you with a rangefinder:
-	// public static int rangefinderPort = 1;
-	// public static int rangefinderModule = 1;	
-
-	public static WPI_TalonSRX frontLeftT = new WPI_TalonSRX(1);
-	public static WPI_TalonSRX frontRightT = new WPI_TalonSRX(2);
-	public static WPI_TalonSRX backLeftT = new WPI_TalonSRX(0);
-	public static WPI_TalonSRX backRightT = new WPI_TalonSRX(3);
-
-	public static Spark leftFlywheel = new Spark(0);
-	public static Spark rightFlywheel = new Spark(1);
+	public static WPI_TalonSRX frontLeftT = new WPI_TalonSRX(RobotConstants.frontLeftTalon);
+	public static WPI_TalonSRX frontRightT = new WPI_TalonSRX(RobotConstants.frontRightTalon);
+	public static WPI_TalonSRX backLeftT = new WPI_TalonSRX(RobotConstants.backLeftTalon);
+	public static WPI_TalonSRX backRightT = new WPI_TalonSRX(RobotConstants.backRightTalon);
+	
+	public static VictorSP elevator = new VictorSP(RobotConstants.elevatorVictor);
+	public static Encoder elevatorEncoder = new Encoder(4, 5);
+	
+	public static Spark leftFlywheel = new Spark(RobotConstants.leftFlywheelSpark);
+	public static Spark rightFlywheel = new Spark(RobotConstants.rightFlywheelSpark);
+	
+	public static DigitalInput botElevatorLimit = new DigitalInput(8);
+	public static DigitalInput topElevatorLimit = new DigitalInput(9);
 }
