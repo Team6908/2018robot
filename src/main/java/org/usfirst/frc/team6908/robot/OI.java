@@ -32,9 +32,9 @@ public class OI {
 		
 		changeFondleDirection.whenPressed(new ChangeDirection());
 		fondle.whileHeld(new FondleCube());
-		botStatic.whenPressed(new StaticHeightControl(RobotConstants.baseHeight));
-		switchStatic.whenPressed(new StaticHeightControl(RobotConstants.switchHeight));
-		scaleStatic.whenPressed(new StaticHeightControl(RobotConstants.scaleHeight));
+		//botStatic.whenPressed(new StaticHeightControl(RobotConstants.baseHeight));
+		//switchStatic.whenPressed(new StaticHeightControl(-12350.75));
+		//scaleStatic.whenPressed(new StaticHeightControl(RobotConstants.scaleHeight));
 		
 		
 	}	

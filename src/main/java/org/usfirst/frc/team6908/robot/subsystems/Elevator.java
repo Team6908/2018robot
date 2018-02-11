@@ -1,6 +1,7 @@
 package org.usfirst.frc.team6908.robot.subsystems;
 
 import org.usfirst.frc.team6908.robot.Robot;
+import org.usfirst.frc.team6908.robot.RobotConstants;
 import org.usfirst.frc.team6908.robot.RobotMap;
 import org.usfirst.frc.team6908.robot.commands.ArcadeDrive;
 import org.usfirst.frc.team6908.robot.commands.ElevatorVariableControl;
@@ -15,9 +16,9 @@ public class Elevator extends PIDSubsystem {
 	Encoder elevatorEncoder = RobotMap.elevatorEncoder;
 	public PIDController ePID = new PIDController(-0.011, 0.0, 0.0, elevatorEncoder, RobotMap.elevator);//assigning PID values to Elevator Motor
 
-	public Elevator(double p, double i, double d) {
+	public Elevator() {
 		
-    	super("Elevator", p, i, d);
+    	super("Elevator", RobotConstants.elevatorP, RobotConstants.elevatorI, RobotConstants.elevatorD);
     		
 		// TODO Auto-generated constructor stub
 	}
@@ -54,6 +55,11 @@ public class Elevator extends PIDSubsystem {
 		//return RobotMap.elevatorSwitch.get();
     		return false;
 }
+
+	public boolean isAtTop() {
+		// TODO Auto-generated method stub
+		return false;
+	}
     
 }
 

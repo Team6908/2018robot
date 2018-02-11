@@ -24,7 +24,7 @@ public class Robot extends IterativeRobot {
 	public static DriveTrain drivetrain = new DriveTrain();
 	public static CameraServer server;
 	public static Fondle fondle = new Fondle();
-	public static Elevator elevator = new Elevator(RobotConstants.elevatorP, RobotConstants.elevatorI, RobotConstants.elevatorD, RobotConstants.elevatorTolerance, RobotConstants.elevatorExtendSpeed);
+	public static Elevator elevator = new Elevator();
 
 	Command autonomousCommand;
 	SendableChooser<Command> chooser = new SendableChooser<>();

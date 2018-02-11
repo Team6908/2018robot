@@ -18,8 +18,8 @@ public class RobotConstants {
 	public static final int scaleHeight = 6;
 	public static final int joystick1Port = 0;
 	public static final int joystick2Port = 1;
-	public static final float minFlywheelThrottle = -0.5f;//Speed for outwards push
-	public static final float maxFlywheelThrottle = 0.5f;//Speed for inwards pull
+	public static final float minFlywheelThrottle = -.9f;//Speed for outwards push
+	public static final float maxFlywheelThrottle = .9f;//Speed for inwards pull
 	public static boolean fondleVector = true;
 
 	//RoboRIO ports
