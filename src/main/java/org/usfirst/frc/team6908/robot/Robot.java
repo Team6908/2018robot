@@ -43,6 +43,7 @@ public class Robot extends IterativeRobot {
 		CameraServer.getInstance().startAutomaticCapture("Back Camera", 1);
 
 		RobotMap.elevatorEncoder.reset();
+		
 	}
 
 	/**
@@ -75,6 +76,8 @@ public class Robot extends IterativeRobot {
 	public void autonomousInit() {
 		autonomousCommand = chooser.getSelected();
 		
+		new eRelease();
+		
 		/*
 		 * String autoSelected = SmartDashboard.getString("Auto Selector",
 		 * "Default"); switch(autoSelected) { case "My Auto": autonomousCommand
@@ -85,6 +88,7 @@ public class Robot extends IterativeRobot {
 		// schedule the autonomous command (example)
 		if (autonomousCommand != null)
 			autonomousCommand.start();
+		
 	}
 
 	/**

@@ -21,21 +21,25 @@ public class StaticHeightControl extends Command {
 	@Override
 	protected void initialize() {
 		Robot.elevator.ePID.enable();
-		Robot.elevator.ePID.setAbsoluteTolerance(10);
+		Robot.elevator.ePID.setAbsoluteTolerance(5);
 		Robot.elevator.ePID.setOutputRange(-.5, .5);
-		Robot.elevator.ePID.setSetpoint(distance);
-		SmartDashboard.putNumber("Encoder", RobotMap.elevatorEncoder.getDistance());
 	}
 
 	// Called repeatedly when this Command is scheduled to run
 	@Override
 	protected void execute() {
+		Robot.elevator.ePID.setSetpoint(distance);
+		SmartDashboard.putNumber("Encoder", RobotMap.elevatorEncoder.getDistance());
 	}
 
 	// Make this return true when this Command no longer needs to run execute()
 	@Override
 	protected boolean isFinished() {
-		return (Robot.elevator.ePID.onTarget());
+		if(Robot.elevator.ePID.onTarget() || Robot.elevator.isAtBottom()) {
+			return true;
+		} else {
+			return false;
+		}
 	}
 
 	// Called once after isFinished returns true

@@ -14,12 +14,12 @@ public class RobotConstants {
 	public static final float elevatorD = 0f;
 	public static final int elevatorTolerance = 5;
 	public static final int baseHeight = 0;
-	public static final int switchHeight = 3;
-	public static final int scaleHeight = 6;
+	public static final double switchHeight = -12450.75;
+	//public static final double scaleHeight = -22631.5;
 	public static final int joystick1Port = 0;
 	public static final int joystick2Port = 1;
-	public static final float minFlywheelThrottle = -.9f;//Speed for outwards push
-	public static final float maxFlywheelThrottle = .9f;//Speed for inwards pull
+	public static final float minFlywheelThrottle = 1f;//Speed for outwards push
+	public static final float maxFlywheelThrottle = -1f;//Speed for inwards pull
 	public static boolean fondleVector = true;
 
 	//RoboRIO ports

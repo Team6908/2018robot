@@ -4,6 +4,7 @@ import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 
 import edu.wpi.first.wpilibj.Encoder;
 import edu.wpi.first.wpilibj.SPI.Port;
+import edu.wpi.first.wpilibj.Servo;
 import edu.wpi.first.wpilibj.CameraServer;
 import edu.wpi.first.wpilibj.DigitalInput;
 
@@ -27,10 +28,11 @@ public class RobotMap {
 	
 	public static VictorSP elevator = new VictorSP(RobotConstants.elevatorVictor);
 	public static Encoder elevatorEncoder = new Encoder(4, 5);
+	public static Servo eRelease = new Servo(6);
 	
 	public static Spark leftFlywheel = new Spark(RobotConstants.leftFlywheelSpark);
 	public static Spark rightFlywheel = new Spark(RobotConstants.rightFlywheelSpark);
 	
-	public static DigitalInput botElevatorLimit = new DigitalInput(8);
+	public static DigitalInput botElevatorLimit = new DigitalInput(6);
 	public static DigitalInput topElevatorLimit = new DigitalInput(9);
 }
