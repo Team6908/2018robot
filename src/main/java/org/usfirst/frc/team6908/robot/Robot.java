@@ -43,7 +43,7 @@ public class Robot extends IterativeRobot {
 	public void robotInit() {
 		gameData = DriverStation.getInstance().getGameSpecificMessage();
 		oi = new OI();
-		chooser.addDefault("Default Auto", new ExampleCommand());
+		chooser.addDefault("Default Auto", new BaselineDrive());
 		chooser.addObject("A3FM", new A3FM(gameData));
 		chooser.addObject("ASFR", new ASFR(gameData));
 		chooser.addObject("ASFL", new ASFL(gameData));

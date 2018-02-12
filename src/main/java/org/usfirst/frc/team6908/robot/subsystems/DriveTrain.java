@@ -37,7 +37,7 @@ public class DriveTrain extends Subsystem {
     public static MoveForward move = new MoveForward();
     
     public static PIDController rotater = new PIDController(0.02,0.0,0.0,gyro,turnit);
-    public static PIDController forward = new PIDController(0.02,0.0,0.0,rightEncoder,rightMotors);
+    public static PIDController forward = new PIDController(-0.02,0.0,0.0,rightEncoder,rightMotors);
     public static PIDController driftfix = new PIDController(-0.02,0.0,0.0,encoderdifference,leftMotors);
     
     public DriveTrain() {
