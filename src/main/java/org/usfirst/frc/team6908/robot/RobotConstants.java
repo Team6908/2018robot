@@ -14,8 +14,8 @@ public class RobotConstants {
 	public static final float elevatorD = 0f;
 	public static final int elevatorTolerance = 5;
 	public static final int baseHeight = 0;
-	public static final double switchHeight = -12450.75;
-	//public static final double scaleHeight = -22631.5;
+	public static final double switchHeight = -12350.75;
+	public static final double scaleHeight = -22631.5;
 	public static final int joystick1Port = 0;
 	public static final int joystick2Port = 1;
 	public static final float minFlywheelThrottle = 1f;//Speed for outwards push
