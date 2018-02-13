@@ -21,14 +21,14 @@ public class RobotMap {
 	public static WPI_TalonSRX backRightT = new WPI_TalonSRX(3);
 	
 	//Ramp Winch Motor Controllers
-	public static VictorSP leftRamp = new VictorSP(0);
-	public static Spark rightRamp = new Spark(1);
+	public static Spark leftRamp = new Spark(2);
+	public static Spark rightRamp = new Spark(3);
 	
 	//Ramp Drop Motor Controllers
-	public static VictorSP rampDropController = new VictorSP(1);
+	public static VictorSP rampDropController = new VictorSP(0);
 	
 	//Ramp Limit Switches
-	public static DigitalInput LeftRampLimit = new DigitalInput(4);
-	public static DigitalInput RightRampLimit = new DigitalInput(5);
+	public static DigitalInput LeftRampLimit = new DigitalInput(7);
+	public static DigitalInput RightRampLimit = new DigitalInput(6);
 	
 }

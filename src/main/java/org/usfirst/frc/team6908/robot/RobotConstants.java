@@ -10,9 +10,10 @@ public class RobotConstants {
 	public static final double maxAxis = 1;
 	
 	//Winch speed constant
-	public static final double kWinchSpeed = .5;
+	public static final double kWinchSpeed = .7;
 	
 	//Ramp Drop motor speed constant
-	public static final double holdRamps = .3; //THIS VALUE NEEDS TO BE TESTED
+	public static final float RAMPS_DOWN_SPEED = 1f;
+	public static final float RAMPS_UP_SPEED = .4f;
 	
 }

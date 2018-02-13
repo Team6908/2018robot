@@ -11,34 +11,6 @@ import org.usfirst.frc.team6908.robot.commands.*;
  * interface to the commands and command groups that allow control of the robot.
  */ 
 public class OI {
-	//// CREATING BUTTONS
-	// One type of button is a joystick button which is any button on a
-	//// joystick.
-	// You create one by telling it which joystick it's on and which button
-	// number it is.
-	// Joystick stick = new Joystick(port);
-	// Button button = new JoystickButton(stick, buttonNumber);
-
-	// There are a few additional built in buttons you can use. Additionally,
-	// by subclassing Button you can create custom triggers and bind those to
-	// commands the same as any other Button.
-
-	//// TRIGGERING COMMANDS WITH BUTTONS
-	// Once you have a button, it's trivial to bind it to a button in one of
-	// three ways:
-
-	// Start the command when the button is pressed and let it run the command
-	// until it is finished as determined by it's isFinished method.
-	// button.whenPressed(new ExampleCommand());
-
-	// Run the command while the button is being held down and interrupt it once
-	// the button is released.
-	// button.whileHeld(new ExampleCommand());
-
-	// Start the command when the button is released and let it run the command
-	// until it is finished as determined by it's isFinished method.
-	// button.whenReleased(new ExampleCommand());
-	
 	//Joystick Button ports
 	public static int trigger = 1;
 	public static int thumbButton = 2;
@@ -54,25 +26,35 @@ public class OI {
 	public static int button12 = 12;
 	public static int button13 = 13;
 	
-	public Joystick Joystick1;
-	public Joystick Joystick2;
+	public static Joystick Joystick1;
+	public static Joystick Joystick2;
 	
 	public Button exampleCommand;
-	public Button LeftRampDeploy;
+	public Button RaiseLeftRamp;
 	public Button LeftRampLower;
-	
-	public Button deployRamp;
+	public Button RaiseRightRamp;
+	public Button RightRampLower;	
+	public Button FondleRampsUp;
+	public Button FondleRampsDown;
 	
 	public OI() {
 		Joystick1 = new Joystick(0);
 		Joystick2 = new Joystick(1);
 		
 		//Ramp deploy buttons
-		LeftRampDeploy = new JoystickButton(Joystick1, button11);
+		RaiseRightRamp = new JoystickButton(Joystick1, button9);
+		RightRampLower = new JoystickButton(Joystick1, button10);
+		RaiseLeftRamp = new JoystickButton(Joystick1, button11);
 		LeftRampLower = new JoystickButton(Joystick1, button12);
-		LeftRampDeploy.whileHeld(new RaiseLeftRamp());
-		LeftRampLower.whileHeld(new LowerLeftRamp());
+		//Ramp fondle buttons
+		FondleRampsUp = new JoystickButton(Joystick1, button7);
+		FondleRampsDown = new JoystickButton(Joystick1, button8);
 		
-		deployRamp.whenPressed(new DeployRamp());		
+		RaiseLeftRamp.whileHeld(new RaiseLeftRamp());
+		LeftRampLower.whileHeld(new LowerLeftRamp());
+		RaiseRightRamp.whileHeld(new RaiseRightRamp());
+		RightRampLower.whileHeld(new LowerRightRamp());
+		FondleRampsUp.whileHeld(new FondleUpRamps());
+		FondleRampsDown.whileHeld(new FondleDownRamps());
 	}
 }

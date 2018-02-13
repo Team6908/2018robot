@@ -11,6 +11,7 @@ public class Ramp extends Subsystem {
 	SpeedController winch;
 	DigitalInput limitSwitch;
 	
+	
 	//Sets the local winch motor controller to the inputed controller object
 	public Ramp(SpeedController controller, DigitalInput limit) {
 		winch = controller;
@@ -37,8 +38,8 @@ public class Ramp extends Subsystem {
 		winch.set(0.0);
 	}
 	
-	public boolean isUp(){
-		return limitSwitch.get();
-	}
+//	public boolean isUp(){
+//		return limitSwitch.get();
+//	}
 
 }

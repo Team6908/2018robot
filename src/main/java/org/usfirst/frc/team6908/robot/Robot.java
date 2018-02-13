@@ -14,7 +14,7 @@ import org.usfirst.frc.team6908.robot.commands.ExampleCommand;
 import org.usfirst.frc.team6908.robot.subsystems.DriveTrain;
 import org.usfirst.frc.team6908.robot.subsystems.ExampleSubsystem;
 import org.usfirst.frc.team6908.robot.subsystems.Ramp;
-import org.usfirst.frc.team6908.robot.subsystems.RampDrop;
+import org.usfirst.frc.team6908.robot.subsystems.RampFondler;
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -29,11 +29,11 @@ public class Robot extends IterativeRobot {
 	public static OI oi;
 	public static DriveTrain drivetrain = new DriveTrain();
 //	public static CameraServer server;
+	public static RampFondler rampFondler = new RampFondler(RobotMap.rampDropController, 0.0);
 	public static Ramp leftRamp = new Ramp(RobotMap.leftRamp, RobotMap.LeftRampLimit);
 	public static Ramp rightRamp = new Ramp(RobotMap.rightRamp, RobotMap.RightRampLimit);
 	
-	public static RampDrop rampDrop = new RampDrop(RobotMap.rampDropController, 0.0);
-
+	
 	Command autonomousCommand;
 	SendableChooser<Command> chooser = new SendableChooser<>();
 
@@ -49,7 +49,7 @@ public class Robot extends IterativeRobot {
 		SmartDashboard.putData("Auto mode", chooser);
 //		CameraServer.getInstance().startAutomaticCapture("Front Camera", 0);
 //		CameraServer.getInstance().startAutomaticCapture("Back Camera", 1);
-		rampDrop.start(RobotConstants.holdRamps);
+//		rampDrop.start(RobotConstants.holdRamps);
 	}
 
 	/**
