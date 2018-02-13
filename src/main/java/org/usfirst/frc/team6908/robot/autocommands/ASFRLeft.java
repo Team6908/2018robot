@@ -1,4 +1,4 @@
-package org.usfirst.frc.team6908.robot.autoCommands;
+package org.usfirst.frc.team6908.robot.autocommands;
 
 import org.usfirst.frc.team6908.robot.commands.*;
 
@@ -7,9 +7,9 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
 /**
  *
  */
-public class ASFRRight extends CommandGroup {
+public class ASFRLeft extends CommandGroup {
 
-    public ASFRRight() {
+    public ASFRLeft() {
         // Add Commands here:
         // e.g. addSequential(new Command1());
         //      addSequential(new Command2());
@@ -26,12 +26,5 @@ public class ASFRRight extends CommandGroup {
         // e.g. if Command1 requires chassis, and Command2 requires arm,
         // a CommandGroup containing them would require both the chassis and the
         // arm.
-//    	addSequential(new AutoDrive(8));
-//    	addSequential(new TurnRobot(17));
-//    	addSequential(new AutoDrive(63));
-//    	addSequential(new TurnRobot(-17));
-    	addSequential(new AutoDrive(197));
-    	addSequential(new TurnRobot(-25));
-//    	addSequential(new AutoDrive(12));
     }
 }

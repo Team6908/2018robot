@@ -37,8 +37,8 @@ public class AutoDrive extends Command {
     	DriveTrain.driftfix.setAbsoluteTolerance(10);
     	DriveTrain.forward.setSetpoint(distance);
     	DriveTrain.driftfix.setSetpoint(0);
-    	DriveTrain.forward.setOutputRange(-0.6, 0.6);
-    	DriveTrain.driftfix.setOutputRange(-0.6, 0.6);
+    	DriveTrain.forward.setOutputRange(-0.4, 0.4);
+    	DriveTrain.driftfix.setOutputRange(-0.4, 0.4);
     }
 
     // Called repeatedly when this Command is scheduled to run

@@ -16,13 +16,13 @@ public class DeltaEncoders implements PIDSource {
 	@Override
 	public PIDSourceType getPIDSourceType() {
 		// TODO Auto-generated method stub
-		return PIDSourceType.kDisplacement;
+		return PIDSourceType.kRate;
 	}
 
 	@Override
 	public double pidGet() {
 		// TODO Auto-generated method stub
-		return DriveTrain.leftEncoder.getDistance() + DriveTrain.rightEncoder.getDistance();
+		return DriveTrain.leftEncoder.getRate() + DriveTrain.rightEncoder.getRate();
 	}
 
 }

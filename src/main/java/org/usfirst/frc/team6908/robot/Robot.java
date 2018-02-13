@@ -10,7 +10,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import java.util.Scanner;
 
-import org.usfirst.frc.team6908.robot.autoCommands.*;
+import org.usfirst.frc.team6908.robot.autocommands.*;
 import org.usfirst.frc.team6908.robot.commands.*;
 import org.usfirst.frc.team6908.robot.subsystems.*;
 
@@ -141,6 +141,7 @@ public class Robot extends IterativeRobot {
         SmartDashboard.putNumber("Guyro Fieri", DriveTrain.gyro.getAngle());
     		SmartDashboard.putNumber("Left Distance", RobotMap.leftEncoder.getDistance());
     		SmartDashboard.putNumber("Right Distance", RobotMap.rightEncoder.getDistance());
+    		SmartDashboard.putNumber("Error", DriveTrain.driftfix.getError());
 
 	}
 

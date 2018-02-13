@@ -32,7 +32,7 @@ public class RobotMap {
 	public static Encoder rightEncoder = new Encoder(2,3);
 	public static Encoder leftEncoder = new Encoder(0,1);
 	
-	public static Spark leftFlywheel = new Spark(0);
-	public static Spark rightFlywheel = new Spark(1);
+	public static Spark leftFlywheel = new Spark(4);
+	public static Spark rightFlywheel = new Spark(5);
 	
 }

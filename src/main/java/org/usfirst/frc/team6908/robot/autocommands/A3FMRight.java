@@ -1,4 +1,4 @@
-package org.usfirst.frc.team6908.robot.autoCommands;
+package org.usfirst.frc.team6908.robot.autocommands;
 
 import org.usfirst.frc.team6908.robot.commands.AutoDrive;
 import org.usfirst.frc.team6908.robot.commands.TurnRobot;
@@ -8,9 +8,9 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
 /**
  *
  */
-public class A3FMLeft extends CommandGroup {
+public class A3FMRight extends CommandGroup {
 
-    public A3FMLeft() {
+    public A3FMRight() {
         // Add Commands here:
         // e.g. addSequential(new Command1());
         //      addSequential(new Command2());
@@ -27,10 +27,10 @@ public class A3FMLeft extends CommandGroup {
         // e.g. if Command1 requires chassis, and Command2 requires arm,
         // a CommandGroup containing them would require both the chassis and the
         // arm.
-		addSequential(new AutoDrive(8));
-    	addSequential(new TurnRobot(-35));
-    	addSequential(new AutoDrive(59));
+    	addSequential(new AutoDrive(8));
     	addSequential(new TurnRobot(35));
+    	addSequential(new AutoDrive(59));
+    	addSequential(new TurnRobot(-35));
     	addSequential(new AutoDrive(20));
     }
 }
