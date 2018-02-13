@@ -26,14 +26,18 @@ public class RampFondler extends Subsystem {
         //setDefaultCommand(new MySpecialCommand());
     }
         
-	public void FondleUpRamps() {
-		motor.set(RobotConstants.RAMPS_UP_SPEED);
-	}
+//	public void FondleUpRamps() {
+//		motor.set(RobotConstants.RAMPS_UP_SPEED);
+//	}
+//	
+//	public void FondleDownRamps() {
+//		motor.set(RobotConstants.RAMPS_DOWN_SPEED);
+//	}
 	
-	public void FondleDownRamps() {
-		motor.set(RobotConstants.RAMPS_DOWN_SPEED);
-	}
-	
+    public void start(double speed) {
+    	motor.set(speed);
+    }
+    
 	public void StopRampFondling(){
 		motor.set(0.0);
 	}
