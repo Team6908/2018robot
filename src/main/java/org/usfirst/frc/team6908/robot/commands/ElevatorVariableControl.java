@@ -44,10 +44,7 @@ public class ElevatorVariableControl extends Command {
 		if(((Robot.oi.Joystick2.getY() > RobotConstants.joystickDeadzone && Robot.oi.Joystick2.getY() < RobotConstants.joystickDeadzone))) {
 			return true;
 		}
-		//Checks for top and bottom limit switches while the motors are still active
-		else if((Robot.elevator.getPIDController().get() > 0 && Robot.elevator.isAtTop()) || (Robot.elevator.getPIDController().get() < 0 && Robot.elevator.isAtBottom())) {
-			return true;
-		}
+		
 		return false;
 	}
 

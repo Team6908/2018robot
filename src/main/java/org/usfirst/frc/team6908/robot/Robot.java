@@ -116,6 +116,8 @@ public class Robot extends IterativeRobot {
 	public void teleopPeriodic() {
 		Scheduler.getInstance().run();
 		SmartDashboard.putNumber("Encoder", RobotMap.elevatorEncoder.getDistance());
+		SmartDashboard.putBoolean("Top Limit Switch",elevator.isAtTop());
+		SmartDashboard.putBoolean("Bottom Limit Switch", elevator.isAtBottom());
 	}
 
 	/**

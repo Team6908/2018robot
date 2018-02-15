@@ -1,5 +1,6 @@
 package org.usfirst.frc.team6908.robot.subsystems;
 
+import org.usfirst.frc.team6908.robot.Robot;
 import org.usfirst.frc.team6908.robot.RobotConstants;
 import org.usfirst.frc.team6908.robot.RobotMap;
 import org.usfirst.frc.team6908.robot.commands.ElevatorVariableControl;
@@ -45,16 +46,22 @@ public class Elevator extends PIDSubsystem {
     }
     
     public void extend(double speed) {
-    		RobotMap.elevator.set(speed);
+    		if((speed > 0) && Robot.elevator.isAtTop()) {
+    			RobotMap.elevator.set(0);
+    		} else if((speed < 0) && Robot.elevator.isAtBottom()) {
+    			RobotMap.elevator.set(0);
+    		} else {
+    			RobotMap.elevator.set(speed);
+    		}
     }
     
     public boolean isAtBottom() {
-		return RobotMap.botElevatorLimit.get();
+		return !RobotMap.botElevatorLimit.get();
+		
 }
 
 	public boolean isAtTop() {
-		// TODO Auto-generated method stub
-		return false;
+		return !RobotMap.topElevatorLimit.get();
 	}
     
 }

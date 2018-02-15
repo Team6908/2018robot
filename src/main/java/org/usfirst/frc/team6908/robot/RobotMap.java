@@ -33,6 +33,6 @@ public class RobotMap {
 	public static Spark leftFlywheel = new Spark(RobotConstants.leftFlywheelSpark);
 	public static Spark rightFlywheel = new Spark(RobotConstants.rightFlywheelSpark);
 	
-	public static DigitalInput botElevatorLimit = new DigitalInput(6);
-	public static DigitalInput topElevatorLimit = new DigitalInput(9);
+	public static DigitalInput botElevatorLimit = new DigitalInput(9);
+	public static DigitalInput topElevatorLimit = new DigitalInput(8);
 }
