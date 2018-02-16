@@ -8,7 +8,7 @@ public class Rotate implements PIDOutput {
 
 	@Override
 	public void pidWrite(double output) {
-		Robot.drivetrain.Drive(0, output);
+		Robot.drivetrain.Drive(0, output-.002);
 
 	}
 

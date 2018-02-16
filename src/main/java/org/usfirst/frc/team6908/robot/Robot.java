@@ -60,8 +60,8 @@ public class Robot extends IterativeRobot {
 //        } else {
 //            new A3FMRight();
 //        }
-		CameraServer.getInstance().startAutomaticCapture("Front Camera", 0);
-		CameraServer.getInstance().startAutomaticCapture("Back Camera", 1);
+//		CameraServer.getInstance().startAutomaticCapture("Front Camera", 0);
+//		CameraServer.getInstance().startAutomaticCapture("Back Camera", 1);
 		
 	}
 
@@ -72,7 +72,8 @@ public class Robot extends IterativeRobot {
 	 */
 	@Override
 	public void robotPeriodic(){
-		//System.out.println("Overload me!");
+    	SmartDashboard.putNumber("right", Robot.drivetrain.rightMotors.get());
+    	SmartDashboard.putNumber("left", Robot.drivetrain.leftMotors.get());
 	}
 	
 	@Override
@@ -145,9 +146,9 @@ public class Robot extends IterativeRobot {
 	public void autonomousPeriodic() {
 		Scheduler.getInstance().run();
         SmartDashboard.putNumber("Guyro Fieri", DriveTrain.gyro.getAngle());
-    		SmartDashboard.putNumber("Left Distance", RobotMap.leftEncoder.getDistance());
-    		SmartDashboard.putNumber("Right Distance", RobotMap.rightEncoder.getDistance());
-    		SmartDashboard.putNumber("Error", DriveTrain.driftfix.getError());
+//   	SmartDashboard.putNumber("Left Distance", RobotMap.leftEncoder.getDistance());
+//    	SmartDashboard.putNumber("Right Distance", RobotMap.rightEncoder.getDistance());
+//    	SmartDashboard.putNumber("Error", DriveTrain.driftfix.getError());
 	}
 
 	@Override

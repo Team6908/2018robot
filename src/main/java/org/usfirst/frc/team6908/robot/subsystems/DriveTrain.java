@@ -29,28 +29,24 @@ public class DriveTrain extends Subsystem {
     public static Encoder leftEncoder = RobotMap.leftEncoder;
     public static PIDController rightPID = new PIDController(0.02, 0.0, 0.0, rightEncoder, rightMotors);
     public static PIDController leftPID = new PIDController(0.02, 0.0, 0.0, leftEncoder, leftMotors);
-    public static PIDController gyroPID = new PIDController(0.02,0.0,0.0,gyro,allMotors);
+    public static PIDController gyroPID = new PIDController(0.02, 0.0, 0.0, gyro, allMotors);
     
     public static DeltaEncoders encoderdifference = new DeltaEncoders();
     
     public static Rotate turnit = new Rotate();
     public static MoveForward move = new MoveForward();
     
-    public static PIDController rotater = new PIDController(0.01,0.0001,0.0,gyro,turnit);
-    public static PIDController forward = new PIDController(-0.02,0.0,0.0,rightEncoder,rightMotors);
-    public static PIDController driftfix = new PIDController(-0.025,0.0,0.0,encoderdifference,leftMotors);
+    public static PIDController rotater = new PIDController(0.023, .0, 0.001, gyro, turnit);
+    public static PIDController forward = new PIDController(-0.02, 0.0, 0.0, rightEncoder, rightMotors);
+    public static PIDController driftfix = new PIDController(-0.025, 0.0, 0.0, encoderdifference, leftMotors);
     
-    public DriveTrain() {
-    	gyro.reset();
-    	
+    public DriveTrain() {   	
     	rightMotors.setName("Right");
     	leftMotors.setName("Left");
     	
     	SmartDashboard.putData(gyro);
     	SmartDashboard.putData(leftEncoder);
     	SmartDashboard.putData(rightEncoder);
-    	SmartDashboard.putData(rightMotors);
-    	SmartDashboard.putData(leftMotors);
     	SmartDashboard.putData(leftPID);
     	SmartDashboard.putData(rightPID);
     	
