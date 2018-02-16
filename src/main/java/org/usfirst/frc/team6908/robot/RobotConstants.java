@@ -7,7 +7,7 @@ public class RobotConstants {
 	public static final float highRangeThrottle = 1f;
 	public static final int minAxis = -1;
 	public static final int maxAxis = 1;
-	public static final float elevatorExtendSpeed = .4f;
+	public static final float elevatorExtendSpeed = .6f;
 	public static final float joystickDeadzone = .1f;
 	public static final float elevatorP = -.011f;
 	public static final float elevatorI = 0f;
