@@ -28,6 +28,6 @@ public class BaselineDrive extends CommandGroup {
         // a CommandGroup containing them would require both the chassis and the
         // arm.
     	
-    	addSequential(new AutoDrive(84));
+    	addSequential(new TurnRobot(90));
     }
 }

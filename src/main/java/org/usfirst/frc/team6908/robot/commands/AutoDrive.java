@@ -7,7 +7,11 @@ import edu.wpi.first.wpilibj.command.Command;
 
 public class AutoDrive extends Command {
 	
+	private static final double AUTO_DRIVE_CORRECT_COEFF = 0.02;
 	private double distance;
+	private double gyroAngle;
+	private double driveAngle;
+	private static final double speed = 0.4;
 
 	public AutoDrive(double dist) {
 		distance = ((dist / (6*Math.PI)) * 255);
@@ -16,49 +20,29 @@ public class AutoDrive extends Command {
 
     // Called just before this Command runs the first time
     protected void initialize() {
-//   		Robot.drivetrain.leftEncoder.reset();
-//   		Robot.drivetrain.rightEncoder.reset();
-//   		Robot.drivetrain.rightPID.setAbsoluteTolerance(2);
-//   		Robot.drivetrain.leftPID.setAbsoluteTolerance(2);
-///*    	Robot.drivetrain.rightPID.setOutputRange(0.0,0.7);
-//        Robot.drivetrain.leftPID.setOutputRange(0.0,0.7);		*/
-//        Robot.drivetrain.rightPID.enable();
-//        Robot.drivetrain.leftPID.enable();
-//        Robot.drivetrain.rightPID.setOutputRange(-0.61, 0.61);
-//        Robot.drivetrain.leftPID.setOutputRange(-0.6, 0.6);
-//        Robot.drivetrain.rightPID.setSetpoint(-distance-4);
-//        Robot.drivetrain.leftPID.setSetpoint(distance);
-    	
     	DriveTrain.leftEncoder.reset();
-		DriveTrain.rightEncoder.reset();
-    	DriveTrain.forward.enable();
-    	DriveTrain.driftfix.enable();
-    	DriveTrain.forward.setAbsoluteTolerance(10);
-    	DriveTrain.driftfix.setAbsoluteTolerance(10);
-    	DriveTrain.forward.setSetpoint(distance);
-    	DriveTrain.driftfix.setSetpoint(0);
-    	DriveTrain.forward.setOutputRange(-0.4, 0.4);
-    	DriveTrain.driftfix.setOutputRange(-0.4, 0.4);
+    	DriveTrain.rightEncoder.reset();
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
+    	gyroAngle = DriveTrain.gyro.getAngle();
+		driveAngle = -gyroAngle * AUTO_DRIVE_CORRECT_COEFF;
+		
+		
+		//System.out.println("Time (sec) = " + String.format("%.1f",currentPeriodSec) + " Angle =" + String.format("%.2f",driveAngle));
+
+		Robot.drivetrain.Drive(-speed, -driveAngle*AUTO_DRIVE_CORRECT_COEFF);
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-    	if(DriveTrain.forward.onTarget()){
-    		return true;
-    	}
-    	else{
-    		return false;
-    	}
+    	return (DriveTrain.rightEncoder.getDistance() >= distance);
     }
 
     // Called once after isFinished returns true
     protected void end() {
-    	DriveTrain.forward.disable();
-        DriveTrain.driftfix.disable();
+    	Robot.drivetrain.Drive(0.0, 0.0);
     }
 
     // Called when another command which requires one or more of the same

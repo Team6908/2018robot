@@ -6,4 +6,6 @@ public class RobotMath {
 		return (((b-a)*(x-min))/(max-min))+a;
 	}
 	
+	
+	
 }

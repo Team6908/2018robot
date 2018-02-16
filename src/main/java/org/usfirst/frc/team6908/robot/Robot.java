@@ -51,7 +51,7 @@ public class Robot extends IterativeRobot {
 //		CameraServer.getInstance().startAutomaticCapture();
 		// chooser.addObject("My Auto", new MyAutoCommand());
 		SmartDashboard.putData("Auto mode", chooser);
-		SmartDashboard.putString("Game Data", gameData);
+		//SmartDashboard.putString("Game Data", gameData);
 //		System.out.println("Write the Direction");
 //		gameData = scan.next();
 //        if(gameData.charAt(0) == 'L')
@@ -70,6 +70,11 @@ public class Robot extends IterativeRobot {
 	 * You can use it to reset any subsystem information you want to clear when
 	 * the robot is disabled.
 	 */
+	@Override
+	public void robotPeriodic(){
+		//System.out.println("Overload me!");
+	}
+	
 	@Override
 	public void disabledInit() {
 
@@ -94,6 +99,7 @@ public class Robot extends IterativeRobot {
 	@Override
 	public void autonomousInit() {
 		autonomousCommand = chooser.getSelected();
+		drivetrain.gyro.reset();
 		
 //		if(chooser.getSelected().equals(new A3FM())) {
 //			switch(gameData.charAt(0)) {
@@ -142,7 +148,6 @@ public class Robot extends IterativeRobot {
     		SmartDashboard.putNumber("Left Distance", RobotMap.leftEncoder.getDistance());
     		SmartDashboard.putNumber("Right Distance", RobotMap.rightEncoder.getDistance());
     		SmartDashboard.putNumber("Error", DriveTrain.driftfix.getError());
-
 	}
 
 	@Override
