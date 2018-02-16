@@ -38,9 +38,9 @@ public class Robot extends IterativeRobot {
 		oi = new OI();
 		SmartDashboard.putData("Auto mode", chooser);
 
-		CameraServer.getInstance().startAutomaticCapture();
-		CameraServer.getInstance().startAutomaticCapture("Front Camera", 0);
-		CameraServer.getInstance().startAutomaticCapture("Back Camera", 1);
+//		CameraServer.getInstance().startAutomaticCapture();
+//		CameraServer.getInstance().startAutomaticCapture("Front Camera", 0);
+//		CameraServer.getInstance().startAutomaticCapture("Back Camera", 1);
 
 		RobotMap.elevatorEncoder.reset();
 		
