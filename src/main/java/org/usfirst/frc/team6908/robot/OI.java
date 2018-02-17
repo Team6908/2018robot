@@ -19,7 +19,6 @@ public class OI {
 	public static Button botStatic;
 	public static Button switchStatic;
 	public static Button scaleStatic;
-
 	
 	public OI() {
 		Joystick1 = new Joystick(RobotConstants.joystick1Port);
@@ -31,15 +30,11 @@ public class OI {
 		switchStatic = new JoystickButton(Joystick2, RobotConstants.button9);
 		scaleStatic = new JoystickButton(Joystick2, RobotConstants.button11);
 		
-		
 		fondleIn.whileHeld(new FondleCubeIn());
 		fondleOut.whileHeld(new FondleCubeOut());
 		botStatic.whenPressed(new StaticHeightControl(RobotConstants.baseHeight));
 		switchStatic.whenPressed(new StaticHeightControl(-12350.75));
 		scaleStatic.whenPressed(new StaticHeightControl(-22631.5));
-		
-
-		
 		
 	}	
 	

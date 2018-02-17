@@ -7,10 +7,12 @@ import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+import edu.wpi.first.wpilibj.DriverStation;
+import java.util.Scanner;
 
+import org.usfirst.frc.team6908.robot.autocommands.*;
 import org.usfirst.frc.team6908.robot.commands.*;
 import org.usfirst.frc.team6908.robot.subsystems.*;
-
 /**
  * The VM is configured to automatically run this class, and to call the
  * functions corresponding to each mode, as described in the IterativeRobot
@@ -25,6 +27,7 @@ public class Robot extends IterativeRobot {
 	public static CameraServer server;
 	public static Fondle fondle = new Fondle();
 	public static Elevator elevator = new Elevator();
+	private static String gameData;
 
 	Command autonomousCommand;
 	SendableChooser<Command> chooser = new SendableChooser<>();
@@ -33,18 +36,33 @@ public class Robot extends IterativeRobot {
 	 * This function is run when the robot is first started up and should be
 	 * used for any initialization code.
 	 */
+
 	@Override
 	public void robotInit() {
+		gameData = DriverStation.getInstance().getGameSpecificMessage();
 		oi = new OI();
-		SmartDashboard.putData("Auto mode", chooser);
-
+		chooser.addDefault("Default Auto", new BaselineDrive());
+		chooser.addObject("A3FM", new A3FM(gameData));
+		chooser.addObject("ASFR", new ASFR(gameData));
+		chooser.addObject("ASFL", new ASFL(gameData));
+		chooser.addObject("Baseline", new BaselineDrive());
 //		CameraServer.getInstance().startAutomaticCapture();
+		// chooser.addObject("My Auto", new MyAutoCommand());
+		SmartDashboard.putData("Auto mode", chooser);
+		//SmartDashboard.putString("Game Data", gameData);
+//		System.out.println("Write the Direction");
+//		gameData = scan.next();
+//        if(gameData.charAt(0) == 'L')
+//        {
+//            new A3FMLeft();
+//        } else {
+//            new A3FMRight();
+//        }
 //		CameraServer.getInstance().startAutomaticCapture("Front Camera", 0);
 //		CameraServer.getInstance().startAutomaticCapture("Back Camera", 1);
-
-		RobotMap.elevatorEncoder.reset();
 		
 	}
+
 
 	/**
 	 * This function is called once each time the robot enters Disabled mode.
@@ -77,15 +95,7 @@ public class Robot extends IterativeRobot {
 		autonomousCommand = chooser.getSelected();
 		
 		new eRelease();
-		
-		/*
-		 * String autoSelected = SmartDashboard.getString("Auto Selector",
-		 * "Default"); switch(autoSelected) { case "My Auto": autonomousCommand
-		 * = new MyAutoCommand(); break; case "Default Auto": default:
-		 * autonomousCommand = new ExampleCommand(); break; }
-		 */
-
-		// schedule the autonomous command (example)
+    
 		if (autonomousCommand != null)
 			autonomousCommand.start();
 		
@@ -97,6 +107,10 @@ public class Robot extends IterativeRobot {
 	@Override
 	public void autonomousPeriodic() {
 		Scheduler.getInstance().run();
+        SmartDashboard.putNumber("Guyro Fieri", DriveTrain.gyro.getAngle());
+//   	SmartDashboard.putNumber("Left Distance", RobotMap.leftEncoder.getDistance());
+//    	SmartDashboard.putNumber("Right Distance", RobotMap.rightEncoder.getDistance());
+//    	SmartDashboard.putNumber("Error", DriveTrain.driftfix.getError());
 	}
 
 	@Override
