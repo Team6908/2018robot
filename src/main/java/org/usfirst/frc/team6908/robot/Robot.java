@@ -1,19 +1,18 @@
 package org.usfirst.frc.team6908.robot;
 
 import edu.wpi.first.wpilibj.CameraServer;
-import edu.wpi.first.wpilibj.DriverStation;
 import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+import edu.wpi.first.wpilibj.DriverStation;
 import java.util.Scanner;
 
 import org.usfirst.frc.team6908.robot.autocommands.*;
 import org.usfirst.frc.team6908.robot.commands.*;
 import org.usfirst.frc.team6908.robot.subsystems.*;
-
 /**
  * The VM is configured to automatically run this class, and to call the
  * functions corresponding to each mode, as described in the IterativeRobot
@@ -23,14 +22,12 @@ import org.usfirst.frc.team6908.robot.subsystems.*;
  */
 public class Robot extends IterativeRobot {
 	
-	public static final ExampleSubsystem exampleSubsystem = new ExampleSubsystem();
 	public static OI oi;
 	public static DriveTrain drivetrain = new DriveTrain();
-	private static String gameData;
 	public static CameraServer server;
 	public static Fondle fondle = new Fondle();
-
-//	private static Scanner scan = new Scanner(System.in);
+	public static Elevator elevator = new Elevator();
+	private static String gameData;
 
 	Command autonomousCommand;
 	SendableChooser<Command> chooser = new SendableChooser<>();
@@ -39,6 +36,7 @@ public class Robot extends IterativeRobot {
 	 * This function is run when the robot is first started up and should be
 	 * used for any initialization code.
 	 */
+
 	@Override
 	public void robotInit() {
 		gameData = DriverStation.getInstance().getGameSpecificMessage();
@@ -65,17 +63,12 @@ public class Robot extends IterativeRobot {
 		
 	}
 
+
 	/**
 	 * This function is called once each time the robot enters Disabled mode.
 	 * You can use it to reset any subsystem information you want to clear when
 	 * the robot is disabled.
 	 */
-	@Override
-	public void robotPeriodic(){
-    	SmartDashboard.putNumber("right", Robot.drivetrain.rightMotors.get());
-    	SmartDashboard.putNumber("left", Robot.drivetrain.leftMotors.get());
-	}
-	
 	@Override
 	public void disabledInit() {
 
@@ -100,43 +93,12 @@ public class Robot extends IterativeRobot {
 	@Override
 	public void autonomousInit() {
 		autonomousCommand = chooser.getSelected();
-		drivetrain.gyro.reset();
 		
-//		if(chooser.getSelected().equals(new A3FM())) {
-//			switch(gameData.charAt(0)) {
-//			case 'L':
-//				autonomousCommand = new A3FMLeft();
-//				break;
-//			case 'R':
-//				autonomousCommand = new A3FMRight();
-//				break;
-//			}
-//		}
-//		if(chooser.getSelected().equals(new ASFR())) {
-//			switch(gameData.charAt(0)) {
-//			case 'L':
-//				autonomousCommand = new ASFRLeft();
-//				break;
-//			case 'R':
-//				autonomousCommand = new ASFRRight();
-//				break;
-//			default:
-//				
-//			}
-//		}
-//		else if(chooser.getSelected().equals(new A3FM())) {
-//			
-//		}
-		/*
-		 * String autoSelected = SmartDashboard.getString("Auto Selector",
-		 * "Default"); switch(autoSelected) { case "My Auto": autonomousCommand
-		 * = new MyAutoCommand(); break; case "Default Auto": default:
-		 * autonomousCommand = new ExampleCommand(); break; }
-		 */
-
-		// schedule the autonomous command (example)
+		new eRelease();
+    
 		if (autonomousCommand != null)
 			autonomousCommand.start();
+		
 	}
 
 	/**
@@ -167,6 +129,9 @@ public class Robot extends IterativeRobot {
 	@Override
 	public void teleopPeriodic() {
 		Scheduler.getInstance().run();
+		SmartDashboard.putNumber("Encoder", RobotMap.elevatorEncoder.getDistance());
+		SmartDashboard.putBoolean("Top Limit Switch",elevator.isAtTop());
+		SmartDashboard.putBoolean("Bottom Limit Switch", elevator.isAtBottom());
 	}
 
 	/**
@@ -174,8 +139,6 @@ public class Robot extends IterativeRobot {
 	 */
 	@Override
 	public void testPeriodic() {
-//		LiveWindow.disableAllTelemetry();
 		LiveWindow.setEnabled(true);
-		LiveWindow.add(RobotMap.leftEncoder);
 	}
 }

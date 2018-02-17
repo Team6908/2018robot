@@ -2,15 +2,16 @@ package org.usfirst.frc.team6908.robot.commands;
 
 import org.usfirst.frc.team6908.robot.*;
 
+
 import edu.wpi.first.wpilibj.command.Command;
-import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+
 
 /**
  *
  */
-public class FondleCube extends Command {
+public class FondleCubeOut extends Command {
 
-    public FondleCube() {
+    public FondleCubeOut() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
     	 requires(Robot.fondle);
@@ -23,15 +24,12 @@ public class FondleCube extends Command {
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
     	//Checks if button 3 is being held to determine direction of motor spin
-    	if(RobotConstants.fondleVector) {
+   
     		//Button 3 is held, flywheels spin to output
-    		Robot.fondle.fondleIn();
-    	} 
-    	else {
-    		//Button 3 is not held, flywheels spin to input
     		Robot.fondle.fondleOut();
-    	}
-    }
+    	} 
+   
+   
     
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {

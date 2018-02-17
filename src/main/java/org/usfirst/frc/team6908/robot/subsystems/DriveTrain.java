@@ -1,26 +1,25 @@
 package org.usfirst.frc.team6908.robot.subsystems;
 
-import org.usfirst.frc.team6908.robot.*;
-import org.usfirst.frc.team6908.robot.autoPID.DeltaEncoders;
-import org.usfirst.frc.team6908.robot.autoPID.MoveForward;
-import org.usfirst.frc.team6908.robot.autoPID.Rotate;
-import org.usfirst.frc.team6908.robot.commands.ArcadeDrive;
-
-import edu.wpi.first.wpilibj.command.Subsystem;
 import com.kauailabs.navx.frc.AHRS;
 
+import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.Encoder;
 import edu.wpi.first.wpilibj.PIDController;
 import edu.wpi.first.wpilibj.SpeedControllerGroup;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
+import org.usfirst.frc.team6908.robot.*;
+import org.usfirst.frc.team6908.robot.autoPID.DeltaEncoders;
+import org.usfirst.frc.team6908.robot.autoPID.MoveForward;
+import org.usfirst.frc.team6908.robot.autoPID.Rotate;
+import org.usfirst.frc.team6908.robot.commands.ArcadeDrive;
 /**
  *
  */
 public class DriveTrain extends Subsystem {
-    
-	double leftMtr, rightMtr;
-	
+
+	  double leftMtr, rightMtr;	
+  
     public static SpeedControllerGroup rightMotors = new SpeedControllerGroup(RobotMap.frontRight, RobotMap.backRight);
     public static SpeedControllerGroup leftMotors = new SpeedControllerGroup(RobotMap.frontLeft, RobotMap.backLeft);
     public static SpeedControllerGroup allMotors = new SpeedControllerGroup(RobotMap.frontLeft, RobotMap.backLeft, RobotMap.frontRight, RobotMap.backRight);
@@ -54,11 +53,12 @@ public class DriveTrain extends Subsystem {
     	
     }
     
-    public void initDefaultCommand() {
-    	setDefaultCommand(new ArcadeDrive());
-    	RobotMap.frontRight.setInverted(true);
-		RobotMap.backRight.setInverted(true);
-    }
+	@Override
+	protected void initDefaultCommand() {
+		setDefaultCommand(new ArcadeDrive());
+		RobotMap.frontRightT.setInverted(true);
+		RobotMap.backRightT.setInverted(true);		
+	}
     
 	public void setLeftMotors (double speed) {
 		RobotMap.frontLeft.set(speed);
@@ -73,10 +73,9 @@ public class DriveTrain extends Subsystem {
 	public void Drive(double throttle, double turn) {
 		//Converts throttle and turn values into left and right tank drive values
 		leftMtr = throttle + turn;
-        rightMtr = throttle - turn;
-        //Sets values to motors
-        Robot.drivetrain.setLeftMotors(leftMtr);
-        Robot.drivetrain.setRightMotors(rightMtr);
-	
+    rightMtr = throttle - turn;
+    //Sets values to motors
+    Robot.drivetrain.setLeftMotors(leftMtr);
+    Robot.drivetrain.setRightMotors(rightMtr);	
     }
 }
