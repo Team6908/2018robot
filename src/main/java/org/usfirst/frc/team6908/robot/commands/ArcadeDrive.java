@@ -15,8 +15,6 @@ public class ArcadeDrive extends Command {
 	private double acceleration;
 	private double throttleAcc;
 	private double turnAcc;
-	private double leftMtr;
-	private double rightMtr;
 	
     public ArcadeDrive() {
         // Use requires() here to declare subsystem dependencies
@@ -36,9 +34,9 @@ public class ArcadeDrive extends Command {
     	//Gets slider value
     	acceleration = Robot.oi.Joystick1.getThrottle();
      //Normalizes input from slider
-    	throttleAcc = RobotMath.normalize(RobotConstants.maxAxis, RobotConstants.minAxis, RobotConstants.lowRangeThrottle, RobotConstants.highRangeThrottle, acceleration);
-    	turnAcc = RobotMath.normalize(RobotConstants.maxAxis, RobotConstants.minAxis, RobotConstants.lowRangeTurn, RobotConstants.highRangeTurn, acceleration);
-    	//Displays acceleration values on smartdashboard
+    	throttleAcc = RobotMath.normalize(RobotConstants.maxAxis, RobotConstants.minAxis, RobotConstants.LOW_RANGE_TURN, RobotConstants.HIGH_RANGE_TURN, acceleration);
+    	turnAcc = RobotMath.normalize(RobotConstants.maxAxis, RobotConstants.minAxis, RobotConstants.HIGH_RANGE_TURN, RobotConstants.HIGH_RANGE_TURN, acceleration);
+    	//Displays acceleration values on smartdashboard 
     	SmartDashboard.putNumber("throttleAcc", throttleAcc); 
     	SmartDashboard.putNumber("turnAcc", turnAcc);
 	    //Scales the throttle/turn values with the acceleration values by multiplication 

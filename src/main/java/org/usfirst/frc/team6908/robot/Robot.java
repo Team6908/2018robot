@@ -94,7 +94,7 @@ public class Robot extends IterativeRobot {
 	public void autonomousInit() {
 		autonomousCommand = chooser.getSelected();
 		
-		new eRelease();
+		new ServoRelease();
     
 		if (autonomousCommand != null)
 			autonomousCommand.start();

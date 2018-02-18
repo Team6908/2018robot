@@ -1,8 +1,7 @@
 package org.usfirst.frc.team6908.robot.autocommands;
 
-import org.usfirst.frc.team6908.robot.commands.AutoDrive;
-import org.usfirst.frc.team6908.robot.commands.AutoTurn;
-import org.usfirst.frc.team6908.robot.commands.TurnRobot;
+import org.usfirst.frc.team6908.robot.RobotConstants;
+import org.usfirst.frc.team6908.robot.commands.*;
 
 import edu.wpi.first.wpilibj.command.CommandGroup;
 
@@ -28,9 +27,12 @@ public class BaselineDrive extends CommandGroup {
         // e.g. if Command1 requires chassis, and Command2 requires arm,
         // a CommandGroup containing them would require both the chassis and the
         // arm.
+    	addSequential(new ServoRelease());
     	addSequential(new AutoDrive(84));
-    	addSequential(new TurnRobot(-90));
+    	addParallel(new StaticHeightControl(RobotConstants.switchHeight));
+    	addSequential(new AutoTurn(-90));
     	addSequential(new AutoDrive(10));
-    	addSequential(new TurnRobot(90));
+    	addSequential(new AutoTurn(90));
+    	addSequential(new FondleOutAuto());
     }
 }

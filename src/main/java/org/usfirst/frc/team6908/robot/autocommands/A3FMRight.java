@@ -1,7 +1,7 @@
 package org.usfirst.frc.team6908.robot.autocommands;
 
 import org.usfirst.frc.team6908.robot.commands.AutoDrive;
-import org.usfirst.frc.team6908.robot.commands.TurnRobot;
+import org.usfirst.frc.team6908.robot.commands.AutoTurn;
 
 import edu.wpi.first.wpilibj.command.CommandGroup;
 
@@ -28,9 +28,9 @@ public class A3FMRight extends CommandGroup {
         // a CommandGroup containing them would require both the chassis and the
         // arm.
     	addSequential(new AutoDrive(8));
-    	addSequential(new TurnRobot(35));
+    	addSequential(new AutoTurn(35));
     	addSequential(new AutoDrive(59));
-    	addSequential(new TurnRobot(-35));
+    	addSequential(new AutoTurn(-35));
     	addSequential(new AutoDrive(20));
     }
 }

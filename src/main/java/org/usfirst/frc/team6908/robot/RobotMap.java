@@ -20,8 +20,8 @@ import edu.wpi.first.wpilibj.VictorSP;
  * floating around.
  */
 public class RobotMap {
-  //Drivetrain
-  public static WPI_TalonSRX frontLeftT = new WPI_TalonSRX(RobotConstants.frontLeftTalon);
+	//Drivetrain
+	public static WPI_TalonSRX frontLeftT = new WPI_TalonSRX(RobotConstants.frontLeftTalon);
 	public static WPI_TalonSRX frontRightT = new WPI_TalonSRX(RobotConstants.frontRightTalon);
 	public static WPI_TalonSRX backLeftT = new WPI_TalonSRX(RobotConstants.backLeftTalon);
 	public static WPI_TalonSRX backRightT = new WPI_TalonSRX(RobotConstants.backRightTalon);  
@@ -29,14 +29,14 @@ public class RobotMap {
 	public static Encoder rightEncoder = new Encoder(2,3);
 	public static Encoder leftEncoder = new Encoder(0,1);
 
-  //Elevator
+	//Elevator
 	public static VictorSP elevator = new VictorSP(RobotConstants.elevatorVictor);
 	public static Encoder elevatorEncoder = new Encoder(4, 5);
-	public static Servo eRelease = new Servo(6);
+	public static Servo servo = new Servo(6);
 	public static DigitalInput botElevatorLimit = new DigitalInput(9);
 	public static DigitalInput topElevatorLimit = new DigitalInput(8);
   
-  //Intake
+	//Intake
 	public static Spark leftFlywheel = new Spark(RobotConstants.leftFlywheelSpark);
 	public static Spark rightFlywheel = new Spark(RobotConstants.rightFlywheelSpark);
 	  

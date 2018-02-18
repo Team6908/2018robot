@@ -1,6 +1,6 @@
 package org.usfirst.frc.team6908.robot.commands;
 
-import org.usfirst.frc.team6908.robot.RobotMap;
+import org.usfirst.frc.team6908.robot.RobotMap; 
 
 import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.Command;
@@ -9,10 +9,10 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 /**
  *
  */
-public class eRelease extends Command {
+public class ServoRelease extends Command {
 	
 
-    public eRelease() {
+    public ServoRelease() {
 
     }
 
@@ -23,8 +23,8 @@ public class eRelease extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    		RobotMap.eRelease.setAngle(-80);
-    		SmartDashboard.putNumber("eRelease", RobotMap.eRelease.get());
+    		RobotMap.servo.setAngle(-80);
+    		SmartDashboard.putNumber("eRelease", RobotMap.servo.get());
     		
     }
 

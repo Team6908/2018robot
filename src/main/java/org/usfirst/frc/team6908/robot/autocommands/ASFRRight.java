@@ -31,7 +31,7 @@ public class ASFRRight extends CommandGroup {
 //    	addSequential(new AutoDrive(63));
 //    	addSequential(new TurnRobot(-17));
     	addSequential(new AutoDrive(201));
-    	addSequential(new TurnRobot(-25));
+    	addSequential(new AutoTurn(-25));
 //    	addSequential(new AutoDrive(12));
     }
 }
