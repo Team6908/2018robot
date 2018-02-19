@@ -11,7 +11,7 @@ public class AutoDrive extends Command {
 	private double distance;
 	private double gyroAngle;
 	private double driveAngle;
-	private static final double speed = 0.4;
+	private static final double speed = 0.3;
 
 	public AutoDrive(double dist) {
 		distance = ((dist / (6*Math.PI)) * 255);
@@ -22,6 +22,7 @@ public class AutoDrive extends Command {
     protected void initialize() {
     	DriveTrain.leftEncoder.reset();
     	DriveTrain.rightEncoder.reset();
+    	DriveTrain.gyro.reset();
     }
 
     // Called repeatedly when this Command is scheduled to run

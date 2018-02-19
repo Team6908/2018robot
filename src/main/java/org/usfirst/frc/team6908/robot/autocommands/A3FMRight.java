@@ -1,9 +1,11 @@
 package org.usfirst.frc.team6908.robot.autocommands;
 
-import org.usfirst.frc.team6908.robot.commands.AutoDrive;
-import org.usfirst.frc.team6908.robot.commands.AutoTurn;
+import org.usfirst.frc.team6908.robot.RobotConstants;
+import org.usfirst.frc.team6908.robot.commands.*;
 
+import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.CommandGroup;
+import edu.wpi.first.wpilibj.command.WaitCommand;
 
 /**
  *
@@ -27,10 +29,30 @@ public class A3FMRight extends CommandGroup {
         // e.g. if Command1 requires chassis, and Command2 requires arm,
         // a CommandGroup containing them would require both the chassis and the
         // arm.
+//    	addSequential(new ServoRelease());
+//    	addSequential(new WaitCommand(1.5)); 
+    	//addSequential(new FondleInAuto());
     	addSequential(new AutoDrive(8));
+    	addSequential(new WaitCommand(0.2));
     	addSequential(new AutoTurn(35));
-    	addSequential(new AutoDrive(59));
+    	addSequential(new FondleCubeIn(),.5);
+//    	addParallel(new StaticHeightControl(RobotConstants.switchHeight));
+    	addSequential(new AutoDrive(67));
+    	addSequential(new WaitCommand(0.5));
+    	addSequential(new FondleCubeIn(),.2);
     	addSequential(new AutoTurn(-35));
-    	addSequential(new AutoDrive(20));
+    	addSequential(new FondleCubeIn(),.2);
+    	addSequential(new StaticHeightControl(RobotConstants.switchHeight));
+    	addSequential(new AutoDrive(3));
+    	addSequential(new FondleCubeOut(),0.5);
+
+//    	addSequential(new AutoDrive(7));
+//    	addSequential(new WaitCommand(0.2));
+//    	addSequential(new AutoTurn(42));
+//    	addSequential(new AutoDrive(73));
+//    	addSequential(new WaitCommand(0.2));
+//    	addSequential(new AutoTurn(-42));
+//    	addSequential(new AutoDrive(6));
+//    	
     }
 }

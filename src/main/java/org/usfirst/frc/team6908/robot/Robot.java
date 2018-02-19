@@ -41,11 +41,14 @@ public class Robot extends IterativeRobot {
 	public void robotInit() {
 		gameData = DriverStation.getInstance().getGameSpecificMessage();
 		oi = new OI();
+		
+		
 		chooser.addDefault("Default Auto", new BaselineDrive());
 		chooser.addObject("A3FM", new A3FM(gameData));
 		chooser.addObject("ASFR", new ASFR(gameData));
 		chooser.addObject("ASFL", new ASFL(gameData));
 		chooser.addObject("Baseline", new BaselineDrive());
+		RobotMap.elevatorEncoder.reset();
 //		CameraServer.getInstance().startAutomaticCapture();
 		// chooser.addObject("My Auto", new MyAutoCommand());
 		SmartDashboard.putData("Auto mode", chooser);
@@ -92,9 +95,14 @@ public class Robot extends IterativeRobot {
 	 */
 	@Override
 	public void autonomousInit() {
+		
+		
+		
 		autonomousCommand = chooser.getSelected();
 		
-		new ServoRelease();
+		
+		
+		RobotMap.elevatorEncoder.reset();
     
 		if (autonomousCommand != null)
 			autonomousCommand.start();
@@ -111,6 +119,9 @@ public class Robot extends IterativeRobot {
 //   	SmartDashboard.putNumber("Left Distance", RobotMap.leftEncoder.getDistance());
 //    	SmartDashboard.putNumber("Right Distance", RobotMap.rightEncoder.getDistance());
 //    	SmartDashboard.putNumber("Error", DriveTrain.driftfix.getError());
+		SmartDashboard.putNumber("Elevator Encoder", RobotMap.elevatorEncoder.getDistance());
+		SmartDashboard.putBoolean("Top Limit Switch",elevator.isAtTop());
+		SmartDashboard.putBoolean("Bottom Limit Switch", elevator.isAtBottom());
 	}
 
 	@Override
@@ -129,9 +140,10 @@ public class Robot extends IterativeRobot {
 	@Override
 	public void teleopPeriodic() {
 		Scheduler.getInstance().run();
-		SmartDashboard.putNumber("Encoder", RobotMap.elevatorEncoder.getDistance());
+		SmartDashboard.putNumber("Elevator Encoder", RobotMap.elevatorEncoder.getDistance());
 		SmartDashboard.putBoolean("Top Limit Switch",elevator.isAtTop());
 		SmartDashboard.putBoolean("Bottom Limit Switch", elevator.isAtBottom());
+		SmartDashboard.putNumber("Servo", RobotMap.servo.getAngle());
 	}
 
 	/**

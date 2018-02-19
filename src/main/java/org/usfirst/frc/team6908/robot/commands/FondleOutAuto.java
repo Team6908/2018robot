@@ -8,7 +8,7 @@ public class FondleOutAuto extends Command {
 
 	public FondleOutAuto() {
 	 requires(Robot.fondle);
-	 setTimeout(3);
+	 setTimeout(1.5);
 	}
 
 // Called just before this Command runs the first time

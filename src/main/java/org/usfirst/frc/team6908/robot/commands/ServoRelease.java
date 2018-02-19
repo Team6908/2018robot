@@ -18,12 +18,12 @@ public class ServoRelease extends Command {
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    		setTimeout(1);
+    		setTimeout(0.2);
+    		RobotMap.servo.setAngle(-90);
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    		RobotMap.servo.setAngle(-80);
     		SmartDashboard.putNumber("eRelease", RobotMap.servo.get());
     		
     }
@@ -36,10 +36,12 @@ public class ServoRelease extends Command {
 
     // Called once after isFinished returns true
     protected void end() {
+    	RobotMap.servo.setDisabled();
     }
 
     // Called when another command which requires one or more of the same
     // subsystems is scheduled to run
     protected void interrupted() {
+    	end();
     }
 }
