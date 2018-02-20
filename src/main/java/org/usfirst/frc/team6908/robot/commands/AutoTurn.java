@@ -36,7 +36,7 @@ public class  AutoTurn extends Command {
 
     protected boolean isFinished() {
 //        return (Math.abs(DriveTrain.rotater.get())<.1 && DriveTrain.rotater.onTarget());
-    	return (this.timeSinceInitialized() >= 2.6);
+    	return (this.timeSinceInitialized() >= 1.7);
     }
 
     protected void end() {

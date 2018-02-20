@@ -25,8 +25,8 @@ public class OI {
 		Joystick1 = new Joystick(RobotConstants.joystick1Port);
 		Joystick2 = new Joystick(RobotConstants.joystick2Port);
 		
-		fondleIn = new JoystickButton(Joystick1, RobotConstants.button3);
-		fondleOut = new JoystickButton(Joystick1,RobotConstants.button4);
+		fondleIn = new JoystickButton(Joystick1, RobotConstants.trigger);
+		fondleOut = new JoystickButton(Joystick2,RobotConstants.trigger);
 		botStatic = new JoystickButton(Joystick2, RobotConstants.button7);
 		switchStatic = new JoystickButton(Joystick2, RobotConstants.button9);
 		scaleStatic = new JoystickButton(Joystick2, RobotConstants.button11);

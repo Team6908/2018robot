@@ -27,7 +27,7 @@ public class Robot extends IterativeRobot {
 	public static CameraServer server;
 	public static Fondle fondle = new Fondle();
 	public static Elevator elevator = new Elevator();
-	private static String gameData;
+	private static String gameData = "hello";
 
 	Command autonomousCommand;
 	SendableChooser<Command> chooser = new SendableChooser<>();
@@ -39,7 +39,9 @@ public class Robot extends IterativeRobot {
 
 	@Override
 	public void robotInit() {
+		while(gameData.equals("hello")) {
 		gameData = DriverStation.getInstance().getGameSpecificMessage();
+		}
 		oi = new OI();
 		
 		
