@@ -11,7 +11,8 @@ public class AutoDrive extends Command {
 	private double distance;
 	private double gyroAngle;
 	private double driveAngle;
-	private static final double speed = 0.3;
+	private static final double speed = 0.5;
+	private static final double slowSpeed = 0.2;
 
 	public AutoDrive(double dist) {
 		distance = ((dist / (6*Math.PI)) * 255);
@@ -32,8 +33,12 @@ public class AutoDrive extends Command {
 		
 		
 		//System.out.println("Time (sec) = " + String.format("%.1f",currentPeriodSec) + " Angle =" + String.format("%.2f",driveAngle));
-
-		Robot.drivetrain.Drive(-speed, driveAngle*AUTO_DRIVE_CORRECT_COEFF);
+		if(distance - DriveTrain.rightEncoder.get() < .25 * distance) {
+			Robot.drivetrain.Drive(-slowSpeed, driveAngle*AUTO_DRIVE_CORRECT_COEFF);
+		}
+		else if(distance - DriveTrain.rightEncoder.get() > .25 * distance) {
+			Robot.drivetrain.Drive(-speed, driveAngle*AUTO_DRIVE_CORRECT_COEFF);
+		}
     }
 
     // Make this return true when this Command no longer needs to run execute()
