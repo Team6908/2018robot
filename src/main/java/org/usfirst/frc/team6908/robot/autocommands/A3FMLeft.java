@@ -3,6 +3,7 @@ package org.usfirst.frc.team6908.robot.autocommands;
 import org.usfirst.frc.team6908.robot.RobotConstants;
 import org.usfirst.frc.team6908.robot.commands.AutoDrive;
 import org.usfirst.frc.team6908.robot.commands.AutoTurn;
+import org.usfirst.frc.team6908.robot.commands.FondleCubeIn;
 import org.usfirst.frc.team6908.robot.commands.FondleOutAuto;
 import org.usfirst.frc.team6908.robot.commands.StaticHeightControl;
 
@@ -32,13 +33,14 @@ public class A3FMLeft extends CommandGroup {
         // a CommandGroup containing them would require both the chassis and the
         // arm.
     	addSequential(new AutoDrive(20));
-    	addSequential(new WaitCommand(0.2));
+    	addSequential(new WaitCommand(0.5));
+    	addParallel(new FondleCubeIn(), 1.7);
     	addSequential(new AutoTurn(-38));
     	addParallel((new StaticHeightControl(RobotConstants.switchHeight)));
-    	addSequential(new AutoDrive(106));
-    	addSequential(new WaitCommand(0.2));
+    	addSequential(new AutoDrive(80));
+    	addParallel(new FondleCubeIn(), 1.7);
     	addSequential(new AutoTurn(38));
-    	addSequential(new AutoDrive(20));
+    	//addSequential(new AutoDrive(5));
     	addSequential(new FondleOutAuto());
     }
 }
