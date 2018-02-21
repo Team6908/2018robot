@@ -21,12 +21,12 @@ public class Fondle extends Subsystem {
     
     public void fondleIn() {
     	RobotMap.rightFlywheel.set(RobotConstants.maxFlywheelThrottle); //Set intake spinning towards robot
-   		RobotMap.leftFlywheel.set(RobotConstants.minFlywheelThrottle);
+   		RobotMap.leftFlywheel.set(RobotConstants.maxFlywheelThrottle);
     }
     
     public void fondleOut() {
     	RobotMap.rightFlywheel.set(RobotConstants.minFlywheelThrottle);//Set intake spinning outward to push box out
-   		RobotMap.leftFlywheel.set(RobotConstants.maxFlywheelThrottle);
+   		RobotMap.leftFlywheel.set(RobotConstants.minFlywheelThrottle);
     }
     
     public void stopFondle() { 	

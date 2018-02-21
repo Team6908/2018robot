@@ -20,7 +20,7 @@ public class RobotConstants {
 	public static final double switchHeight = -10000;
 	public static final double scaleHeight = -20000;
 	//Intake
-	public static final double minFlywheelThrottle = 1;//Speed for outwards push
+	public static final double minFlywheelThrottle = .6;//Speed for outwards push
 	public static final double maxFlywheelThrottle = -1;//Speed for inwards pull
 	
 	public static final int minAxis = -1;
