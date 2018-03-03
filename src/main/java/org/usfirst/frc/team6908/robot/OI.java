@@ -16,28 +16,34 @@ public class OI {
 
 	public static Button fondleIn;
 	public static Button fondleOut;
-	public static Button botStatic;
-	public static Button switchStatic;
-	public static Button scaleStatic;
-	public static Button iAmSoHungry;
+	public static Button leftFlapUp;
+	public static Button leftFlapDown;
+	public static Button rightFlapUp;
+	public static Button rightFlapDown;	
+	public static Button restrainRamps;
+	public static Button releaseRamps;
 	
 	public OI() {
 		Joystick1 = new Joystick(RobotConstants.joystick1Port);
-		Joystick2 = new Joystick(RobotConstants.joystick2Port);
-		
+		Joystick2 = new Joystick(RobotConstants.joystick2Port);	
+		//Intake
 		fondleIn = new JoystickButton(Joystick1, RobotConstants.trigger);
 		fondleOut = new JoystickButton(Joystick2,RobotConstants.trigger);
-		botStatic = new JoystickButton(Joystick2, RobotConstants.button7);
-		switchStatic = new JoystickButton(Joystick2, RobotConstants.button9);
-		scaleStatic = new JoystickButton(Joystick2, RobotConstants.button11);
-		iAmSoHungry = new JoystickButton(Joystick1, RobotConstants.button6);
-		
 		fondleIn.whileHeld(new FondleCubeIn());
 		fondleOut.whileHeld(new FondleCubeOut());
-		botStatic.whenPressed(new StaticHeightControl(RobotConstants.baseHeight));
-		switchStatic.whenPressed(new StaticHeightControl(RobotConstants.switchHeight));
-		scaleStatic.whenPressed(new StaticHeightControl(RobotConstants.scaleHeight));
-		iAmSoHungry.whenPressed(new ServoRelease());
+		//Ramp fondle buttons
+		restrainRamps = new JoystickButton(Joystick1, RobotConstants.button7);
+		releaseRamps = new JoystickButton(Joystick1, RobotConstants.button8);
+		restrainRamps.whileHeld(new FondleUpRamps());
+		releaseRamps.whileHeld(new FondleDownRamps());
+		//Ramp deploy buttons
+		rightFlapUp = new JoystickButton(Joystick1, RobotConstants.button9);
+		rightFlapDown = new JoystickButton(Joystick1, RobotConstants.button10);
+		leftFlapUp = new JoystickButton(Joystick1, RobotConstants.button11);
+		leftFlapDown = new JoystickButton(Joystick1, RobotConstants.button12);
+		leftFlapUp.whileHeld(new RaiseLeftRamp());
+		leftFlapDown.whileHeld(new LowerLeftRamp());
+		rightFlapUp.whileHeld(new RaiseRightRamp());
+		rightFlapDown.whileHeld(new LowerRightRamp());		
 	}	
-	
 }

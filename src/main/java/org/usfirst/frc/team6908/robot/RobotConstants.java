@@ -22,6 +22,11 @@ public class RobotConstants {
 	//Intake
 	public static final double minFlywheelThrottle = .6;//Speed for outwards push
 	public static final double maxFlywheelThrottle = -1;//Speed for inwards pull
+	//Winch speed constant
+	public static final double kWinchSpeed = 1;
+	//Ramp Drop motor speed constant
+	public static final float RAMPS_DOWN_SPEED = -1f;
+	public static final float RAMPS_UP_SPEED = .4f;
 	
 	public static final int minAxis = -1;
 	public static final int maxAxis = 1;

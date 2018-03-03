@@ -32,7 +32,6 @@ public class RobotMap {
 	//Elevator
 	public static VictorSP elevator = new VictorSP(RobotConstants.elevatorVictor);
 	public static Encoder elevatorEncoder = new Encoder(4, 5);
-	public static Servo servo = new Servo(6);
 	public static DigitalInput botElevatorLimit = new DigitalInput(9);
 	public static DigitalInput topElevatorLimit = new DigitalInput(8);
   
@@ -40,5 +39,15 @@ public class RobotMap {
 	public static Spark leftFlywheel = new Spark(RobotConstants.leftFlywheelSpark);
 	public static Spark rightFlywheel = new Spark(RobotConstants.rightFlywheelSpark);
 	  
+	//Ramp Winch Motor Controllers
+	public static Spark leftRamp = new Spark(2);
+	public static Spark rightRamp = new Spark(3);
+	
+	//Ramp Drop Motor Controllers
+	public static VictorSP rampDropController = new VictorSP(0);
+	
+	//Ramp Limit Switches
+	public static DigitalInput LeftRampLimit = new DigitalInput(7);
+	public static DigitalInput RightRampLimit = new DigitalInput(6);
 
 }

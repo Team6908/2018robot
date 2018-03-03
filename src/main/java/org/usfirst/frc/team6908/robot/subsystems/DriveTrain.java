@@ -43,8 +43,14 @@ public class DriveTrain extends Subsystem {
 	@Override
 	protected void initDefaultCommand() {
 		setDefaultCommand(new ArcadeDrive());
+<<<<<<< HEAD
 		RobotMap.frontRightT.setInverted(true);
 		RobotMap.backRightT.setInverted(true);		
+=======
+		RobotMap.frontLeftT.setInverted(true);
+		RobotMap.backLeftT.setInverted(true);
+		
+>>>>>>> refs/remotes/origin/Ramps
 	}
     
 	public void setLeftMotors (double speed) {

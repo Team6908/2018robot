@@ -12,9 +12,7 @@ import java.util.Scanner;
 
 import org.usfirst.frc.team6908.robot.autocommands.*;
 import org.usfirst.frc.team6908.robot.commands.*;
-import org.usfirst.frc.team6908.robot.selectables.A3FM;
-import org.usfirst.frc.team6908.robot.selectables.ASFL;
-import org.usfirst.frc.team6908.robot.selectables.ASFR;
+import org.usfirst.frc.team6908.robot.selectables.*;s
 import org.usfirst.frc.team6908.robot.subsystems.*;
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -30,6 +28,10 @@ public class Robot extends IterativeRobot {
 	public static CameraServer server;
 	public static Fondle fondle = new Fondle();
 	public static Elevator elevator = new Elevator();
+	public static RampFondler rampFondler = new RampFondler(RobotMap.rampDropController, 0.0);
+	public static Ramp leftRamp = new Ramp(RobotMap.leftRamp, RobotMap.LeftRampLimit);
+	public static Ramp rightRamp = new Ramp(RobotMap.rightRamp, RobotMap.RightRampLimit);
+	
 	private static String gameData = "hello";
 
 	Command autonomousCommand;
@@ -100,13 +102,7 @@ public class Robot extends IterativeRobot {
 	 */
 	@Override
 	public void autonomousInit() {
-		
-		
-		
-		autonomousCommand = chooser.getSelected();
-		
-		
-		
+		autonomousCommand = chooser.getSelected()
 		RobotMap.elevatorEncoder.reset();
     
 		if (autonomousCommand != null)
@@ -148,7 +144,8 @@ public class Robot extends IterativeRobot {
 		SmartDashboard.putNumber("Elevator Encoder", RobotMap.elevatorEncoder.getDistance());
 		SmartDashboard.putBoolean("Top Limit Switch",elevator.isAtTop());
 		SmartDashboard.putBoolean("Bottom Limit Switch", elevator.isAtBottom());
-		SmartDashboard.putNumber("Servo", RobotMap.servo.getAngle());
+		SmartDashboard.putData("leftRampSwitch", RobotMap.LeftRampLimit);
+		SmartDashboard.putData("rightRampSwitch", RobotMap.RightRampLimit);
 	}
 
 	/**
