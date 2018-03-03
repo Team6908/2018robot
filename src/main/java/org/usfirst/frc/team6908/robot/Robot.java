@@ -12,6 +12,9 @@ import java.util.Scanner;
 
 import org.usfirst.frc.team6908.robot.autocommands.*;
 import org.usfirst.frc.team6908.robot.commands.*;
+import org.usfirst.frc.team6908.robot.selectables.A3FM;
+import org.usfirst.frc.team6908.robot.selectables.ASFL;
+import org.usfirst.frc.team6908.robot.selectables.ASFR;
 import org.usfirst.frc.team6908.robot.subsystems.*;
 /**
  * The VM is configured to automatically run this class, and to call the
