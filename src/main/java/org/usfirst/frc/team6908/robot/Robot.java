@@ -12,7 +12,7 @@ import java.util.Scanner;
 
 import org.usfirst.frc.team6908.robot.autocommands.*;
 import org.usfirst.frc.team6908.robot.commands.*;
-import org.usfirst.frc.team6908.robot.selectables.*;s
+import org.usfirst.frc.team6908.robot.selectables.*;
 import org.usfirst.frc.team6908.robot.subsystems.*;
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -52,24 +52,14 @@ public class Robot extends IterativeRobot {
 		
 		chooser.addDefault("Default Auto", new BaselineDrive());
 		chooser.addObject("A3FM", new A3FM(gameData));
-		chooser.addObject("ASFR", new ASFR(gameData));
-		chooser.addObject("ASFL", new ASFL(gameData));
+//		chooser.addObject("ASFR", new ASFR(gameData));
+//		chooser.addObject("ASFL", new ASFL(gameData));
 		chooser.addObject("Baseline", new BaselineDrive());
-		RobotMap.elevatorEncoder.reset();
-//		CameraServer.getInstance().startAutomaticCapture();
-		// chooser.addObject("My Auto", new MyAutoCommand());
 		SmartDashboard.putData("Auto mode", chooser);
-		//SmartDashboard.putString("Game Data", gameData);
-//		System.out.println("Write the Direction");
-//		gameData = scan.next();
-//        if(gameData.charAt(0) == 'L')
-//        {
-//            new A3FMLeft();
-//        } else {
-//            new A3FMRight();
-//        }
-//		CameraServer.getInstance().startAutomaticCapture("Front Camera", 0);
-//		CameraServer.getInstance().startAutomaticCapture("Back Camera", 1);
+		RobotMap.elevatorEncoder.reset();
+		CameraServer.getInstance().startAutomaticCapture();
+		CameraServer.getInstance().startAutomaticCapture("Front Camera", 0);
+		CameraServer.getInstance().startAutomaticCapture("Back Camera", 1);
 		
 	}
 
@@ -102,7 +92,7 @@ public class Robot extends IterativeRobot {
 	 */
 	@Override
 	public void autonomousInit() {
-		autonomousCommand = chooser.getSelected()
+		autonomousCommand = chooser.getSelected();
 		RobotMap.elevatorEncoder.reset();
     
 		if (autonomousCommand != null)
@@ -116,13 +106,13 @@ public class Robot extends IterativeRobot {
 	@Override
 	public void autonomousPeriodic() {
 		Scheduler.getInstance().run();
-        SmartDashboard.putNumber("Guyro Fieri", DriveTrain.gyro.getAngle());
+//      SmartDashboard.putNumber("Guyro Fieri", DriveTrain.gyro.getAngle());
 //   	SmartDashboard.putNumber("Left Distance", RobotMap.leftEncoder.getDistance());
 //    	SmartDashboard.putNumber("Right Distance", RobotMap.rightEncoder.getDistance());
 //    	SmartDashboard.putNumber("Error", DriveTrain.driftfix.getError());
-		SmartDashboard.putNumber("Elevator Encoder", RobotMap.elevatorEncoder.getDistance());
-		SmartDashboard.putBoolean("Top Limit Switch",elevator.isAtTop());
-		SmartDashboard.putBoolean("Bottom Limit Switch", elevator.isAtBottom());
+//		SmartDashboard.putNumber("Elevator Encoder", RobotMap.elevatorEncoder.getDistance());
+//		SmartDashboard.putBoolean("Top Limit Switch",elevator.isAtTop());
+//		SmartDashboard.putBoolean("Bottom Limit Switch", elevator.isAtBottom());
 	}
 
 	@Override

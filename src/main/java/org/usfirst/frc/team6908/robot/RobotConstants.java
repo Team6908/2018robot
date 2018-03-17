@@ -5,9 +5,9 @@ public class RobotConstants {
 	//сука блять
 	
 	//Acceleration multipliers
-	public static final double LOW_RANGE_TURN = .3;
+	public static final double LOW_RANGE_TURN = .2;
 	public static final double HIGH_RANGE_TURN = 1;
-	public static final double LOW_RANGE_THROTTLE = .3;
+	public static final double LOW_RANGE_THROTTLE = .4;
 	public static final double HIGH_RANGE_THROTTLE = 1;
 	//Elevator
 	public static final double elevatorExtendSpeed = .8;

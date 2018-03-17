@@ -47,9 +47,9 @@ public class Elevator extends PIDSubsystem {
     
     public void extend(double speed) {
     		if((speed > 0) && Robot.elevator.isAtTop()) {
-    			RobotMap.elevator.stopMotor();
+    			RobotMap.elevator.disable();
     		} else if((speed < 0) && Robot.elevator.isAtBottom()) {
-    			RobotMap.elevator.stopMotor();
+    			RobotMap.elevator.disable();
     		} else {
     			RobotMap.elevator.set(speed);
     		}
@@ -65,4 +65,3 @@ public class Elevator extends PIDSubsystem {
 	}
     
 }
-
