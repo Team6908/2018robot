@@ -1,9 +1,7 @@
 package org.usfirst.frc.team6908.robot;
 
 public class RobotConstants {
-	
-	//сука блять
-	
+		
 	//Acceleration multipliers
 	public static final double LOW_RANGE_TURN = .2;
 	public static final double HIGH_RANGE_TURN = 1;
@@ -44,7 +42,7 @@ public class RobotConstants {
 		public static final int topElevatorLimit = 8;
 		//Intake
 		public static final int leftFlywheelSpark = 4;
-		public static final int rightFlywheelSpark = 5;
+		public static final int rightFlywheelSpark = 9;
 	
 	//Joystick Button ports
 	public static final int joystick1Port = 0;

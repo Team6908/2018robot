@@ -11,7 +11,7 @@ public class ASFL extends Selectables {
 	static Command Right = new ASFLRight();
 	
     public ASFL(String gameData) {
-        super(Left,Right,gameData);
+        super(Left,Right);
     }
 
 }

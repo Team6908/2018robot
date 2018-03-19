@@ -9,7 +9,7 @@ public class A3FM extends Selectables {
 	static Command Left = new A3FMLeft();
 	static Command Right = new A3FMRight();
 	
-	public A3FM(String GameData) { 
-		super(Left, Right, GameData);
+	public A3FM() { 
+		super(Left, Right);
 	}
 }

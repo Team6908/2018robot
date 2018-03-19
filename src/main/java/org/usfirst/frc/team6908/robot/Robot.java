@@ -32,8 +32,7 @@ public class Robot extends IterativeRobot {
 	public static Ramp leftRamp = new Ramp(RobotMap.leftRamp, RobotMap.LeftRampLimit);
 	public static Ramp rightRamp = new Ramp(RobotMap.rightRamp, RobotMap.RightRampLimit);
 	
-	private static String gameData = "hello";
-
+	public static String gameData;
 	Command autonomousCommand;
 	SendableChooser<Command> chooser = new SendableChooser<>();
 
@@ -44,22 +43,19 @@ public class Robot extends IterativeRobot {
 
 	@Override
 	public void robotInit() {
-		while(gameData.equals("hello")) {
-		gameData = DriverStation.getInstance().getGameSpecificMessage();
-		}
 		oi = new OI();
 		
-		
-		chooser.addDefault("Default Auto", new BaselineDrive());
-		chooser.addObject("A3FM", new A3FM(gameData));
-//		chooser.addObject("ASFR", new ASFR(gameData));
+		chooser.addDefault("Default Auto", new wait());
+		chooser.addObject("A3FM", new A3FM());
+//	//	chooser.addObject("ASFR", new ASFR(gameData));
 //		chooser.addObject("ASFL", new ASFL(gameData));
 		chooser.addObject("Baseline", new BaselineDrive());
 		SmartDashboard.putData("Auto mode", chooser);
 		RobotMap.elevatorEncoder.reset();
-		CameraServer.getInstance().startAutomaticCapture();
-		CameraServer.getInstance().startAutomaticCapture("Front Camera", 0);
-		CameraServer.getInstance().startAutomaticCapture("Back Camera", 1);
+//		CameraServer.getInstance().startAutomaticCapture();
+		CameraServer.getInstance().startAutomaticCapture(0);
+		CameraServer.getInstance().startAutomaticCapture(1);
+		gameData = null;
 		
 	}
 
@@ -94,10 +90,15 @@ public class Robot extends IterativeRobot {
 	public void autonomousInit() {
 		autonomousCommand = chooser.getSelected();
 		RobotMap.elevatorEncoder.reset();
-    
-		if (autonomousCommand != null)
+		while(gameData==null || gameData.equals("")) {
+			gameData = DriverStation.getInstance().getGameSpecificMessage();
+			
+		}
+		if (autonomousCommand!=null) {
 			autonomousCommand.start();
-		
+		}
+		//if the  auto doesnt work, make an A3FM object here and then do a3fm.start();
+		//and refer to github for the old selectable stuff
 	}
 
 	/**
@@ -106,9 +107,9 @@ public class Robot extends IterativeRobot {
 	@Override
 	public void autonomousPeriodic() {
 		Scheduler.getInstance().run();
-//      SmartDashboard.putNumber("Guyro Fieri", DriveTrain.gyro.getAngle());
-//   	SmartDashboard.putNumber("Left Distance", RobotMap.leftEncoder.getDistance());
-//    	SmartDashboard.putNumber("Right Distance", RobotMap.rightEncoder.getDistance());
+		SmartDashboard.putNumber("Guyro Fieri", DriveTrain.gyro.getAngle());
+   		SmartDashboard.putNumber("Left Distance", RobotMap.leftEncoder.getDistance());
+    	SmartDashboard.putNumber("Right Distance", RobotMap.rightEncoder.getDistance());
 //    	SmartDashboard.putNumber("Error", DriveTrain.driftfix.getError());
 //		SmartDashboard.putNumber("Elevator Encoder", RobotMap.elevatorEncoder.getDistance());
 //		SmartDashboard.putBoolean("Top Limit Switch",elevator.isAtTop());

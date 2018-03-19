@@ -1,6 +1,8 @@
 package org.usfirst.frc.team6908.robot.selectables;
 
 import org.usfirst.frc.team6908.robot.autocommands.*;
+import org.usfirst.frc.team6908.robot.Robot;
+
 
 import edu.wpi.first.wpilibj.command.Command;
 
@@ -10,14 +12,15 @@ public class Selectables extends Command {
 	Command RightCommand;
 	String Data;
 	
-	public Selectables(Command LeftOption, Command RightOption, String GameData) {
+	public Selectables(Command LeftOption, Command RightOption) {
 		LeftCommand = LeftOption;
 		RightCommand = RightOption;
-		Data = GameData;
+		
 	}
 	
 	public void execute() {
-		switch(Data.charAt(0)) {
+		System.out.println("Data="+Robot.gameData);
+		switch(Robot.gameData.charAt(0)) {
 		case 'L':
 			LeftCommand.start();
 			break;

@@ -28,7 +28,7 @@ public class BaselineDrive extends CommandGroup {
         // a CommandGroup containing them would require both the chassis and the
         // arm.
 //    	addSequential(new ServoRelease());
-    	addSequential(new AutoDrive(84));
+    	addSequential(new AutoDrive(120));
 //    	addParallel(new StaticHeightControl(RobotConstants.switchHeight));
 //    	addSequential(new AutoTurn(-90));
 //    	addSequential(new AutoDrive(10));
