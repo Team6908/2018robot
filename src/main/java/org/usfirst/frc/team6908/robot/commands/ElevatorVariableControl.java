@@ -42,7 +42,7 @@ public class ElevatorVariableControl extends Command {
 	@Override
 	protected boolean isFinished() {
 		//Creates dead zone on joystick
-		if(((Robot.oi.Joystick2.getY() > RobotConstants.joystickDeadzone && Robot.oi.Joystick2.getY() < RobotConstants.joystickDeadzone))) {
+		if(((Robot.oi.Joystick2.getY() > RobotConstants.JOYSTICK_DEADZONE && Robot.oi.Joystick2.getY() < RobotConstants.JOYSTICK_DEADZONE))) {
 			return true;
 		}
 		

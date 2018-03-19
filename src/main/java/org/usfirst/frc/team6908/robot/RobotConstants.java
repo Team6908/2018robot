@@ -8,57 +8,57 @@ public class RobotConstants {
 	public static final double LOW_RANGE_THROTTLE = .4;
 	public static final double HIGH_RANGE_THROTTLE = 1;
 	//Elevator
-	public static final double elevatorExtendSpeed = .8;
-	public static final double joystickDeadzone = .1;
-	public static final double elevatorP = -.011;
-	public static final double elevatorI = 0;
-	public static final double elevatorD = 0;
-	public static final int elevatorTolerance = 5;
-	public static final int baseHeight = 0;
-	public static final double switchHeight = -10000;
-	public static final double scaleHeight = -20000;
+	public static final double ELEVATOR_EXTEND_SPEED = .8;
+	public static final double JOYSTICK_DEADZONE = .1;
+	public static final double ELEVATOR_P = -.011;
+	public static final double ELEVATOR_I = 0;
+	public static final double ELEVATOR_D = 0;
+	public static final int ELEVATOR_TOLERANCE = 5;
+	public static final int BASE_HEIGHT = 0;
+	public static final double SWITCH_HEIGHT = -10000;
+	public static final double SCALE_HEIGHT = -20000;
 	//Intake
-	public static final double minFlywheelThrottle = .6;//Speed for outwards push
-	public static final double maxFlywheelThrottle = -1;//Speed for inwards pull
+	public static final double MIN_FLYWHEEL_THROTTLE = .6;//Speed for outwards push
+	public static final double MAX_FLYWHEEL_THROTTLE = -1;//Speed for inwards pull
 	//Winch speed constant
-	public static final double kWinchSpeed = 1;
+	public static final double WINCH_SPEED = 1;
 	//Ramp Drop motor speed constant
-	public static final float RAMPS_DOWN_SPEED = -1f;
-	public static final float RAMPS_UP_SPEED = .4f;
+	public static final int RAMP_FONDLE_DOWN_SPEED = -1;
+	public static final int RAMP_FONDLE_UP_SPEED = 1;
 	
-	public static final int minAxis = -1;
-	public static final int maxAxis = 1;
+	public static final int MIN_AXIS = -1;
+	public static final int MAX_AXIS = 1;
 
 
 	//RoboRIO ports
 		//Drivetrain
-		public static final int frontLeftTalon = 1;
-		public static final int frontRightTalon = 2;
-		public static final int backLeftTalon = 0;
-		public static final int backRightTalon = 3;
+		public static final int FRONT_LEFT_TALON= 1;
+		public static final int FRONT_RIGHT_TALON = 2;
+		public static final int BACK_LEFT_TALON = 0;
+		public static final int BACK_RIGHT_TALON = 3;
 		//Elevator
-		public static final int elevatorVictor = 1;
-		public static final int botElevatorLimit = 9;
-		public static final int topElevatorLimit = 8;
+		public static final int ELEVATOR_VICTOR = 1;
+		public static final int BOT_ELEVATOR_LIMIT = 9;
+		public static final int TOP_ELEVATOR_LIMIT = 8;
 		//Intake
-		public static final int leftFlywheelSpark = 4;
-		public static final int rightFlywheelSpark = 9;
+		public static final int LEFT_FLYWHEEL_SPARK= 4;
+		public static final int RIGHT_FLYWHEEL_SPARK = 9;
 	
 	//Joystick Button ports
-	public static final int joystick1Port = 0;
-	public static final int joystick2Port = 1;
-	public static final int trigger = 1;
-	public static final int thumbButton = 2;
-	public static final int button3 = 3;
-	public static final int button4 = 4;
-	public static final int button5 = 5;
-	public static final int button6 = 6;
-	public static final int button7 = 7;
-	public static final int button8 = 8;
-	public static final int button9 = 9;
-	public static final int button10 = 10;
-	public static final int button11 = 11;
-	public static final int button12 = 12;
-	public static final int button13 = 13;
+	public static final int JOYSTICK1_PORT = 0;
+	public static final int JOYSTICK2_PORT = 1;
+	public static final int TRIGGER = 1;
+	public static final int THUMB_BUTTON = 2;
+	public static final int BUTTON3 = 3;
+	public static final int BUTTON4 = 4;
+	public static final int BUTTON5 = 5;
+	public static final int BUTTON6 = 6;
+	public static final int BUTTON7 = 7;
+	public static final int BUTTON8 = 8;
+	public static final int BUTTON9 = 9;
+	public static final int BUTTON10 = 10;
+	public static final int BUTTON11 = 11;
+	public static final int BUTTON12 = 12;
+	public static final int BUTTON13 = 13;
 
 }

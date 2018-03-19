@@ -34,8 +34,8 @@ public class ArcadeDrive extends Command {
     	//Gets slider value
     	acceleration = Robot.oi.Joystick1.getThrottle();
      //Normalizes input from slider
-    	throttleAcc = RobotMath.normalize(RobotConstants.maxAxis, RobotConstants.minAxis, RobotConstants.LOW_RANGE_TURN, RobotConstants.HIGH_RANGE_TURN, acceleration);
-    	turnAcc = RobotMath.normalize(RobotConstants.maxAxis, RobotConstants.minAxis, RobotConstants.HIGH_RANGE_TURN, RobotConstants.HIGH_RANGE_TURN, acceleration);
+    	throttleAcc = RobotMath.normalize(RobotConstants.MAX_AXIS, RobotConstants.MIN_AXIS, RobotConstants.LOW_RANGE_TURN, RobotConstants.HIGH_RANGE_TURN, acceleration);
+    	turnAcc = RobotMath.normalize(RobotConstants.MAX_AXIS, RobotConstants.MIN_AXIS, RobotConstants.HIGH_RANGE_TURN, RobotConstants.HIGH_RANGE_TURN, acceleration);
     	//Displays acceleration values on smartdashboard 
     	SmartDashboard.putNumber("throttleAcc", throttleAcc); 
     	SmartDashboard.putNumber("turnAcc", turnAcc);

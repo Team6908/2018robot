@@ -26,11 +26,11 @@ public class Ramp extends Subsystem {
 	
 	//Sets the motors speed to the speed defined in RobotConstants.java
 	public void ReelInWinch(){
-		winch.set(RobotConstants.kWinchSpeed);
+		winch.set(RobotConstants.WINCH_SPEED);
 	}
 	
 	public void ReelOutWinch() {
-		winch.set(-RobotConstants.kWinchSpeed);
+		winch.set(-RobotConstants.WINCH_SPEED);
 	}
 	
 	//Turns the motor off
