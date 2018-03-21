@@ -12,11 +12,11 @@ import edu.wpi.first.wpilibj.command.PIDSubsystem;
 public class Elevator extends PIDSubsystem {
 
 	Encoder elevatorEncoder = RobotMap.elevatorEncoder;
-	public PIDController ePID = new PIDController(RobotConstants.elevatorP, RobotConstants.elevatorI, RobotConstants.elevatorD, elevatorEncoder, RobotMap.elevator);//assigning PID values to Elevator Motor
+	public PIDController ePID = new PIDController(RobotConstants.ELEVATOR_P, RobotConstants.ELEVATOR_I, RobotConstants.ELEVATOR_D, elevatorEncoder, RobotMap.elevator);//assigning PID values to Elevator Motor
 
 	public Elevator() {
 		
-    	super("Elevator", RobotConstants.elevatorP, RobotConstants.elevatorI, RobotConstants.elevatorD);
+    	super("Elevator", RobotConstants.ELEVATOR_P, RobotConstants.ELEVATOR_I, RobotConstants.ELEVATOR_D);
     		
 		// TODO Auto-generated constructor stub
 	}

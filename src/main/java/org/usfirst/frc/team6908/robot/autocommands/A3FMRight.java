@@ -44,7 +44,7 @@ public class A3FMRight extends CommandGroup {
     	addParallel(new FondleCubeIn(), 1.5);
     	addSequential(new AutoTurn(-35));
 //    	addSequential(new FondleCubeIn(),.2);
-    	addSequential(new StaticHeightControl(RobotConstants.switchHeight));
+    	addSequential(new StaticHeightControl(RobotConstants.SWITCH_HEIGHT));
     	addSequential(new AutoDrive(3));
     	addSequential(new FondleCubeOut(),0.5);
 

@@ -24,23 +24,23 @@ public class OI {
 	public static Button releaseRamps;
 	
 	public OI() {
-		Joystick1 = new Joystick(RobotConstants.joystick1Port);
-		Joystick2 = new Joystick(RobotConstants.joystick2Port);	
+		Joystick1 = new Joystick(RobotConstants.JOYSTICK1_PORT);
+		Joystick2 = new Joystick(RobotConstants.JOYSTICK2_PORT);	
 		//Intake
-		fondleIn = new JoystickButton(Joystick1, RobotConstants.trigger);
-		fondleOut = new JoystickButton(Joystick2,RobotConstants.trigger);
+		fondleIn = new JoystickButton(Joystick1, RobotConstants.TRIGGER);
+		fondleOut = new JoystickButton(Joystick2,RobotConstants.TRIGGER);
 		fondleIn.whileHeld(new FondleCubeIn());
 		fondleOut.whileHeld(new FondleCubeOut());
 		//Ramp fondle buttons
-		restrainRamps = new JoystickButton(Joystick1, RobotConstants.button7);
-		releaseRamps = new JoystickButton(Joystick1, RobotConstants.button8);
+		restrainRamps = new JoystickButton(Joystick1, RobotConstants.BUTTON7);
+		releaseRamps = new JoystickButton(Joystick1, RobotConstants.BUTTON8);
 		restrainRamps.whileHeld(new FondleUpRamps());
 		releaseRamps.whileHeld(new FondleDownRamps());
 		//Ramp deploy buttons
-		rightFlapUp = new JoystickButton(Joystick1, RobotConstants.button9);
-		rightFlapDown = new JoystickButton(Joystick1, RobotConstants.button10);
-		leftFlapUp = new JoystickButton(Joystick1, RobotConstants.button11);
-		leftFlapDown = new JoystickButton(Joystick1, RobotConstants.button12);
+		rightFlapUp = new JoystickButton(Joystick1, RobotConstants.BUTTON9);
+		rightFlapDown = new JoystickButton(Joystick1, RobotConstants.BUTTON10);
+		leftFlapUp = new JoystickButton(Joystick1, RobotConstants.BUTTON11);
+		leftFlapDown = new JoystickButton(Joystick1, RobotConstants.BUTTON12);
 		leftFlapUp.whileHeld(new RaiseLeftRamp());
 		leftFlapDown.whileHeld(new LowerLeftRamp());
 		rightFlapUp.whileHeld(new RaiseRightRamp());
