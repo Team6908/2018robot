@@ -47,6 +47,8 @@ public class Robot extends IterativeRobot {
 		
 		chooser.addDefault("Default Auto", new wait());
 		chooser.addObject("A3FM", new A3FM());
+		chooser.addObject("Scale from LEFT", new ASFL());
+		chooser.addObject("Scale from RIGHT", new ASFR());
 //	//	chooser.addObject("ASFR", new ASFR(gameData));
 //		chooser.addObject("ASFL", new ASFL(gameData));
 		chooser.addObject("Baseline", new BaselineDrive());

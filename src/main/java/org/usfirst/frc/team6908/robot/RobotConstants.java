@@ -20,6 +20,7 @@ public class RobotConstants {
 	//Intake
 	public static final double minFlywheelThrottle = .6;//Speed for outwards push
 	public static final double maxFlywheelThrottle = -1;//Speed for inwards pull
+	 
 	//Winch speed constant
 	public static final double kWinchSpeed = 1;
 	//Ramp Drop motor speed constant
@@ -31,17 +32,18 @@ public class RobotConstants {
 
 
 	//RoboRIO ports
-		//Drivetrain
+		//Drivetrain -All CAN 
 		public static final int frontLeftTalon = 1;
 		public static final int frontRightTalon = 2;
 		public static final int backLeftTalon = 0;
 		public static final int backRightTalon = 3;
 		//Elevator
-		public static final int elevatorVictor = 1;
-		public static final int botElevatorLimit = 9;
-		public static final int topElevatorLimit = 8;
-		//Intake
-		public static final int leftFlywheelSpark = 4;
+		public static final int elevatorVictor = 1;  //PWM
+		public static final int fondleAngleVictor = 4; 
+		public static final int botElevatorLimit = 9; //DIO
+		public static final int topElevatorLimit = 8; //DIO
+		//Intake - All PWM 
+		public static final int leftFlywheelSpark = 4; 
 		public static final int rightFlywheelSpark = 9;
 	
 	//Joystick Button ports

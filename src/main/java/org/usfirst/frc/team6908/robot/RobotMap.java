@@ -38,6 +38,7 @@ public class RobotMap {
 	//Intake
 	public static Spark leftFlywheel = new Spark(RobotConstants.leftFlywheelSpark);
 	public static Spark rightFlywheel = new Spark(RobotConstants.rightFlywheelSpark);
+	public static VictorSP fondleAngler = new VictorSP(RobotConstants.fondleAngleVictor);
 	  
 	//Ramp Winch Motor Controllers
 	public static Spark leftRamp = new Spark(2);
@@ -49,5 +50,6 @@ public class RobotMap {
 	//Ramp Limit Switches
 	public static DigitalInput LeftRampLimit = new DigitalInput(7);
 	public static DigitalInput RightRampLimit = new DigitalInput(6);
+	
 
 }
