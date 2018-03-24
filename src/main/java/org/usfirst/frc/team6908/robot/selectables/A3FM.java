@@ -10,6 +10,6 @@ public class A3FM extends Selectables {
 	static Command Right = new A3FMRight();
 	
 	public A3FM() { 
-		super(Left, Right);
+		super(Left, Right, 0);
 	}
 }

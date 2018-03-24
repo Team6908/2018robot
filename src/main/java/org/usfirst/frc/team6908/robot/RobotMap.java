@@ -1,6 +1,7 @@
 package org.usfirst.frc.team6908.robot;
 
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
+
 import com.ctre.phoenix.motorcontrol.can.WPI_VictorSPX;
 import com.kauailabs.navx.frc.AHRS;
 
@@ -38,14 +39,14 @@ public class RobotMap {
 	//Intake
 	public static Spark leftFlywheel = new Spark(RobotConstants.LEFT_FLYWHEEL_SPARK);
 	public static Spark rightFlywheel = new Spark(RobotConstants.RIGHT_FLYWHEEL_SPARK);
-	public static VictorSP fondleAngler = new VictorSP(RobotConstants.fondleAngleVictor);
+	public static VictorSP fondleAngler = new VictorSP(RobotConstants.ELEVATOR_ANGLE_VICTOR);
 	  
 	//Ramp Winch Motor Controllers
-	public static Spark leftRamp = new Spark(2);
-	public static Spark rightRamp = new Spark(3);
+	public static Spark leftRamp = new Spark(RobotConstants.LEFT_RAMP_SPARK);
+	public static Spark rightRamp = new Spark(RobotConstants.RIGHT_RAMP_SPARK);
 	
 	//Ramp Drop Motor Controllers
-	public static VictorSP rampDropController = new VictorSP(0);
+	public static VictorSP rampDropController = new VictorSP(RobotConstants.RAMP_DROP_VICTOR);
 	
 	//Ramp Limit Switches
 	public static DigitalInput LeftRampLimit = new DigitalInput(7);

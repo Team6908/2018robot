@@ -11,16 +11,18 @@ public class Selectables extends Command {
 	Command LeftCommand;
 	Command RightCommand;
 	String Data;
+	int ss;
 	
-	public Selectables(Command LeftOption, Command RightOption) {
+	public Selectables(Command LeftOption, Command RightOption, int SwitchorScale) {
 		LeftCommand = LeftOption;
 		RightCommand = RightOption;
+		ss = SwitchorScale;
 		
 	}
 	
 	public void execute() {
 		System.out.println("Data="+Robot.gameData);
-		switch(Robot.gameData.charAt(0)) {
+		switch(Robot.gameData.charAt(ss)) {
 		case 'L':
 			LeftCommand.start();
 			break;

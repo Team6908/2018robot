@@ -139,6 +139,8 @@ public class Robot extends IterativeRobot {
 		SmartDashboard.putBoolean("Bottom Limit Switch", elevator.isAtBottom());
 		SmartDashboard.putData("leftRampSwitch", RobotMap.LeftRampLimit);
 		SmartDashboard.putData("rightRampSwitch", RobotMap.RightRampLimit);
+		SmartDashboard.putNumber("Left Distance", RobotMap.leftEncoder.getDistance());
+    	SmartDashboard.putNumber("Right Distance", RobotMap.rightEncoder.getDistance());
 	}
 
 	/**

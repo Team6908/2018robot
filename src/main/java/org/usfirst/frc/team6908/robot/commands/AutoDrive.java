@@ -11,8 +11,8 @@ public class AutoDrive extends Command {
 	private double distance;
 	private double gyroAngle;
 	private double driveAngle;
-	private static final double speed = 0.5;
-	private static final double slowSpeed = 0.2;
+	private static final double speed = 0.8; //.5
+	private static final double slowSpeed = 0.3; //.2
 
 	public AutoDrive(double dist) {
 		distance = ((dist / (6*Math.PI)) * 255);

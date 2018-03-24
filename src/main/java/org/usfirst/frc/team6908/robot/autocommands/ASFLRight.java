@@ -1,13 +1,13 @@
 package org.usfirst.frc.team6908.robot.autocommands;
 
-import edu.wpi.first.wpilibj.command.Command;
+import org.usfirst.frc.team6908.robot.commands.AutoDrive;
 
-public class ASFLRight extends Command {
+import edu.wpi.first.wpilibj.command.CommandGroup;
 
-	@Override
-	protected boolean isFinished() {
-		// TODO Auto-generated method stub
-		return false;
+public class ASFLRight extends CommandGroup {
+
+	public ASFLRight() {
+		addSequential(new AutoDrive(190));
 	}
 
 }

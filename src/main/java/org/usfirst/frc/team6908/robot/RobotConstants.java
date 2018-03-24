@@ -16,10 +16,12 @@ public class RobotConstants {
 	public static final int ELEVATOR_TOLERANCE = 5;
 	public static final int BASE_HEIGHT = 0;
 	public static final double SWITCH_HEIGHT = -10000;
-	public static final double SCALE_HEIGHT = -20000;
+	public static final double SCALE_HEIGHT = -23500;
 	//Intake
-	public static final double MIN_FLYWHEEL_THROTTLE = .6;//Speed for outwards push
-	public static final double MAX_FLYWHEEL_THROTTLE = -1;//Speed for inwards pull
+	public static final double MAX_FLYWHEEL_THROTTLE_OUTTAKE = .6;//Speed for outwards push
+	public static final double MIN_FLYWHEEL_THROTTLE_OUTTAKE = -.6;
+	public static final double MIN_FLYWHEEL_THROTTLE_INTAKE = -1;//Speed for inwards pull
+	public static final double MAX_FLYWHEEL_THROTTLE_INTAKE = 1;
 	//Winch speed constant
 	public static final double WINCH_SPEED = 1;
 	//Ramp Drop motor speed constant
@@ -31,18 +33,23 @@ public class RobotConstants {
 
 
 	//RoboRIO ports
-		//Drivetrain
+		//Drivetrain CAN
 		public static final int FRONT_LEFT_TALON= 1;
 		public static final int FRONT_RIGHT_TALON = 2;
 		public static final int BACK_LEFT_TALON = 0;
 		public static final int BACK_RIGHT_TALON = 3;
 		//Elevator
 		public static final int ELEVATOR_VICTOR = 1;
-		public static final int BOT_ELEVATOR_LIMIT = 9;
-		public static final int TOP_ELEVATOR_LIMIT = 8;
-		//Intake
+		public static final int ELEVATOR_ANGLE_VICTOR = 7;
+		public static final int BOT_ELEVATOR_LIMIT = 9; //DIO
+		public static final int TOP_ELEVATOR_LIMIT = 8; //DIO
+		//Intake PWM
 		public static final int LEFT_FLYWHEEL_SPARK= 4;
 		public static final int RIGHT_FLYWHEEL_SPARK = 9;
+		//Ramp PWM
+		public static final int RIGHT_RAMP_SPARK = 3;
+		public static final int LEFT_RAMP_SPARK = 2;
+		public static final int RAMP_DROP_VICTOR = 0;
 	
 	//Joystick Button ports
 	public static final int JOYSTICK1_PORT = 0;

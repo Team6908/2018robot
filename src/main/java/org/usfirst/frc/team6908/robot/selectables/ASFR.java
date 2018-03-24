@@ -11,6 +11,6 @@ public class ASFR extends Selectables {
 	static Command Right = new ASFRRight();
 	
     public ASFR() {
-        super(Left,Right);
+        super(Left,Right, 1);
     }
 }
