@@ -27,8 +27,8 @@ public class RobotMap {
 	public static WPI_TalonSRX backLeftT = new WPI_TalonSRX(RobotConstants.BACK_LEFT_TALON);
 	public static WPI_TalonSRX backRightT = new WPI_TalonSRX(RobotConstants.BACK_RIGHT_TALON);  
 	public static AHRS gyro = new AHRS(Port.kMXP);
-	public static Encoder rightEncoder = new Encoder(2,3);
-	public static Encoder leftEncoder = new Encoder(0,1);
+	public static Encoder rightEncoder = new Encoder(10,11);
+	public static Encoder leftEncoder = new Encoder(12,13);
 
 	//Elevator
 	public static VictorSP elevator = new VictorSP(RobotConstants.ELEVATOR_VICTOR);
